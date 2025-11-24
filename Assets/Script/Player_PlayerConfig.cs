@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu]
 
-public class playerconfig : ScriptableObject
+public class PlayerConfig : ScriptableObject
 {
 	[Header("Data")]
 	public int Level;

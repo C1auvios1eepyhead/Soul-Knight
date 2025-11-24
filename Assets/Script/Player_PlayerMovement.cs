@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private float speed;
@@ -14,7 +14,7 @@ public class playermovement : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
-    private Playeraction actions;
+    private PlayerAction actions;
 
     private Vector2 moveDirection;
     private float currentSpeed;
@@ -23,7 +23,7 @@ public class playermovement : MonoBehaviour
     private void Awake(){
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
-        actions = new Playeraction();
+        actions = new PlayerAction();
 
     }
     void Start()

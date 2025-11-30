@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] private playerconfig playerConfig;
+    [SerializeField] private PlayerConfig playerConfig;
     
     private float lastDamageTime;
     private Coroutine armorRegenCoroutine;

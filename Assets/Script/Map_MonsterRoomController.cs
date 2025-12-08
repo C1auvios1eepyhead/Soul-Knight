@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Map_MonsterRoomController : MonoBehaviour
 {
-    public Map_DoorToggle door;        // 房间的门控制脚本（挂在 MonsterRoom_00 上）
-    public GameObject[] monsters;      // 这个房间里的怪物（可以先留空）
+    public Map_DoorToggle[] doors;   // ✅ 改成数组
+    public GameObject[] monsters;
 
     bool battleStarted = false;
 
     void Start()
     {
-        // 怪物数组为 null 就直接略过，避免报错
+        // 怪物先全部隐藏
         if (monsters != null)
         {
             foreach (var m in monsters)
@@ -22,7 +22,7 @@ public class Map_MonsterRoomController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OnTriggerEnter2D: " + other.name);  // 调试用，看有没有进来
+        Debug.Log("OnTriggerEnter2D: " + other.name);
 
         if (!battleStarted && other.CompareTag("Player"))
         {
@@ -35,16 +35,20 @@ public class Map_MonsterRoomController : MonoBehaviour
     {
         battleStarted = true;
 
-        if (door != null)
+        // ✅ 关闭所有门
+        if (doors != null)
         {
-            Debug.Log("CloseDoor from MonsterRoomController");
-            door.CloseDoor();
-        }
-        else
-        {
-            Debug.LogWarning("MonsterRoomController: door is NULL!");
+            foreach (var d in doors)
+            {
+                if (d != null)
+                {
+                    Debug.Log("CloseDoor from MonsterRoomController");
+                    d.CloseDoor();
+                }
+            }
         }
 
+        // 怪物出现
         if (monsters != null)
         {
             foreach (var m in monsters)
@@ -61,7 +65,6 @@ public class Map_MonsterRoomController : MonoBehaviour
 
         if (monsters == null || monsters.Length == 0)
         {
-            // 没有怪物也当作战斗结束
             return;
         }
 
@@ -83,10 +86,17 @@ public class Map_MonsterRoomController : MonoBehaviour
 
     void EndBattle()
     {
-        if (door != null)
+        // ✅ 打开所有门
+        if (doors != null)
         {
-            Debug.Log("OpenDoor from MonsterRoomController");
-            door.OpenDoor();
+            foreach (var d in doors)
+            {
+                if (d != null)
+                {
+                    Debug.Log("OpenDoor from MonsterRoomController");
+                    d.OpenDoor();
+                }
+            }
         }
 
         battleStarted = false;

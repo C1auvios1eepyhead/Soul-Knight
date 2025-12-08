@@ -97,13 +97,14 @@ GameObject:
   - component: {fileID: 7826895367981743326}
   - component: {fileID: 7187225718974610045}
   - component: {fileID: 4168181705901780533}
+  - component: {fileID: 5035908778453792137}
   m_Layer: 0
   m_Name: Player_Adof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8912393924604565539
 Transform:
   m_ObjectHideFlags: 0
@@ -195,6 +196,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adf2f969ae740e44ab68b63c847393f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: 8933c594d52c6b1489bd24a03b9a3541, type: 2}
+--- !u!114 &5035908778453792137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713025484231583765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8484222d34060274d9a6facc81b3dd67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: 8933c594d52c6b1489bd24a03b9a3541, type: 2}

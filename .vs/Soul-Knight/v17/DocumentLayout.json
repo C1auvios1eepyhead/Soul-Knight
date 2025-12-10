@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Unity\\Soul-Knight\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{760F347C-6A38-AF91-74D1-F58D42689578}|Assembly-CSharp.csproj|d:\\unity\\soul-knight\\assets\\script\\weaponrelated\\projectiles\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{760F347C-6A38-AF91-74D1-F58D42689578}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\weaponrelated\\projectiles\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "D:\\Unity\\Soul-Knight\\Assets\\Script\\WeaponRelated\\Projectiles\\Bullet.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\WeaponRelated\\Projectiles\\Bullet.cs",
+              "ToolTip": "D:\\Unity\\Soul-Knight\\Assets\\Script\\WeaponRelated\\Projectiles\\Bullet.cs",
+              "RelativeToolTip": "Assets\\Script\\WeaponRelated\\Projectiles\\Bullet.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-10T05:27:07.897Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

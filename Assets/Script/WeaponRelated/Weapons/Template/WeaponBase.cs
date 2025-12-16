@@ -11,21 +11,19 @@ public abstract class WeaponBase : MonoBehaviour
     public Transform firePoint;
 
     protected float nextAttackTime = 0f;
-    public System.Action OnAttackEvent;
+
+    // 标记是否被玩家手上持有
+    [HideInInspector] public bool isEquipped = false;
 
     protected virtual void Awake()
     {
         // 强制查找 FirePoint 子物体
         if (firePoint == null || firePoint.gameObject == null)
-        {
             firePoint = transform.Find("FirePoint");
-        }
 
-        // 如果找不到，就创建
         if (firePoint == null)
         {
             GameObject fp = new GameObject("FirePoint");
-            fp.name = "FirePoint";
             fp.transform.SetParent(transform);
             fp.transform.localPosition = Vector3.zero;
             firePoint = fp.transform;
@@ -34,7 +32,6 @@ public abstract class WeaponBase : MonoBehaviour
 
     // 子类必须实现攻击逻辑
     public abstract void Attack();
-
 
     // 攻击冷却判断
     public bool CanAttack()
@@ -47,16 +44,7 @@ public abstract class WeaponBase : MonoBehaviour
         nextAttackTime = Time.time + attackRate;
     }
 
-    private void Update()
-    {
-        // 按空格攻击
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Attack();
-        }
-    }
-
-    // 查找目标（默认最近敌人，可被子类重写）
+    // 查找最近敌人
     protected virtual Transform FindTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -75,7 +63,6 @@ public abstract class WeaponBase : MonoBehaviour
         return closest;
     }
 
-    // 旋转 firePoint 朝向目标
     protected void AimAtTarget(Transform target)
     {
         if (target == null) return;
@@ -85,17 +72,21 @@ public abstract class WeaponBase : MonoBehaviour
         firePoint.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-
-    // 预留给装备系统
+    // 装备
     public virtual void OnEquip(Transform holder)
     {
         transform.SetParent(holder);
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
+        isEquipped = true;
     }
 
-    public virtual void OnUnequip()
+    // 取消装备
+    public virtual void OnUnequip(bool drop = false)
     {
         transform.SetParent(null);
+        isEquipped = false;
+
+       
     }
 }

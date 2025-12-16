@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4936860878253653574}
   - component: {fileID: 159785784788001640}
   - component: {fileID: 9177386795737182712}
+  - component: {fileID: -4400997253165638756}
   m_Layer: 0
   m_Name: Player_Healer
   m_TagString: Untagged
@@ -114,6 +115,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: 986dc3f6d4c51ac4ca1b421c156c864a, type: 2}
+--- !u!114 &-4400997253165638756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698363360498492214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68590141b4dd4a4eb0eb0e5c9323d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupRange: 1.2
+  pickupKey: 101
+  switchKey: 113
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
+  currentWeapon: {fileID: 0}
 --- !u!1 &4659428260956962252
 GameObject:
   m_ObjectHideFlags: 0

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7826895367981743326}
   - component: {fileID: 7187225718974610045}
   - component: {fileID: 4168181705901780533}
+  - component: {fileID: -5355623392437930854}
   m_Layer: 0
   m_Name: Player_Adof
   m_TagString: Untagged
@@ -198,6 +199,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: 8933c594d52c6b1489bd24a03b9a3541, type: 2}
+--- !u!114 &-5355623392437930854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713025484231583765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68590141b4dd4a4eb0eb0e5c9323d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupRange: 1.2
+  pickupKey: 101
+  switchKey: 113
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
+  currentWeapon: {fileID: 0}
 --- !u!1 &7830414148800613401
 GameObject:
   m_ObjectHideFlags: 0

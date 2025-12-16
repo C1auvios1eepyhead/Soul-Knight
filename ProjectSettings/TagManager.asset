@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - DestructibleTile
+  - Obstacle
   - 
   - 
   - 
@@ -43,4 +44,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4065409691
+    locked: 0
+  - name: High Wall
+    uniqueID: 2909376951
+    locked: 0
+  - name: Decoration
+    uniqueID: 1413531527
     locked: 0

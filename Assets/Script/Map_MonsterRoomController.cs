@@ -18,6 +18,13 @@ public class Map_MonsterRoomController : MonoBehaviour
 
     [SerializeField] private Vector2 spawnCheckBoxSize = new Vector2(0.6f, 0.6f);
 
+    [Header("Rewards")]
+    [SerializeField] private GameObject chestPrefab;
+    [SerializeField] private Transform rewardSpawnPoint; 
+    [SerializeField] private bool spawnChestOnClear = true;
+
+    private bool rewardSpawned = false;
+
     [Header("Debug")]
     public bool hasCleared = false;
 
@@ -120,6 +127,33 @@ public class Map_MonsterRoomController : MonoBehaviour
         for (int i = 0; i < doors.Count; i++)
         {
             if (doors[i] != null) doors[i].OpenDoor();
+        }
+
+        // Refresh the treasure chest
+        if (spawnChestOnClear && !rewardSpawned && chestPrefab != null)
+        {
+            rewardSpawned = true;
+
+            Vector3 spawnPos = (rewardSpawnPoint != null) ? rewardSpawnPoint.position : roomRoot.position;
+
+            if (roomBoundsCol != null)
+            {
+                Bounds b = roomBoundsCol.bounds;
+                for (int i = 0; i < 30; i++)
+                {
+                    float x = Random.Range(b.min.x, b.max.x);
+                    float y = Random.Range(b.min.y, b.max.y);
+                    Vector2 p = new Vector2(x, y);
+
+                    if (Physics2D.OverlapBox(p, spawnCheckBoxSize, 0f, spawnBlockMask) == null)
+                    {
+                        spawnPos = p;
+                        break;
+                    }
+                }
+            }
+
+            Instantiate(chestPrefab, spawnPos, Quaternion.identity, roomRoot);
         }
 
         Debug.Log($"[MonsterRoom] Cleared room={roomRoot.name}");

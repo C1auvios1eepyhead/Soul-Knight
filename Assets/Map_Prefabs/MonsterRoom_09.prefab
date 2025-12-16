@@ -92,10 +92,13 @@ MonoBehaviour:
   monsterTag: Monster
   autoSpawnDummyIfNone: 1
   dummyMonsterPrefab: {fileID: 9088838300594865314, guid: 9cb2e01db5958ef4bbb5601712838bf3, type: 3}
-  spawnCheckRadius: 0.25
   spawnBlockMask:
     serializedVersion: 2
     m_Bits: 768
+  spawnCheckBoxSize: {x: 0.6, y: 0.6}
+  chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
+  rewardSpawnPoint: {fileID: 0}
+  spawnChestOnClear: 1
   hasCleared: 0
 --- !u!1 &1081174896336127138
 GameObject:
@@ -330,7 +333,7 @@ Tilemap:
       - {fileID: -403508026, guid: ce1d9cef60110fd47b213b8935128e34, type: 3}
       - {fileID: -617498350, guid: ce1d9cef60110fd47b213b8935128e34, type: 3}
       - {fileID: 1289182218, guid: ce1d9cef60110fd47b213b8935128e34, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 27, y: -151, z: 0}
@@ -6315,10 +6318,13 @@ MonoBehaviour:
   monsterTag: Monster
   autoSpawnDummyIfNone: 1
   dummyMonsterPrefab: {fileID: 9088838300594865314, guid: 9cb2e01db5958ef4bbb5601712838bf3, type: 3}
-  spawnCheckRadius: 0.25
   spawnBlockMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
+  spawnCheckBoxSize: {x: 0.6, y: 0.6}
+  chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
+  rewardSpawnPoint: {fileID: 0}
+  spawnChestOnClear: 1
   hasCleared: 0
 --- !u!1 &9090476366816740079
 GameObject:

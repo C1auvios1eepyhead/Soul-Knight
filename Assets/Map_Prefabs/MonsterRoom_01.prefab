@@ -4584,7 +4584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterTag: Monster
   autoSpawnDummyIfNone: 1
-  dummyMonsterPrefab: {fileID: 9088838300594865314, guid: 9cb2e01db5958ef4bbb5601712838bf3, type: 3}
+  dummyMonsterPrefab: {fileID: 0}
   spawnBlockMask:
     serializedVersion: 2
     m_Bits: 768
@@ -4592,6 +4592,9 @@ MonoBehaviour:
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
   rewardSpawnPoint: {fileID: 0}
   spawnChestOnClear: 1
+  spawnPortalOnClear: 0
+  portalPrefab: {fileID: 0}
+  bossPortalSpawnPoint: {fileID: 0}
   hasCleared: 0
 --- !u!1 &4284168963463412332
 GameObject:
@@ -5250,6 +5253,9 @@ MonoBehaviour:
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
   rewardSpawnPoint: {fileID: 0}
   spawnChestOnClear: 1
+  spawnPortalOnClear: 0
+  portalPrefab: {fileID: 0}
+  bossPortalSpawnPoint: {fileID: 0}
   hasCleared: 0
 --- !u!1 &8472868095285633657
 GameObject:

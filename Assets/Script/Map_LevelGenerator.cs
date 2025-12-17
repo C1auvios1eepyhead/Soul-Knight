@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Map_LevelGenerator : MonoBehaviour
 {
@@ -259,6 +260,7 @@ public class Map_LevelGenerator : MonoBehaviour
                 q.Enqueue(nextCell);
             }
         }
+        ScanGraph();
     }
 
     private GameObject PickPrefab(RoomType type)
@@ -628,4 +630,17 @@ public class Map_LevelGenerator : MonoBehaviour
             _ => Vector2Int.right
         };
     }
+public void ScanGraph()
+    {
+        if (AstarPath.active == null)
+        {
+            Debug.LogError("No AstarPath instance found in the scene!");
+            return;
+        }
+
+        AstarPath.active.Scan();  // 扫描所有图
+        Debug.Log("Pathfinding graph scanned!");
+    }
 }
+
+

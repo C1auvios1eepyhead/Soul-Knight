@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3449796217593636466}
   - component: {fileID: 6858542423683387214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 8339887861334111036}
   - component: {fileID: 7365279396916304898}
   - component: {fileID: 6388676810250016429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

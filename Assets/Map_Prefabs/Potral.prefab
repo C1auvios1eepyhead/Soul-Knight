@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3247082138176879895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2712038559010291377}
+  m_Layer: 0
+  m_Name: InteractRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2712038559010291377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247082138176879895}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3876192371377505404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3621022616161323441
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +62,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7147685672323839255}
+  - {fileID: 2712038559010291377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &8097366420315844192
@@ -56,6 +88,7 @@ GameObject:
   - component: {fileID: 7147685672323839255}
   - component: {fileID: 2530753434922282417}
   - component: {fileID: 4650668159220486471}
+  - component: {fileID: 5002495315241666050}
   m_Layer: 0
   m_Name: Potral
   m_TagString: Untagged
@@ -73,7 +106,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3876192371377505404}
@@ -260,7 +293,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -269,3 +302,53 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &5002495315241666050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403802404964812096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a493e99da80d4fe40991b55bd7e5f4d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 2530753434922282417}
+  originCell: {x: 5, y: -2, z: 0}
+  cells:
+  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 2, y: 0, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: 1, y: 1, z: 0}
+  - {x: 2, y: 1, z: 0}
+  frame0:
+  - {fileID: 11400000, guid: 95ef179f8c4117d43b347df9841a1cbd, type: 2}
+  - {fileID: 11400000, guid: f78a6f172a760d8488914ffb8bd09b07, type: 2}
+  - {fileID: 11400000, guid: 70e02c7b7be8fc64b98693fec147e4d0, type: 2}
+  - {fileID: 11400000, guid: 6a6ffa727fdcbb241b5cfc305938eb72, type: 2}
+  - {fileID: 11400000, guid: b8f93fa838987e640b7212d7c7eccbdc, type: 2}
+  - {fileID: 11400000, guid: 5a5a36a9e2f9f4b42a5cf5bd9d474fdc, type: 2}
+  frame1:
+  - {fileID: 11400000, guid: c422ad1e39ae20c45bd40308df5dd5ef, type: 2}
+  - {fileID: 11400000, guid: d3e63ecf04b26e042b57f4ec1c63056d, type: 2}
+  - {fileID: 11400000, guid: d0938fe43833b2a4dbb5645abebd0c53, type: 2}
+  - {fileID: 11400000, guid: a73b6cc94ab3b734d8931559e4fcea3f, type: 2}
+  - {fileID: 11400000, guid: 495472f16cbe7a54c8f9602f6e91d218, type: 2}
+  - {fileID: 11400000, guid: 72b81a7faf0466b438e39450761c1720, type: 2}
+  frame2:
+  - {fileID: 11400000, guid: 7aab6e79841dac049b2eebd8306c3c21, type: 2}
+  - {fileID: 11400000, guid: d9cbea659d14bfd4a84c4c0a1aad72db, type: 2}
+  - {fileID: 11400000, guid: dae7213666b6aa44f9a6eced13e0e13f, type: 2}
+  - {fileID: 11400000, guid: b564322cd4c19ec4b94a8cd23723e6f4, type: 2}
+  - {fileID: 11400000, guid: 25059a319299a7141be321deb13b3084, type: 2}
+  - {fileID: 11400000, guid: e9b4acd87ec98234a8f726c84752db69, type: 2}
+  frame3:
+  - {fileID: 11400000, guid: 35c3666f65866f545a681534824b8a0d, type: 2}
+  - {fileID: 11400000, guid: 82c26362518d9e64283ff4f4840c3993, type: 2}
+  - {fileID: 11400000, guid: bb846864d95af8c4a8892fb7ba169c40, type: 2}
+  - {fileID: 11400000, guid: fc0c3eb721e7db243bedc09d93a42c3c, type: 2}
+  - {fileID: 11400000, guid: aec0405de9c1014429394eda4e7fd981, type: 2}
+  - {fileID: 11400000, guid: 0625a3e582044f14cbd1860e157bd88d, type: 2}
+  fps: 6

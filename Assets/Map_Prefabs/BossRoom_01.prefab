@@ -1694,7 +1694,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
-  chestPrefab: {fileID: 0}
+  chestPrefab: {fileID: 5083142060086553603, guid: ad6b947dd40af1a4ea04c190aead5950, type: 3}
   rewardSpawnPoint: {fileID: 0}
   spawnChestOnClear: 1
   hasCleared: 0
@@ -7005,7 +7005,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
-  chestPrefab: {fileID: 0}
+  chestPrefab: {fileID: 5083142060086553603, guid: ad6b947dd40af1a4ea04c190aead5950, type: 3}
   rewardSpawnPoint: {fileID: 0}
   spawnChestOnClear: 1
   hasCleared: 0

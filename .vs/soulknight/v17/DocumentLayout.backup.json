@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\unityproject\\soulknight\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerEnergy.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Player_Player\\Player_PlayerEnergy.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerHealth.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Player_Player\\Player_PlayerHealth.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerConfig.cs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Player_Player\\Player_PlayerConfig.cs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,15 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Player_PlayerEnergy.cs",
-              "DocumentMoniker": "D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerEnergy.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Player_Player\\Player_PlayerEnergy.cs",
-              "ToolTip": "D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerEnergy.cs",
-              "RelativeToolTip": "Assets\\Script\\Player_Player\\Player_PlayerEnergy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Player_PlayerHealth.cs",
+              "DocumentMoniker": "D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Player_Player\\Player_PlayerHealth.cs",
+              "ToolTip": "D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerHealth.cs",
+              "RelativeToolTip": "Assets\\Script\\Player_Player\\Player_PlayerHealth.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-30T08:22:47.222Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-30T08:18:52.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player_PlayerConfig.cs",
+              "DocumentMoniker": "D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerConfig.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Player_Player\\Player_PlayerConfig.cs",
+              "ToolTip": "D:\\unityproject\\soulknight\\Assets\\Script\\Player_Player\\Player_PlayerConfig.cs",
+              "RelativeToolTip": "Assets\\Script\\Player_Player\\Player_PlayerConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-30T08:18:32.913Z"
             }
           ]
         }

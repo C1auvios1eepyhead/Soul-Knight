@@ -64,11 +64,28 @@ public class Map_PortalTrigger : MonoBehaviour
 
     private void CleanupPickups()
     {
-        var pickups = GameObject.FindGameObjectsWithTag("Weapon");
-        for (int i = 0; i < pickups.Length; i++)
+        int count = 0;
+
+        // 1) 按 Tag 清（你自己确认武器 Tag 是不是 Weapon）
+        var tagged = GameObject.FindGameObjectsWithTag("Weapon");
+        for (int i = 0; i < tagged.Length; i++)
         {
-            Destroy(pickups[i]);
+            Destroy(tagged[i]);
+            count++;
         }
+
+        // 2) 双保险：按名字清（防止 Tag 不对）
+        var all = GameObject.FindObjectsOfType<Transform>(true);
+        foreach (var t in all)
+        {
+            if (t.name.StartsWith("Weapon_"))   // Weapon_Dummy(Clone) 会匹配
+            {
+                Destroy(t.gameObject);
+                count++;
+            }
+        }
+
+        Debug.Log($"[Portal] CleanupPickups destroyed: {count}");
     }
 
     private void ExitGame()

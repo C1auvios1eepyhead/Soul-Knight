@@ -220,7 +220,7 @@ Tilemap:
       - {fileID: 848964434, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -1984102530, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -1742372518, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -1695,8 +1695,11 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 5083142060086553603, guid: ad6b947dd40af1a4ea04c190aead5950, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 3878051197819755301}
   spawnChestOnClear: 1
+  spawnPortalOnClear: 0
+  portalPrefab: {fileID: 5856966965541517753, guid: 503f8cd13b8fc8c49b7064d2565b1113, type: 3}
+  bossPortalSpawnPoint: {fileID: 1668618196491654752}
   hasCleared: 0
 --- !u!1 &3832396281364582149
 GameObject:
@@ -6211,6 +6214,37 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &6681843746811411373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668618196491654752}
+  m_Layer: 0
+  m_Name: BossPortalSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668618196491654752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6681843746811411373}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: -3, z: 0.005684832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2380875547085135049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6687235152490308856
 GameObject:
   m_ObjectHideFlags: 0
@@ -6949,6 +6983,8 @@ Transform:
   - {fileID: 347547717559282646}
   - {fileID: 4990826710834664612}
   - {fileID: 1108302946338639720}
+  - {fileID: 3878051197819755301}
+  - {fileID: 1668618196491654752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8619462287729973639
@@ -7006,9 +7042,43 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 5083142060086553603, guid: ad6b947dd40af1a4ea04c190aead5950, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 3878051197819755301}
   spawnChestOnClear: 1
+  spawnPortalOnClear: 1
+  portalPrefab: {fileID: 5856966965541517753, guid: 503f8cd13b8fc8c49b7064d2565b1113, type: 3}
+  bossPortalSpawnPoint: {fileID: 1668618196491654752}
   hasCleared: 0
+--- !u!1 &7778390405787517393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3878051197819755301}
+  m_Layer: 0
+  m_Name: BossChestSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3878051197819755301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778390405787517393}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: -5, z: 0.005684832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2380875547085135049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8576107526472150162
 GameObject:
   m_ObjectHideFlags: 0

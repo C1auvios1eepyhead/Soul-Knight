@@ -25,6 +25,12 @@ public class Map_MonsterRoomController : MonoBehaviour
 
     private bool rewardSpawned = false;
 
+    [Header("Boss Rewards")]
+    [SerializeField] private bool spawnPortalOnClear = false;
+    [SerializeField] private GameObject portalPrefab;
+    [SerializeField] private Transform bossPortalSpawnPoint;
+    private GameObject spawnedPortal;
+
     [Header("Debug")]
     public bool hasCleared = false;
 
@@ -124,31 +130,44 @@ public class Map_MonsterRoomController : MonoBehaviour
         inBattle = false;
         hasCleared = true;
 
+        // 1️⃣ 开门
         for (int i = 0; i < doors.Count; i++)
         {
-            if (doors[i] != null) doors[i].OpenDoor();
+            if (doors[i] != null)
+                doors[i].OpenDoor();
         }
 
-        // Refresh the treasure chest
+        // 2️⃣ 生成宝箱
         if (spawnChestOnClear && !rewardSpawned && chestPrefab != null)
         {
             rewardSpawned = true;
 
-            Vector3 spawnPos = (rewardSpawnPoint != null) ? rewardSpawnPoint.position : roomRoot.position;
+            Vector3 spawnPos;
 
-            if (roomBoundsCol != null)
+            if (rewardSpawnPoint != null)
             {
-                Bounds b = roomBoundsCol.bounds;
-                for (int i = 0; i < 30; i++)
+                // Boss 房固定位置
+                spawnPos = rewardSpawnPoint.position;
+            }
+            else
+            {
+                // 普通房随机
+                spawnPos = roomRoot.position;
+                if (roomBoundsCol != null)
                 {
-                    float x = Random.Range(b.min.x, b.max.x);
-                    float y = Random.Range(b.min.y, b.max.y);
-                    Vector2 p = new Vector2(x, y);
-
-                    if (Physics2D.OverlapBox(p, spawnCheckBoxSize, 0f, spawnBlockMask) == null)
+                    Bounds b = roomBoundsCol.bounds;
+                    for (int i = 0; i < 30; i++)
                     {
-                        spawnPos = p;
-                        break;
+                        Vector2 p = new Vector2(
+                            Random.Range(b.min.x, b.max.x),
+                            Random.Range(b.min.y, b.max.y)
+                        );
+
+                        if (Physics2D.OverlapBox(p, spawnCheckBoxSize, 0f, spawnBlockMask) == null)
+                        {
+                            spawnPos = p;
+                            break;
+                        }
                     }
                 }
             }
@@ -156,8 +175,20 @@ public class Map_MonsterRoomController : MonoBehaviour
             Instantiate(chestPrefab, spawnPos, Quaternion.identity, roomRoot);
         }
 
+        // 3️⃣ Boss 房生成传送门（你问的第三步就在这里）
+        if (spawnPortalOnClear && portalPrefab != null && bossPortalSpawnPoint != null && spawnedPortal == null)
+        {
+            spawnedPortal = Instantiate(
+                portalPrefab,
+                bossPortalSpawnPoint.position,
+                Quaternion.identity,
+                roomRoot
+            );
+        }
+
         Debug.Log($"[MonsterRoom] Cleared room={roomRoot.name}");
     }
+
 
     private void CollectDoors()
     {

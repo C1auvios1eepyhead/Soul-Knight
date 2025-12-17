@@ -135,6 +135,7 @@ MonoBehaviour:
   promptText: {fileID: 4450868221892170272}
   interactKey: 101
   weaponPrefab: {fileID: 2641122369729996929, guid: 34e381f4ab8101446810c343299dac94, type: 3}
+  levelRoot: {fileID: 0}
 --- !u!61 &5720698628865256249
 BoxCollider2D:
   m_ObjectHideFlags: 0

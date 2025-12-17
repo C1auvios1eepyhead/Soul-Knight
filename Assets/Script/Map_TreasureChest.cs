@@ -18,6 +18,9 @@ public class Map_TreasureChest : MonoBehaviour
     [Header("Reward")]
     public GameObject weaponPrefab;          // 掉落武器
 
+    [Header("Level Root")]
+    [SerializeField] private Transform levelRoot;
+
     private bool playerInRange = false;
     private bool opened = false;
 
@@ -59,7 +62,13 @@ public class Map_TreasureChest : MonoBehaviour
 
         // 4️⃣ 生成武器
         if (weaponPrefab != null)
-            Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+        {
+            GameObject w = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+
+            // ✅ 掉落态：先挂到宝箱下面（这样下一关清宝箱时会一起清）
+            w.transform.SetParent(transform, true); // true = 保持世界坐标，不会瞬移
+        }
+
     }
 
     // ===== 由 Trigger 调用 =====

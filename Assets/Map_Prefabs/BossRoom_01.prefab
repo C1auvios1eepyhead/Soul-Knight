@@ -1697,7 +1697,7 @@ MonoBehaviour:
   chestPrefab: {fileID: 5083142060086553603, guid: ad6b947dd40af1a4ea04c190aead5950, type: 3}
   rewardSpawnPoint: {fileID: 3878051197819755301}
   spawnChestOnClear: 1
-  spawnPortalOnClear: 0
+  spawnPortalOnClear: 1
   portalPrefab: {fileID: 5856966965541517753, guid: 503f8cd13b8fc8c49b7064d2565b1113, type: 3}
   bossPortalSpawnPoint: {fileID: 1668618196491654752}
   hasCleared: 0
@@ -6239,7 +6239,7 @@ Transform:
   m_GameObject: {fileID: 6681843746811411373}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -3, z: 0.005684832}
+  m_LocalPosition: {x: -11, y: 0, z: 0.005684832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7073,7 +7073,7 @@ Transform:
   m_GameObject: {fileID: 7778390405787517393}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -5, z: 0.005684832}
+  m_LocalPosition: {x: 2, y: -6, z: 0.005684832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

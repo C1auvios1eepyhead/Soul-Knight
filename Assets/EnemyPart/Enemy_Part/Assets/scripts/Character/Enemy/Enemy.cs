@@ -33,7 +33,7 @@ public class Enemy : Character
     private float pathGenerateTimer = 0f;//¼ÆÊ±Æ÷
 
     [Header("¹¥»÷")]
-    public float meleeAttackDamage;//½üÕ½¹¥»÷ÉËº¦
+    public float meleeAttackDamage;//¹¥»÷ÉËº¦
     public bool isAttack = true;
     [HideInInspector] public float distance;
     public LayerMask playerLayer;//±íÊ¾Íæ¼ÒÍ¼²ã
@@ -198,7 +198,7 @@ public virtual void Attack()
 
     foreach (Collider2D hitCollider in hitColliders)
     {
-        hitCollider.GetComponent<Character>()
+        hitCollider.GetComponent<PlayerHealth>()
             ?.TakeDamage(meleeAttackDamage);
     }
 }

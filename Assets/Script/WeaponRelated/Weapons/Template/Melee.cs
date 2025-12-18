@@ -1,75 +1,119 @@
 using UnityEngine;
+using System.Collections;
 
-// 近战武器基类
 public abstract class Melee : WeaponBase
 {
     [Header("Melee Settings")]
-    public float attackRange = 1f;       // 攻击范围
-    public float attackAngle = 60f;      // 扇形AOE角度（只对AOE类武器有效）
+    public float attackRange = 1f;           // 攻击范围
+    public float attackAngle = 60f;          // 扇形AOE角度（只对AOE类武器有效）
+    public float visualOffset = 0.5f;        // VisualAttack偏移距离
+    public float visualDuration = 0.2f;      // VisualAttack显示时间
+
+    private GameObject visualInstance;
 
     // 子类决定是单体攻击还是AOE攻击
-    protected abstract void PerformAttack();
+    protected abstract Transform[] PerformAttackWithReturnTargets();
+
+    // 修正警告：使用 override
+    protected override void Awake()
+    {
+        base.Awake();
+        // 这里可以添加近战武器共有初始化逻辑，如果没有可留空
+    }
 
     public override void Attack()
     {
         if (!CanAttack()) return;
 
         ResetAttackCD();
-        PerformAttack();
-    }
 
-    // 单体攻击模板，子类可调用
-    protected void PerformSingleAttack(Transform target)
-    {
-        if (target == null) return;
+        // 隐藏武器贴图
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null) sr.enabled = false;
 
-        // 计算距离
-        float distance = Vector2.Distance(firePoint.position, target.position);
+        // 执行子类攻击逻辑并返回被攻击的敌人
+        Transform[] targetsHit = PerformAttackWithReturnTargets();
 
-        if (distance > attackRange)
+        // 生成VisualAttack
+        GameObject visualPrefab = Resources.Load<GameObject>("Melee/VisualAttack");
+        if (visualPrefab != null)
         {
-            Debug.Log($"{target.name} is out of range!");
-            return;
+            if (targetsHit.Length > 0)
+            {
+                foreach (Transform t in targetsHit)
+                {
+                    if (t != null)
+                    {
+                        GameObject visual = Instantiate(visualPrefab, t.position, Quaternion.identity);
+                        visual.transform.SetParent(transform);
+                        Destroy(visual, visualDuration);
+                    }
+                }
+            }
+            else
+            {
+                // 场景没有敌人或没打到敌人时，渲染在武器右边一点
+                Vector2 offsetPos = (Vector2)firePoint.position + Vector2.right * visualOffset;
+                GameObject visual = Instantiate(visualPrefab, offsetPos, Quaternion.identity);
+                visual.transform.SetParent(transform);
+                Destroy(visual, visualDuration);
+            }
         }
 
-        // TODO: 调用敌人受击接口
-        Debug.Log($"Single attack hits {target.name} for {damage} damage");
+        // 恢复武器贴图
+        StartCoroutine(RestoreWeaponSprite(visualDuration));
     }
 
-
-    // AOE攻击模板，子类可调用
-    protected void PerformAOEAttack()
+    private IEnumerator RestoreWeaponSprite(float delay)
     {
-        // 检测所有带 "Enemy" Tag 的对象
+        yield return new WaitForSeconds(delay);
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null) sr.enabled = true;
+    }
+
+    // 单体攻击模板
+    protected Transform[] PerformSingleAttackTemplate(Transform target)
+    {
+        if (target == null) return new Transform[0];
+
+        float distance = Vector2.Distance(firePoint.position, target.position);
+        if (distance > attackRange) return new Transform[0];
+
+        //造成伤害
+        target.GetComponent<Character>()?.TakeDamage(damage);
+
+        Debug.Log($"Single attack hits {target.name} for {damage} damage");
+        return new Transform[] { target };
+    }
+
+    // AOE攻击模板
+    protected Transform[] PerformAOEAttackTemplate()
+    {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        var hitList = new System.Collections.Generic.List<Transform>();
 
         foreach (GameObject enemy in enemies)
         {
-            Vector2 directionToEnemy = enemy.transform.position - firePoint.position;
-            float distance = directionToEnemy.magnitude;
-
-            // 在攻击范围内
+            Vector2 dirToEnemy = enemy.transform.position - firePoint.position;
+            float distance = dirToEnemy.magnitude;
             if (distance <= attackRange)
             {
-                // 扇形AOE检测
-                float angleToEnemy = Vector2.Angle(firePoint.right, directionToEnemy);
+                float angleToEnemy = Vector2.Angle(Vector2.right, dirToEnemy); // 可改为手持方向
                 if (angleToEnemy <= attackAngle / 2f)
                 {
-                    // TODO: 调用敌人受击接口
-                    // enemy.GetComponent<Enemy>()?.TakeDamage(damage);
+                    //造成伤害
+                    enemy.GetComponent<Character>()?.TakeDamage(damage);
+
                     Debug.Log($"AOE attack hits {enemy.name} for {damage} damage");
+                    hitList.Add(enemy.transform);
                 }
             }
         }
+
+        return hitList.ToArray();
     }
 
-    // 可视化攻击范围，方便调试
-    protected virtual void OnDrawGizmosSelected()
-    {
-        if (firePoint != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(firePoint.position, attackRange);
-        }
-    }
+    
+    
 }
+

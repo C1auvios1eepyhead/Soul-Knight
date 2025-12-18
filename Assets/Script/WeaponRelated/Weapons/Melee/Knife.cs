@@ -6,19 +6,15 @@ public class Knife : Melee
     {
         base.Awake();
         weaponName = "Knife";
-        damage = 5f;       
-        attackRate = 0.7f;  
-        attackRange = 1f;   
+        damage = 5f;
+        attackRate = 0.7f;
+        attackRange = 4f;
     }
 
-    protected override void PerformAttack()
+    // 单体攻击
+    protected override Transform[] PerformAttackWithReturnTargets()
     {
-        // 查找最近的目标
         Transform target = FindTarget();
-        // 执行单体攻击
-        PerformSingleAttack(target);
-
-        // TODO: 将来这里可以调用敌人的受击接口
-        // 例如：target.GetComponent<Enemy>()?.TakeDamage(damage);
+        return PerformSingleAttackTemplate(target);
     }
 }

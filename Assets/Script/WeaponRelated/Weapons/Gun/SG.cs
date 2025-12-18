@@ -9,18 +9,15 @@ public class Shotgun : Gun
     protected override void Awake()
     {
         base.Awake();
-
         weaponName = "Shotgun";
-        damage = 8f;                 // 单颗伤害
-        pellets = 7;                // 一次发射数量颗
-        spreadAngle = 35f;          // 扩散角度
-        attackRate = 1f;            
-        weaponBulletSpeed = 15f;    
-        weaponRange = 6f;           
-        magazineSize = 6;           
-        reloadTime = 2f;            
-
-
+        damage = 8f;
+        pellets = 7;
+        spreadAngle = 35f;
+        attackRate = 1f;
+        weaponBulletSpeed = 15f;
+        weaponRange = 6f;
+        magazineSize = 6;
+        reloadTime = 2f;
         currentAmmo = magazineSize;
     }
 
@@ -37,9 +34,11 @@ public class Shotgun : Gun
         ResetAttackCD();
         currentAmmo--;
 
+        // 父类处理旋转逻辑
         Transform target = FindTarget();
-        AimAtTarget(target);
+        RotateGunToTarget(target);
 
+        // 发射散弹
         for (int i = 0; i < pellets; i++)
         {
             float angleOffset = Random.Range(-spreadAngle, spreadAngle);

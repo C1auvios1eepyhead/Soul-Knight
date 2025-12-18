@@ -24,8 +24,7 @@ public class Bullet : MonoBehaviour
         //只对有“Enemy”标签的敌人造成伤害
         if (collision.CompareTag("Enemy"))
         {
-            //敌人受击接口
-
+            collision.GetComponent<Character>()?.TakeDamage(damage);
         }
 
         // 当前版本：碰到任何东西就销毁

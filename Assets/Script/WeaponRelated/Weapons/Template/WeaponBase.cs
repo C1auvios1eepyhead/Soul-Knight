@@ -60,6 +60,7 @@ public abstract class WeaponBase : MonoBehaviour
                 closest = e.transform;
             }
         }
+
         return closest;
     }
 
@@ -86,7 +87,5 @@ public abstract class WeaponBase : MonoBehaviour
     {
         transform.SetParent(null);
         isEquipped = false;
-
-       
     }
 }

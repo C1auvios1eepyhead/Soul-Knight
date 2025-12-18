@@ -1,48 +1,51 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Scythe : Melee
 {
     protected override void Awake()
     {
         base.Awake();
-
         weaponName = "Scythe";
-        damage = 20f;       // Á­µ¶ÉËº¦
-        attackRange = 1f;   // ¹¥»÷·¶Î§
-        attackAngle = 90f;  // ´óÉÈĞÎAOE
-        attackRate = 2f;    // ¹¥»÷¼ä¸ô
+        damage = 20f;
+        attackRange = 5f;
+        attackAngle = 90f; // å¤§æ‰‡å½¢
+        attackRate = 2f;
     }
 
-    protected override void PerformAttack()
+    protected override Transform[] PerformAttackWithReturnTargets()
     {
-        // ¿ÉÒÔÖ±½Ó¸´ÓÃ Spear µÄÉÈĞÎ¼ì²âÂß¼­
-        Transform target = FindTarget();
-
-        if (target != null)
+        // 1. æŸ¥æ‰¾æœ€è¿‘æ•Œäºº
+        Transform nearest = FindTarget();
+        if (nearest == null)
         {
-            Vector2 dir = target.position - firePoint.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            firePoint.rotation = Quaternion.Euler(0, 0, angle);
+            return new Transform[0];
         }
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(firePoint.position, attackRange);
-        int hitCount = 0;
+        // 2. firePoint æŒ‡å‘æœ€è¿‘æ•Œäºº
+        Vector2 dir = nearest.position - firePoint.position;
+        firePoint.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
 
-        foreach (Collider2D hit in hits)
+        // 3. æ£€æµ‹æ”»å‡»èŒƒå›´å†…æ‰€æœ‰æ•Œäººï¼ˆæ‰‡å½¢ï¼‰
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        var hitList = new System.Collections.Generic.List<Transform>();
+
+        foreach (GameObject enemy in enemies)
         {
-            if (hit.CompareTag("Enemy"))
-            {
-                Vector2 directionToTarget = hit.transform.position - (Vector3)firePoint.position;
-                float angleToTarget = Vector2.Angle(firePoint.right, directionToTarget);
+            Vector2 dirToEnemy = enemy.transform.position - firePoint.position;
+            float distance = dirToEnemy.magnitude;
 
-                if (angleToTarget <= attackAngle / 2f)
+            if (distance <= attackRange)
+            {
+                float angleToEnemy = Vector2.Angle(firePoint.right, dirToEnemy);
+                if (angleToEnemy <= attackAngle / 2f)
                 {
-                    hitCount++;
-                    // TODO: µ÷ÓÃµĞÈËÊÜ»÷½Ó¿Ú
+                    enemy.GetComponent<Character>()?.TakeDamage(damage);
+                    Debug.Log($"Scythe hits {enemy.name} for {damage} damage");
+                    hitList.Add(enemy.transform);
                 }
             }
         }
 
-        Debug.Log($"Scythe Attack: {hitCount} enemies detected in range.");
+        return hitList.ToArray();
     }
 }

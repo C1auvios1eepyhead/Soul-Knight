@@ -19,7 +19,8 @@ public class WeaponManager : MonoBehaviour
         if (hgPrefab != null)
         {
             primaryWeapon = Instantiate(hgPrefab);
-            primaryWeapon.OnEquip(transform);
+            primaryWeapon.OnEquip(PlayerHandAnchor.HandPoint);
+            primaryWeapon.gameObject.SetActive(true); // 当前武器显示
         }
 
         // 自动加载副武器
@@ -27,7 +28,8 @@ public class WeaponManager : MonoBehaviour
         if (knifePrefab != null)
         {
             secondaryWeapon = Instantiate(knifePrefab);
-            secondaryWeapon.OnEquip(transform); // 副武器也挂在玩家上，但不作为当前武器
+            secondaryWeapon.OnEquip(PlayerHandAnchor.HandPoint);
+            secondaryWeapon.gameObject.SetActive(false); // 非当前武器隐藏
         }
 
         currentWeapon = primaryWeapon;
@@ -54,15 +56,27 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 切换当前手上武器
+    /// </summary>
     void SwitchWeapon()
     {
         if (primaryWeapon == null || secondaryWeapon == null) return;
 
-        // 切换当前手上武器
+        // 隐藏当前手上武器
+        currentWeapon.gameObject.SetActive(false);
+
+        // 切换
         currentWeapon = currentWeapon == primaryWeapon ? secondaryWeapon : primaryWeapon;
-        currentWeapon.OnEquip(transform);
+
+        // 装备到手上并显示
+        currentWeapon.OnEquip(PlayerHandAnchor.HandPoint);
+        currentWeapon.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// 查找玩家周围最近的可拾取武器
+    /// </summary>
     WeaponBase FindNearestWeapon()
     {
         WeaponBase[] weapons = GameObject.FindObjectsOfType<WeaponBase>();
@@ -84,10 +98,17 @@ public class WeaponManager : MonoBehaviour
         return nearest;
     }
 
+    /// <summary>
+    /// 拾取武器并替换当前手上武器
+    /// </summary>
     void PickupWeapon(WeaponBase newWeapon)
     {
         if (currentWeapon != null)
-            currentWeapon.OnUnequip(true); // 掉落旧武器
+        {
+            // 旧武器掉落地图上显示
+            currentWeapon.OnUnequip(true);
+            currentWeapon.gameObject.SetActive(true);
+        }
 
         // 更新槽位
         if (currentWeapon == primaryWeapon)
@@ -96,6 +117,9 @@ public class WeaponManager : MonoBehaviour
             secondaryWeapon = newWeapon;
 
         currentWeapon = newWeapon;
-        currentWeapon.OnEquip(transform);
+
+        // 装备新武器到手上并显示
+        currentWeapon.OnEquip(PlayerHandAnchor.HandPoint);
+        currentWeapon.gameObject.SetActive(true);
     }
 }

@@ -9,14 +9,16 @@ public class Map_TreasureChest : MonoBehaviour
 
     [Header("Components")]
     public SpriteRenderer spriteRenderer;
-    public Collider2D chestCollider;        // 实体碰撞（BoxCollider2D）
+    public Collider2D chestCollider; 
     public TMP_Text promptText;              // “Press E to open”
 
     [Header("Interaction")]
     public KeyCode interactKey = KeyCode.E;
 
     [Header("Reward")]
-    public GameObject weaponPrefab;          // 掉落武器
+    [SerializeField] private GameObject[] weaponPrefabs;   // 多把武器预制件
+    [SerializeField] private bool noRepeatInThisChest = true; // 同一个宝箱不重复(可选)
+    private GameObject lastDropped;
 
     [Header("Level Root")]
     [SerializeField] private Transform levelRoot;
@@ -60,18 +62,28 @@ public class Map_TreasureChest : MonoBehaviour
         if (promptText != null)
             promptText.gameObject.SetActive(false);
 
-        // 4️⃣ 生成武器
-        if (weaponPrefab != null)
+        // 4   生成武器
+        if (weaponPrefabs != null && weaponPrefabs.Length > 0)
         {
-            GameObject w = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+            GameObject chosen = weaponPrefabs[Random.Range(0, weaponPrefabs.Length)];
 
-            // ✅ 掉落态：先挂到宝箱下面（这样下一关清宝箱时会一起清）
-            w.transform.SetParent(transform, true); // true = 保持世界坐标，不会瞬移
+            if (noRepeatInThisChest && weaponPrefabs.Length > 1 && chosen == lastDropped)
+            {
+                chosen = weaponPrefabs[Random.Range(0, weaponPrefabs.Length)];
+            }
+
+            lastDropped = chosen;
+
+            if (chosen != null)
+            {
+                GameObject w = Instantiate(chosen, transform.position, Quaternion.identity);
+
+                w.transform.SetParent(transform, true);
+            }
         }
 
     }
 
-    // ===== 由 Trigger 调用 =====
     public void OnPlayerEnter()
     {
         if (opened) return;

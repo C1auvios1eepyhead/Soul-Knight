@@ -134,7 +134,16 @@ MonoBehaviour:
   chestCollider: {fileID: 5720698628865256249}
   promptText: {fileID: 4450868221892170272}
   interactKey: 101
-  weaponPrefab: {fileID: 2641122369729996929, guid: 34e381f4ab8101446810c343299dac94, type: 3}
+  weaponPrefabs:
+  - {fileID: 422724495858099840, guid: 97ae0e0dd6ff10f4aa47577d595ce54d, type: 3}
+  - {fileID: 4600270810658940315, guid: 6a998820b88772a459d4efb2b150dc7f, type: 3}
+  - {fileID: 5363898330748438595, guid: 2c715e8c31924c64ca6e6cc93bbdb0fc, type: 3}
+  - {fileID: 422724495858099840, guid: f8ead583a7ef74e4e89a9e2d41cf2795, type: 3}
+  - {fileID: 7007247460516789989, guid: 8c3b7428a674abe46bc016b3703d35ee, type: 3}
+  - {fileID: 8194369072259641178, guid: 9fcf4a789de60c54994ad939a9a5e1ef, type: 3}
+  - {fileID: 5568597347342766330, guid: b5cbca85879fee04bbebf22b853df058, type: 3}
+  - {fileID: 7007247460516789989, guid: ccf576c7c30800e438975dcb7efb7b6d, type: 3}
+  noRepeatInThisChest: 0
   levelRoot: {fileID: 0}
 --- !u!61 &5720698628865256249
 BoxCollider2D:

@@ -67,6 +67,8 @@ public class Map_LevelGenerator : MonoBehaviour
 
     public void Generate(int worldIndex, int stageIndex)
     {
+        Debug.Log($"[Generate] worldIndex={worldIndex}, stageIndex={stageIndex}\nCALLER:\n{Environment.StackTrace}");
+
         ClearExisting();
         ValidateInputs(stageIndex);
 
@@ -88,6 +90,9 @@ public class Map_LevelGenerator : MonoBehaviour
         ConfigureAllRoomsConnections();
 
         MovePlayerToStartRoomCenter();
+
+        Map_LevelIndicator.Instance.Show($"{worldIndex}-{stageIndex}");
+
     }
 
     // Monster pick pool

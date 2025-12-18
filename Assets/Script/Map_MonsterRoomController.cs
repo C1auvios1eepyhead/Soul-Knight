@@ -31,6 +31,9 @@ public class Map_MonsterRoomController : MonoBehaviour
     [SerializeField] private Transform bossPortalSpawnPoint;
     private GameObject spawnedPortal;
 
+    [Header("Audio")]
+    [SerializeField] private bool isBossRoom = false;
+
     [Header("Debug")]
     public bool hasCleared = false;
 
@@ -95,9 +98,14 @@ public class Map_MonsterRoomController : MonoBehaviour
     {
         inBattle = true;
 
+        // Play Battle/Boss BGM
+        if (isBossRoom && Map_AudioManager.Instance != null)
+        {
+            Map_AudioManager.Instance.PlayBossBGM();
+        }
+
         Debug.Log($"[MonsterRoom] StartBattle room={roomRoot.name} doors={doors.Count} monsters={monsters.Count}");
 
-        // Close the door immediately
         for (int i = 0; i < doors.Count; i++)
         {
             if (doors[i] != null) doors[i].CloseDoor();
@@ -184,6 +192,11 @@ public class Map_MonsterRoomController : MonoBehaviour
                 Quaternion.identity,
                 roomRoot
             );
+        }
+
+        if (isBossRoom && Map_AudioManager.Instance != null)
+        {
+            Map_AudioManager.Instance.StopBGM(true);
         }
 
         Debug.Log($"[MonsterRoom] Cleared room={roomRoot.name}");

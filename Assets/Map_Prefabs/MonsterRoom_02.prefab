@@ -1989,7 +1989,7 @@ MonoBehaviour:
   dummyMonsterPrefab: {fileID: 9088838300594865314, guid: 9cb2e01db5958ef4bbb5601712838bf3, type: 3}
   spawnBlockMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 0
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
   rewardSpawnPoint: {fileID: 0}

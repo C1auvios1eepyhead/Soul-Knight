@@ -205,7 +205,7 @@ Tilemap:
       - {fileID: -2134244229, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -1312515795, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -403392341, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 31, y: -275, z: 0}
@@ -220,7 +220,7 @@ Tilemap:
       - {fileID: 848964434, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -1984102530, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -1742372518, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -350,7 +350,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1413531527
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1473,7 +1473,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1385590345
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1700,6 +1700,7 @@ MonoBehaviour:
   spawnPortalOnClear: 1
   portalPrefab: {fileID: 5856966965541517753, guid: 503f8cd13b8fc8c49b7064d2565b1113, type: 3}
   bossPortalSpawnPoint: {fileID: 1668618196491654752}
+  isBossRoom: 1
   hasCleared: 0
 --- !u!1 &3832396281364582149
 GameObject:
@@ -7039,7 +7040,7 @@ MonoBehaviour:
   dummyMonsterPrefab: {fileID: 9088838300594865314, guid: 9cb2e01db5958ef4bbb5601712838bf3, type: 3}
   spawnBlockMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 0
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 5083142060086553603, guid: ad6b947dd40af1a4ea04c190aead5950, type: 3}
   rewardSpawnPoint: {fileID: 3878051197819755301}
@@ -7047,6 +7048,7 @@ MonoBehaviour:
   spawnPortalOnClear: 1
   portalPrefab: {fileID: 5856966965541517753, guid: 503f8cd13b8fc8c49b7064d2565b1113, type: 3}
   bossPortalSpawnPoint: {fileID: 1668618196491654752}
+  isBossRoom: 1
   hasCleared: 0
 --- !u!1 &7778390405787517393
 GameObject:

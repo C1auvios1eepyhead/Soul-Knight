@@ -10,6 +10,9 @@ public class EnemyPatrolState : IState
 
     private Vector2 direction;
 
+    private float stopThrehold = 3f;
+    private float stopTime=0f;
+
     //构造函数
     public EnemyPatrolState(Enemy enemy)
     {
@@ -65,17 +68,23 @@ public class EnemyPatrolState : IState
                 //敌人刚体速度小于敌人默认的当前速度，并且敌人还未到达巡逻点
                 if (enemy.rb.velocity.magnitude < enemy.currentSpeed && enemy.currentIndex < enemy.pathPointList.Count)
                 {
-                    if (enemy.rb.velocity.magnitude == 0)//如果敌人速度为0,在寻路范围外的敌人
+                    if (enemy.rb.velocity.magnitude <= 0.1f)//如果敌人速度为0,在寻路范围外的敌人
                     {
+                        if (enemy.rb.velocity.magnitude == 0)//如果敌人速度为0,在寻路范围外的敌人
+                        {
                         direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
                         enemy.MovementInput = direction;    //移动方向传给MovementInput
+                        }
+                        stopTime+=Time.deltaTime;
                     }
-                    else { //敌人相撞
-
-                        enemy.TransitionState(EnemyStateType.Idle);//切换为待机状态
-                    }
-
+               
                 }
+            }
+
+            if(stopTime>=stopThrehold)
+            {
+                enemy.TransitionState(EnemyStateType.Idle);
+                stopTime=0;
             }
          
            

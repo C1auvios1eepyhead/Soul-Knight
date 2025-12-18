@@ -3,7 +3,7 @@ guid: 2bdbc7fd1606cea4ba8615ff5d2df79b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1270,64 +1275,63 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      monster_03_39: -1794342819
-      monster_03_48: 1505226906
-      monster_03_6: 1200994367
-      monster_03_7: -2049085092
-      monster_03_44: -1033193036
-      monster_03_36: 1976602849
-      monster_03_43: 691077338
-      monster_03_33: -2049674456
-      monster_03_27: -1545556137
-      monster_03_41: -1298810009
-      monster_03_40: -836691001
-      monster_03_2: 428705330
-      monster_03_17: -81290373
-      monster_03_19: 1899363869
-      monster_03_21: -102319811
-      monster_03_46: 1121620317
-      monster_03_30: 967925527
-      monster_03_52: -1723194103
-      monster_03_13: -116788560
-      monster_03_20: 407684478
-      monster_03_5: 13931929
-      monster_03_31: 771545742
+      monster_03_0: 34203662
+      monster_03_1: 1945794227
       monster_03_10: -120860986
-      monster_03_49: 48730046
-      monster_03_35: 1519731193
-      monster_03_16: -203070962
-      monster_03_47: -1776291605
+      monster_03_11: -39031265
+      monster_03_12: -204885694
+      monster_03_13: -116788560
       monster_03_14: 420688344
-      monster_03_51: 114691862
+      monster_03_15: -1491099195
+      monster_03_16: -203070962
+      monster_03_17: -81290373
+      monster_03_18: -1317869130
+      monster_03_19: 1899363869
+      monster_03_2: 428705330
+      monster_03_20: 407684478
+      monster_03_21: -102319811
+      monster_03_22: 926365128
+      monster_03_23: 579654654
+      monster_03_24: 66465290
       monster_03_25: 511662529
+      monster_03_26: 788915182
+      monster_03_27: -1545556137
+      monster_03_28: -50482947
       monster_03_29: 1793070629
       monster_03_3: 1320227972
-      monster_03_23: 579654654
-      monster_03_37: 2007838813
-      monster_03_4: 474464475
-      monster_03_42: 928805616
+      monster_03_30: 967925527
+      monster_03_31: 771545742
       monster_03_32: 674328639
-      monster_03_8: 2132405065
-      monster_03_54: -1397418471
-      monster_03_18: -1317869130
-      monster_03_50: -1811376209
-      monster_03_12: -204885694
-      monster_03_9: -1836253828
-      monster_03_53: -2121670924
-      monster_03_26: 788915182
-      monster_03_0: 34203662
+      monster_03_33: -2049674456
       monster_03_34: -938215358
-      monster_03_28: -50482947
-      monster_03_11: -39031265
-      monster_03_24: 66465290
+      monster_03_35: 1519731193
+      monster_03_36: 1976602849
+      monster_03_37: 2007838813
       monster_03_38: -669045422
-      monster_03_15: -1491099195
-      monster_03_22: 926365128
+      monster_03_39: -1794342819
+      monster_03_4: 474464475
+      monster_03_40: -836691001
+      monster_03_41: -1298810009
+      monster_03_42: 928805616
+      monster_03_43: 691077338
+      monster_03_44: -1033193036
       monster_03_45: 566010362
-      monster_03_1: 1945794227
-  spritePackingTag: 
+      monster_03_46: 1121620317
+      monster_03_47: -1776291605
+      monster_03_48: 1505226906
+      monster_03_49: 48730046
+      monster_03_5: 13931929
+      monster_03_50: -1811376209
+      monster_03_51: 114691862
+      monster_03_52: -1723194103
+      monster_03_53: -2121670924
+      monster_03_54: -1397418471
+      monster_03_6: 1200994367
+      monster_03_7: -2049085092
+      monster_03_8: 2132405065
+      monster_03_9: -1836253828
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

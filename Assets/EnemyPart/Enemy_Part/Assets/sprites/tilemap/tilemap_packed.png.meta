@@ -3,7 +3,7 @@ guid: bbbcac3b3b084a446837dba4299cc405
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2887,141 +2892,140 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tilemap_packed_125: -1276750060
-      tilemap_packed_90: -651559400
-      tilemap_packed_28: 2077670050
-      tilemap_packed_20: 370931461
-      tilemap_packed_21: 226922193
-      tilemap_packed_76: 1744958197
-      tilemap_packed_66: -1253187433
-      tilemap_packed_1: 539021001
-      tilemap_packed_13: 1055489144
-      tilemap_packed_9: -2035123043
-      tilemap_packed_75: -1265911423
-      tilemap_packed_97: 1616850073
-      tilemap_packed_106: -334695320
-      tilemap_packed_14: -1304979233
-      tilemap_packed_3: 2041684213
-      tilemap_packed_57: -883096033
-      tilemap_packed_118: -884934038
-      tilemap_packed_131: 1043643108
-      tilemap_packed_67: 1598580164
-      tilemap_packed_6: 1492277699
-      tilemap_packed_94: 611510760
-      tilemap_packed_71: -816609829
-      tilemap_packed_117: 1094869602
-      tilemap_packed_95: 1023319175
-      tilemap_packed_85: 32198014
-      tilemap_packed_105: 873171450
-      tilemap_packed_102: 437387782
-      tilemap_packed_59: 1693093490
-      tilemap_packed_129: -916695731
-      tilemap_packed_18: -624857823
-      tilemap_packed_92: -1106624716
-      tilemap_packed_37: 1802424297
-      tilemap_packed_52: 1125068282
-      tilemap_packed_39: 537358941
-      tilemap_packed_61: 1209859367
-      tilemap_packed_7: -322978139
-      tilemap_packed_63: 721221680
-      tilemap_packed_69: -529594907
-      tilemap_packed_65: -1992393113
-      tilemap_packed_15: -11768775
-      tilemap_packed_116: 1561664701
-      tilemap_packed_29: 12522783
-      tilemap_packed_81: 645691862
-      tilemap_packed_47: -1835888351
-      tilemap_packed_33: 1896544250
-      tilemap_packed_24: -1294448979
-      tilemap_packed_42: 355077469
-      tilemap_packed_36: 361429926
-      tilemap_packed_78: -1742665932
-      tilemap_packed_23: -54974937
-      tilemap_packed_93: -2101153978
-      tilemap_packed_10: -1784448548
-      tilemap_packed_53: -1118109444
-      tilemap_packed_49: 767905090
-      tilemap_packed_35: 419590854
-      tilemap_packed_88: -288072846
-      tilemap_packed_38: -735665761
-      tilemap_packed_19: 1720910904
-      tilemap_packed_46: 119982893
-      tilemap_packed_55: -1038502165
-      tilemap_packed_48: -1210737782
-      tilemap_packed_22: 134895904
-      tilemap_packed_8: 1195683189
-      tilemap_packed_44: -1203042124
-      tilemap_packed_91: -2067851984
-      tilemap_packed_2: 359558969
-      tilemap_packed_111: -908790025
-      tilemap_packed_110: -940530771
-      tilemap_packed_100: -1708720107
       tilemap_packed_0: 1709243576
-      tilemap_packed_27: -1874701866
+      tilemap_packed_1: 539021001
+      tilemap_packed_10: -1784448548
+      tilemap_packed_100: -1708720107
+      tilemap_packed_101: -1210863001
+      tilemap_packed_102: 437387782
+      tilemap_packed_103: 531526218
+      tilemap_packed_104: 1033041730
+      tilemap_packed_105: 873171450
+      tilemap_packed_106: -334695320
+      tilemap_packed_107: 1159192007
+      tilemap_packed_108: 1486372381
+      tilemap_packed_109: -1807453271
+      tilemap_packed_11: 1373382717
+      tilemap_packed_110: -940530771
+      tilemap_packed_111: -908790025
+      tilemap_packed_112: -850318872
+      tilemap_packed_113: -648125605
       tilemap_packed_114: 1477316860
       tilemap_packed_115: 2111307784
-      tilemap_packed_79: -1723461652
-      tilemap_packed_107: 1159192007
-      tilemap_packed_101: -1210863001
-      tilemap_packed_112: -850318872
-      tilemap_packed_64: 1643214305
-      tilemap_packed_120: 1976644658
-      tilemap_packed_68: 1221783412
-      tilemap_packed_30: 27742366
-      tilemap_packed_34: -1199332534
-      tilemap_packed_16: 991205233
-      tilemap_packed_31: -699075388
-      tilemap_packed_70: -241599877
-      tilemap_packed_62: -1070240220
-      tilemap_packed_43: -1804974352
-      tilemap_packed_40: -1438125749
-      tilemap_packed_108: 1486372381
-      tilemap_packed_89: 1623511433
-      tilemap_packed_4: -1912989489
-      tilemap_packed_123: 1011019040
-      tilemap_packed_98: 1407533769
-      tilemap_packed_60: 1431155660
-      tilemap_packed_17: -508865012
-      tilemap_packed_72: 135534714
-      tilemap_packed_80: 1319458518
-      tilemap_packed_25: -991280720
-      tilemap_packed_82: 1465024983
-      tilemap_packed_32: -217192305
-      tilemap_packed_74: 2048864136
-      tilemap_packed_124: 1076229504
-      tilemap_packed_126: 975883514
-      tilemap_packed_45: 192835740
-      tilemap_packed_87: -429676123
+      tilemap_packed_116: 1561664701
+      tilemap_packed_117: 1094869602
+      tilemap_packed_118: -884934038
       tilemap_packed_119: -1422263262
       tilemap_packed_12: 522429611
-      tilemap_packed_77: 1762106547
-      tilemap_packed_104: 1033041730
-      tilemap_packed_122: 214898751
-      tilemap_packed_109: -1807453271
-      tilemap_packed_5: -245007102
-      tilemap_packed_73: -1025192900
-      tilemap_packed_84: -673086714
-      tilemap_packed_99: -2142339113
-      tilemap_packed_96: 820090599
-      tilemap_packed_86: 1270086782
-      tilemap_packed_83: 105833659
-      tilemap_packed_41: 840811215
-      tilemap_packed_26: 1496806322
-      tilemap_packed_103: 531526218
-      tilemap_packed_54: 91384001
-      tilemap_packed_128: -1250656655
+      tilemap_packed_120: 1976644658
       tilemap_packed_121: -1338516693
-      tilemap_packed_11: 1373382717
-      tilemap_packed_50: -1204104781
-      tilemap_packed_58: -818537944
-      tilemap_packed_113: -648125605
+      tilemap_packed_122: 214898751
+      tilemap_packed_123: 1011019040
+      tilemap_packed_124: 1076229504
+      tilemap_packed_125: -1276750060
+      tilemap_packed_126: 975883514
       tilemap_packed_127: -1274589562
-      tilemap_packed_51: 2114022442
-      tilemap_packed_56: 1206247375
+      tilemap_packed_128: -1250656655
+      tilemap_packed_129: -916695731
+      tilemap_packed_13: 1055489144
       tilemap_packed_130: 1228746256
-  spritePackingTag: 
+      tilemap_packed_131: 1043643108
+      tilemap_packed_14: -1304979233
+      tilemap_packed_15: -11768775
+      tilemap_packed_16: 991205233
+      tilemap_packed_17: -508865012
+      tilemap_packed_18: -624857823
+      tilemap_packed_19: 1720910904
+      tilemap_packed_2: 359558969
+      tilemap_packed_20: 370931461
+      tilemap_packed_21: 226922193
+      tilemap_packed_22: 134895904
+      tilemap_packed_23: -54974937
+      tilemap_packed_24: -1294448979
+      tilemap_packed_25: -991280720
+      tilemap_packed_26: 1496806322
+      tilemap_packed_27: -1874701866
+      tilemap_packed_28: 2077670050
+      tilemap_packed_29: 12522783
+      tilemap_packed_3: 2041684213
+      tilemap_packed_30: 27742366
+      tilemap_packed_31: -699075388
+      tilemap_packed_32: -217192305
+      tilemap_packed_33: 1896544250
+      tilemap_packed_34: -1199332534
+      tilemap_packed_35: 419590854
+      tilemap_packed_36: 361429926
+      tilemap_packed_37: 1802424297
+      tilemap_packed_38: -735665761
+      tilemap_packed_39: 537358941
+      tilemap_packed_4: -1912989489
+      tilemap_packed_40: -1438125749
+      tilemap_packed_41: 840811215
+      tilemap_packed_42: 355077469
+      tilemap_packed_43: -1804974352
+      tilemap_packed_44: -1203042124
+      tilemap_packed_45: 192835740
+      tilemap_packed_46: 119982893
+      tilemap_packed_47: -1835888351
+      tilemap_packed_48: -1210737782
+      tilemap_packed_49: 767905090
+      tilemap_packed_5: -245007102
+      tilemap_packed_50: -1204104781
+      tilemap_packed_51: 2114022442
+      tilemap_packed_52: 1125068282
+      tilemap_packed_53: -1118109444
+      tilemap_packed_54: 91384001
+      tilemap_packed_55: -1038502165
+      tilemap_packed_56: 1206247375
+      tilemap_packed_57: -883096033
+      tilemap_packed_58: -818537944
+      tilemap_packed_59: 1693093490
+      tilemap_packed_6: 1492277699
+      tilemap_packed_60: 1431155660
+      tilemap_packed_61: 1209859367
+      tilemap_packed_62: -1070240220
+      tilemap_packed_63: 721221680
+      tilemap_packed_64: 1643214305
+      tilemap_packed_65: -1992393113
+      tilemap_packed_66: -1253187433
+      tilemap_packed_67: 1598580164
+      tilemap_packed_68: 1221783412
+      tilemap_packed_69: -529594907
+      tilemap_packed_7: -322978139
+      tilemap_packed_70: -241599877
+      tilemap_packed_71: -816609829
+      tilemap_packed_72: 135534714
+      tilemap_packed_73: -1025192900
+      tilemap_packed_74: 2048864136
+      tilemap_packed_75: -1265911423
+      tilemap_packed_76: 1744958197
+      tilemap_packed_77: 1762106547
+      tilemap_packed_78: -1742665932
+      tilemap_packed_79: -1723461652
+      tilemap_packed_8: 1195683189
+      tilemap_packed_80: 1319458518
+      tilemap_packed_81: 645691862
+      tilemap_packed_82: 1465024983
+      tilemap_packed_83: 105833659
+      tilemap_packed_84: -673086714
+      tilemap_packed_85: 32198014
+      tilemap_packed_86: 1270086782
+      tilemap_packed_87: -429676123
+      tilemap_packed_88: -288072846
+      tilemap_packed_89: 1623511433
+      tilemap_packed_9: -2035123043
+      tilemap_packed_90: -651559400
+      tilemap_packed_91: -2067851984
+      tilemap_packed_92: -1106624716
+      tilemap_packed_93: -2101153978
+      tilemap_packed_94: 611510760
+      tilemap_packed_95: 1023319175
+      tilemap_packed_96: 820090599
+      tilemap_packed_97: 1616850073
+      tilemap_packed_98: 1407533769
+      tilemap_packed_99: -2142339113
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

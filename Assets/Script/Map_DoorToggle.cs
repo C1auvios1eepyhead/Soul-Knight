@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using UnityEngine;
+using Pathfinding;
 
 public class Map_DoorToggle : MonoBehaviour
 {
@@ -7,9 +9,11 @@ public class Map_DoorToggle : MonoBehaviour
 
     private bool isClosed = false;
 
+
     private void Start()
     {
         OpenDoor();
+
     }
 
     public void CloseDoor()
@@ -17,6 +21,10 @@ public class Map_DoorToggle : MonoBehaviour
         if (doorOpenLayer != null) doorOpenLayer.SetActive(false);
         if (doorCloseLayer != null) doorCloseLayer.SetActive(true);
         isClosed = true;
+        ScanGraph1();
+    
+
+
     }
 
     public void OpenDoor()
@@ -27,4 +35,17 @@ public class Map_DoorToggle : MonoBehaviour
     }
 
     public bool IsClosed() => isClosed;
+
+    public void ScanGraph1()
+    {
+        if (AstarPath.active == null)
+        {
+            UnityEngine.Debug.LogError("No AstarPath instance found in the scene!");
+            return;
+        }
+
+        AstarPath.active.Scan();  // 扫描所有图
+        UnityEngine.Debug.Log("Pathfinding graph scanned!");
+    }
 }
+

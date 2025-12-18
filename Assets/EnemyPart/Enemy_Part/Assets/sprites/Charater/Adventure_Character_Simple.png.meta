@@ -3,7 +3,7 @@ guid: fbaab84148a3f154fab5b573fdfd7f13
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2383,117 +2388,116 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Adventure_Character_Simple_16: 1202417238
-      Adventure_Character_Simple_5: -327841979
-      Adventure_Character_Simple_15: -1603346313
-      Adventure_Character_Simple_32: -1808192669
-      Adventure_Character_Simple_49: 581657035
-      Adventure_Character_Simple_13: -1522721886
-      Adventure_Character_Simple_82: 884336976
-      Adventure_Character_Simple_105: 1299547894
-      Adventure_Character_Simple_72: -257688617
-      Adventure_Character_Simple_77: -1189521160
-      Adventure_Character_Simple_25: -1680243834
+      Adventure_Character_Simple_0: 1670995327
       Adventure_Character_Simple_1: 1627153065
-      Adventure_Character_Simple_21: 1566759329
-      Adventure_Character_Simple_56: 389316959
-      Adventure_Character_Simple_97: -615622776
-      Adventure_Character_Simple_41: 1105572488
-      Adventure_Character_Simple_61: 1221005452
-      Adventure_Character_Simple_99: -714556692
-      Adventure_Character_Simple_11: -685571680
-      Adventure_Character_Simple_2: -530170785
-      Adventure_Character_Simple_47: 2002211327
-      Adventure_Character_Simple_86: 364080001
-      Adventure_Character_Simple_66: -699794205
-      Adventure_Character_Simple_83: 831555523
-      Adventure_Character_Simple_17: 1270081137
       Adventure_Character_Simple_10: -1437437640
-      Adventure_Character_Simple_44: 1674147064
-      Adventure_Character_Simple_34: 252967092
-      Adventure_Character_Simple_54: -1417841941
-      Adventure_Character_Simple_68: 916585052
-      Adventure_Character_Simple_92: -1174554896
-      Adventure_Character_Simple_28: -734774347
-      Adventure_Character_Simple_94: -1540052308
-      Adventure_Character_Simple_103: 81035654
-      Adventure_Character_Simple_29: -1811609771
-      Adventure_Character_Simple_69: -1722125220
-      Adventure_Character_Simple_96: 753502558
-      Adventure_Character_Simple_85: 66651913
-      Adventure_Character_Simple_67: 1325250914
-      Adventure_Character_Simple_14: -1069634984
-      Adventure_Character_Simple_45: -1163035556
-      Adventure_Character_Simple_90: 1626252820
-      Adventure_Character_Simple_53: -634422518
-      Adventure_Character_Simple_40: 1490745000
-      Adventure_Character_Simple_64: -1413035959
-      Adventure_Character_Simple_102: -1912835441
-      Adventure_Character_Simple_107: -1145502808
-      Adventure_Character_Simple_20: 1521820220
-      Adventure_Character_Simple_27: 654780247
-      Adventure_Character_Simple_73: 1201186543
-      Adventure_Character_Simple_26: 596819325
-      Adventure_Character_Simple_23: -2082101010
-      Adventure_Character_Simple_18: -599450413
-      Adventure_Character_Simple_4: 1531831757
-      Adventure_Character_Simple_80: -1449111918
-      Adventure_Character_Simple_59: -1145051901
-      Adventure_Character_Simple_37: 1784909830
-      Adventure_Character_Simple_39: -1602007395
-      Adventure_Character_Simple_48: 534557165
-      Adventure_Character_Simple_50: 2083505174
-      Adventure_Character_Simple_70: 1858035644
-      Adventure_Character_Simple_63: -249245211
-      Adventure_Character_Simple_104: -1212088861
-      Adventure_Character_Simple_51: -1223946876
-      Adventure_Character_Simple_74: 751342736
-      Adventure_Character_Simple_43: 908046490
-      Adventure_Character_Simple_7: 1177984515
-      Adventure_Character_Simple_87: -1424032104
-      Adventure_Character_Simple_55: -728629639
-      Adventure_Character_Simple_78: -787124021
-      Adventure_Character_Simple_9: 1559291527
-      Adventure_Character_Simple_31: -1512271903
-      Adventure_Character_Simple_75: -1937632796
       Adventure_Character_Simple_100: -1911283014
       Adventure_Character_Simple_101: -1671740652
-      Adventure_Character_Simple_62: -536842955
-      Adventure_Character_Simple_84: -740188931
-      Adventure_Character_Simple_98: 167712680
-      Adventure_Character_Simple_30: -484271345
-      Adventure_Character_Simple_46: 694010275
-      Adventure_Character_Simple_52: -1801937691
-      Adventure_Character_Simple_6: 1389315722
-      Adventure_Character_Simple_12: -467274041
-      Adventure_Character_Simple_36: -1984770904
-      Adventure_Character_Simple_0: 1670995327
-      Adventure_Character_Simple_58: -635804957
-      Adventure_Character_Simple_95: -996920935
-      Adventure_Character_Simple_57: 1198766489
-      Adventure_Character_Simple_60: 1282952751
-      Adventure_Character_Simple_81: 1649687453
+      Adventure_Character_Simple_102: -1912835441
+      Adventure_Character_Simple_103: 81035654
+      Adventure_Character_Simple_104: -1212088861
+      Adventure_Character_Simple_105: 1299547894
       Adventure_Character_Simple_106: 444832069
-      Adventure_Character_Simple_89: -462511418
-      Adventure_Character_Simple_42: 1451027440
-      Adventure_Character_Simple_22: -1252131337
-      Adventure_Character_Simple_76: 437333039
-      Adventure_Character_Simple_88: -91146471
-      Adventure_Character_Simple_3: 125464728
+      Adventure_Character_Simple_107: -1145502808
+      Adventure_Character_Simple_11: -685571680
+      Adventure_Character_Simple_12: -467274041
+      Adventure_Character_Simple_13: -1522721886
+      Adventure_Character_Simple_14: -1069634984
+      Adventure_Character_Simple_15: -1603346313
+      Adventure_Character_Simple_16: 1202417238
+      Adventure_Character_Simple_17: 1270081137
+      Adventure_Character_Simple_18: -599450413
       Adventure_Character_Simple_19: 586890409
-      Adventure_Character_Simple_79: -1187824059
-      Adventure_Character_Simple_38: 931005112
-      Adventure_Character_Simple_65: 217599278
-      Adventure_Character_Simple_8: 750251680
-      Adventure_Character_Simple_93: 1362568692
+      Adventure_Character_Simple_2: -530170785
+      Adventure_Character_Simple_20: 1521820220
+      Adventure_Character_Simple_21: 1566759329
+      Adventure_Character_Simple_22: -1252131337
+      Adventure_Character_Simple_23: -2082101010
       Adventure_Character_Simple_24: 1825239734
-      Adventure_Character_Simple_91: -1839733435
+      Adventure_Character_Simple_25: -1680243834
+      Adventure_Character_Simple_26: 596819325
+      Adventure_Character_Simple_27: 654780247
+      Adventure_Character_Simple_28: -734774347
+      Adventure_Character_Simple_29: -1811609771
+      Adventure_Character_Simple_3: 125464728
+      Adventure_Character_Simple_30: -484271345
+      Adventure_Character_Simple_31: -1512271903
+      Adventure_Character_Simple_32: -1808192669
       Adventure_Character_Simple_33: -232524532
+      Adventure_Character_Simple_34: 252967092
       Adventure_Character_Simple_35: -1684651015
+      Adventure_Character_Simple_36: -1984770904
+      Adventure_Character_Simple_37: 1784909830
+      Adventure_Character_Simple_38: 931005112
+      Adventure_Character_Simple_39: -1602007395
+      Adventure_Character_Simple_4: 1531831757
+      Adventure_Character_Simple_40: 1490745000
+      Adventure_Character_Simple_41: 1105572488
+      Adventure_Character_Simple_42: 1451027440
+      Adventure_Character_Simple_43: 908046490
+      Adventure_Character_Simple_44: 1674147064
+      Adventure_Character_Simple_45: -1163035556
+      Adventure_Character_Simple_46: 694010275
+      Adventure_Character_Simple_47: 2002211327
+      Adventure_Character_Simple_48: 534557165
+      Adventure_Character_Simple_49: 581657035
+      Adventure_Character_Simple_5: -327841979
+      Adventure_Character_Simple_50: 2083505174
+      Adventure_Character_Simple_51: -1223946876
+      Adventure_Character_Simple_52: -1801937691
+      Adventure_Character_Simple_53: -634422518
+      Adventure_Character_Simple_54: -1417841941
+      Adventure_Character_Simple_55: -728629639
+      Adventure_Character_Simple_56: 389316959
+      Adventure_Character_Simple_57: 1198766489
+      Adventure_Character_Simple_58: -635804957
+      Adventure_Character_Simple_59: -1145051901
+      Adventure_Character_Simple_6: 1389315722
+      Adventure_Character_Simple_60: 1282952751
+      Adventure_Character_Simple_61: 1221005452
+      Adventure_Character_Simple_62: -536842955
+      Adventure_Character_Simple_63: -249245211
+      Adventure_Character_Simple_64: -1413035959
+      Adventure_Character_Simple_65: 217599278
+      Adventure_Character_Simple_66: -699794205
+      Adventure_Character_Simple_67: 1325250914
+      Adventure_Character_Simple_68: 916585052
+      Adventure_Character_Simple_69: -1722125220
+      Adventure_Character_Simple_7: 1177984515
+      Adventure_Character_Simple_70: 1858035644
       Adventure_Character_Simple_71: -259416307
-  spritePackingTag: 
+      Adventure_Character_Simple_72: -257688617
+      Adventure_Character_Simple_73: 1201186543
+      Adventure_Character_Simple_74: 751342736
+      Adventure_Character_Simple_75: -1937632796
+      Adventure_Character_Simple_76: 437333039
+      Adventure_Character_Simple_77: -1189521160
+      Adventure_Character_Simple_78: -787124021
+      Adventure_Character_Simple_79: -1187824059
+      Adventure_Character_Simple_8: 750251680
+      Adventure_Character_Simple_80: -1449111918
+      Adventure_Character_Simple_81: 1649687453
+      Adventure_Character_Simple_82: 884336976
+      Adventure_Character_Simple_83: 831555523
+      Adventure_Character_Simple_84: -740188931
+      Adventure_Character_Simple_85: 66651913
+      Adventure_Character_Simple_86: 364080001
+      Adventure_Character_Simple_87: -1424032104
+      Adventure_Character_Simple_88: -91146471
+      Adventure_Character_Simple_89: -462511418
+      Adventure_Character_Simple_9: 1559291527
+      Adventure_Character_Simple_90: 1626252820
+      Adventure_Character_Simple_91: -1839733435
+      Adventure_Character_Simple_92: -1174554896
+      Adventure_Character_Simple_93: 1362568692
+      Adventure_Character_Simple_94: -1540052308
+      Adventure_Character_Simple_95: -996920935
+      Adventure_Character_Simple_96: 753502558
+      Adventure_Character_Simple_97: -615622776
+      Adventure_Character_Simple_98: 167712680
+      Adventure_Character_Simple_99: -714556692
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

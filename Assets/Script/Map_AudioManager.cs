@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Map_AudioManager : MonoBehaviour
 {
@@ -18,13 +19,13 @@ public class Map_AudioManager : MonoBehaviour
     private AudioSource bgmSource;
     private Coroutine fadeRoutine;
 
-    private void Start()
+    /*private void Start()
     {
         if (autoPlayBattleOnSceneStart)
         {
             PlayBattleBGM(forceRestart: false);
         }
-    }
+    }*/
 
     private void Awake()
     {
@@ -42,6 +43,32 @@ public class Map_AudioManager : MonoBehaviour
         bgmSource.loop = true;
         bgmSource.playOnAwake = false;
         bgmSource.volume = defaultVolume;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 这些场景不该继续播放关卡BGM
+        if (scene.name == "GameOver" || scene.name == "Main")
+        {
+            StopBGM(fadeOut: false);   // 立即停止（避免GameOver还在放BossBGM）
+            return;
+        }
+
+        // 如果你只想在“进入怪物房/ Boss房”时才切歌，建议把 autoPlayBattleOnSceneStart 关掉
+        if (autoPlayBattleOnSceneStart)
+        {
+            PlayBattleBGM(forceRestart: false);
+        }
     }
 
     public void PlayBattleBGM(bool forceRestart = false)

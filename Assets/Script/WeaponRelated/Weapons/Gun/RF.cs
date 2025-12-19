@@ -6,7 +6,7 @@ public class RF : Gun
     {
         base.Awake();
         weaponName = "Rifle";
-        damage = 20f;
+        damage = 80f;
         attackRate = 1.2f;
         weaponBulletSpeed = 40f;
         weaponRange = 25f;

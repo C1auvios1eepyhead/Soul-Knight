@@ -185,7 +185,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   player: {fileID: 0}
-  IdleDuration: 1
+  IdleDuration: 2
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   attackDistance: 1.3
   pathPointList: []
   currentIndex: 0
-  meleeAttackDamage: 5
+  meleeAttackDamage: 2
   isAttack: 1
   distance: 0
   playerLayer:

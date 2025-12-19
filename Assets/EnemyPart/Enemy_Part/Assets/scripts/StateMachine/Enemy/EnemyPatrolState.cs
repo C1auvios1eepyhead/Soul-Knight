@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// µÐÈËÑ²Âß×´Ì¬
+/// ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ï¿½×´Ì¬
 /// </summary>
 public class EnemyPatrolState : IState
 {
@@ -13,67 +13,67 @@ public class EnemyPatrolState : IState
     private float stopThrehold = 3f;
     private float stopTime=0f;
 
-    //¹¹Ôìº¯Êý
+    //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
     public EnemyPatrolState(Enemy enemy)
     {
         this.enemy = enemy;
     }
     public void OnEnter()
     {
-        GeneratePatrolPoint();//½øÈëÑ²Âß×´Ì¬Ëæ»úÉú³ÉÑ²Âßµã
-        enemy.animator.Play("Walk");//Ñ²Âß×´Ì¬£¬²¥·Å×ßÂ·¶¯»­
+        GeneratePatrolPoint();//ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ßµï¿½
+        enemy.animator.Play("Walk");//Ñ²ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
     }
     public void OnUpdate()
     {
-        //¼ì²âÊÇ·ñÊÜÉË
+        //ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
         if (enemy.isHurt)
         {
             enemy.TransitionState(EnemyStateType.Hurt);
         }
 
-        //ÔÚÑ²Âß¹ý³ÌÖÐ·¢ÏÖÍæ¼Ò£¬ÇÐ»»µ½×·»÷×´Ì¬
-        enemy.GetPlayerTransform();//»ñÈ¡Íæ¼ÒÎ»ÖÃ
+        //ï¿½ï¿½Ñ²ï¿½ß¹ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½Ð»ï¿½ï¿½ï¿½×·ï¿½ï¿½×´Ì¬
+        enemy.GetPlayerTransform();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 
         if (enemy.player != null)
         {
             enemy.TransitionState(EnemyStateType.Chase);
         }
 
-        //Â·¾¶µãÁÐ±íÎª¿ÕÊ±£¬½øÐÐÂ·¾¶¼ÆËã
+        //Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½Îªï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (enemy.pathPointList == null || enemy.pathPointList.Count <= 0)
         {
-            //ÖØÐÂÉú³ÉÑ²Âßµã
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ßµï¿½
             GeneratePatrolPoint();
         }
         else
         {
-            //µ±µÐÈËµ½´ïµ±Ç°Â·¾¶µãÊ±£¬µÝÔöË÷ÒýcurrentIndex²¢½øÐÐÂ·¾¶¼ÆËã
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ïµ±Ç°Â·ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½currentIndexï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (Vector2.Distance(enemy.transform.position, enemy.pathPointList[enemy.currentIndex]) <= 0.1f)
             {
                 enemy.currentIndex++;
 
-                //µ½´ïÑ²Âßµã
+                //ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ßµï¿½
                 if (enemy.currentIndex >= enemy.pathPointList.Count)
                 {
-                    enemy.TransitionState(EnemyStateType.Idle);//ÇÐ»»µ½´ý»ú×´Ì¬
+                    enemy.TransitionState(EnemyStateType.Idle);//ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
                 }
-                else //Î´µ½´ïÑ²Âßµã
+                else //Î´ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ßµï¿½
                 {
                     direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
-                    enemy.MovementInput = direction;    //ÒÆ¶¯·½Ïò´«¸øMovementInput
+                    enemy.MovementInput = direction;    //ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ò´«¸ï¿½MovementInput
                 }
             }
-            else {//Ïà×²´¦Àí
+            else {//ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½
                 
-                //µÐÈË¸ÕÌåËÙ¶ÈÐ¡ÓÚµÐÈËÄ¬ÈÏµÄµ±Ç°ËÙ¶È£¬²¢ÇÒµÐÈË»¹Î´µ½´ïÑ²Âßµã
+                //ï¿½ï¿½ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½Ð¡ï¿½Úµï¿½ï¿½ï¿½Ä¬ï¿½ÏµÄµï¿½Ç°ï¿½Ù¶È£ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ë»ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ßµï¿½
                 if (enemy.rb.velocity.magnitude < enemy.currentSpeed && enemy.currentIndex < enemy.pathPointList.Count)
                 {
-                    if (enemy.rb.velocity.magnitude <= 0.1f)//Èç¹ûµÐÈËËÙ¶ÈÎª0,ÔÚÑ°Â··¶Î§ÍâµÄµÐÈË
+                    if (enemy.rb.velocity.magnitude <= 0.1f)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½Îª0,ï¿½ï¿½Ñ°Â·ï¿½ï¿½Î§ï¿½ï¿½Äµï¿½ï¿½ï¿½
                     {
-                        if (enemy.rb.velocity.magnitude == 0)//Èç¹ûµÐÈËËÙ¶ÈÎª0,ÔÚÑ°Â··¶Î§ÍâµÄµÐÈË
+                        if (enemy.rb.velocity.magnitude == 0)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½Îª0,ï¿½ï¿½Ñ°Â·ï¿½ï¿½Î§ï¿½ï¿½Äµï¿½ï¿½ï¿½
                         {
                         direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
-                        enemy.MovementInput = direction;    //ÒÆ¶¯·½Ïò´«¸øMovementInput
+                        enemy.MovementInput = direction;    //ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ò´«¸ï¿½MovementInput
                         }
                         stopTime+=Time.deltaTime;
                     }
@@ -106,23 +106,23 @@ public class EnemyPatrolState : IState
 
     }
 
-    //»ñµÃËæ»úÑ²Âßµã
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ßµï¿½
     public void GeneratePatrolPoint()
     {
         while (true)
         {
-            //Ëæ»úÑ¡ÔñÒ»¸öÑ²ÂßµãË÷Òý
+            //ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ò»ï¿½ï¿½Ñ²ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½
             int i = Random.Range(0, enemy.patrolPoints.Length);
 
-            //ÅÅ³ýµ±Ç°Ë÷Òý
+            //ï¿½Å³ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
             if (enemy.targetPointIndex != i)
             {
                 enemy.targetPointIndex = i;
-                break;//ÍË³öËÀÑ­»·
+                break;//ï¿½Ë³ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
             }
         }
 
-        //°ÑÑ²Âßµã¸øÉú³ÉÂ·¾¶µãº¯Êý
+        //ï¿½ï¿½Ñ²ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ãº¯ï¿½ï¿½
         enemy.GeneratePath(enemy.patrolPoints[enemy.targetPointIndex].position);
 
     }

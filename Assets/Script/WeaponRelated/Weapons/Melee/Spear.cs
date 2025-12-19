@@ -6,27 +6,27 @@ public class Spear : Melee
     {
         base.Awake();
         weaponName = "Spear";
-        damage = 12f;
+        damage = 60f;
         attackRange = 6f;
-        attackAngle = 10f; // Ð¡½Ç¶ÈÉÈÐÎ£¬Ä£Äâ³¤Ç¹Ö±Ïß
+        attackAngle = 10f; // Ð¡ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½Î£ï¿½Ä£ï¿½â³¤Ç¹Ö±ï¿½ï¿½
         attackRate = 2f;
     }
 
     protected override Transform[] PerformAttackWithReturnTargets()
     {
-        // 1. ²éÕÒ×î½üµÐÈË
+        // 1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Transform nearest = FindTarget();
         if (nearest == null)
         {
-            // ³¡¾°ÖÐÃ»ÓÐµÐÈË
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ðµï¿½ï¿½ï¿½
             return new Transform[0];
         }
 
-        // 2. ÈÃ firePoint Ö¸Ïò×î½üµÐÈË
+        // 2. ï¿½ï¿½ firePoint Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         Vector2 dir = nearest.position - firePoint.position;
         firePoint.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
 
-        // 3. ¼ì²â¹¥»÷·¶Î§ÄÚµÄµÐÈË£¨ÉÈÐÎ£©
+        // 3. ï¿½ï¿½â¹¥ï¿½ï¿½ï¿½ï¿½Î§ï¿½ÚµÄµï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Î£ï¿½
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         var hitList = new System.Collections.Generic.List<Transform>();
 

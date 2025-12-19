@@ -6,12 +6,12 @@ public class Sword : Melee
     {
         base.Awake();
         weaponName = "Sword";
-        damage = 15f;
+        damage = 80f;
         attackRate = 0.7f;
         attackRange = 5f;
     }
 
-    // µ¥Ìå¹¥»÷£ºÖ»¸ºÔð¡°Ñ¡Ä¿±ê¡±
+    // ï¿½ï¿½ï¿½å¹¥ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ñ¡Ä¿ï¿½ê¡±
     protected override Transform[] PerformAttackWithReturnTargets()
     {
         Transform target = FindTarget();

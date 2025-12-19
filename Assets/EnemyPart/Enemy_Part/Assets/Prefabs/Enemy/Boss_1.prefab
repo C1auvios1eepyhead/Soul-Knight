@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db652d716387ea4281173fbd93db951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1200
   currentHealth: 0
   invulnerable: 0
   invulnerableDuration: 0
@@ -245,12 +245,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   player: {fileID: 0}
-  IdleDuration: 0
+  IdleDuration: 4
   patrolPoints: []
   targetPointIndex: 0
   currentSpeed: 5
-  chaseDistance: 6
-  attackDistance: 5
+  chaseDistance: 12
+  attackDistance: 8
   pathPointList: []
   currentIndex: 0
   meleeAttackDamage: 0
@@ -262,15 +262,15 @@ MonoBehaviour:
   AttackCooldownDuration: 1
   isHurt: 0
   isKnokback: 1
-  knokbackForce: 10
-  knokbackForceDuration: 0.1
+  knokbackForce: 0
+  knokbackForceDuration: 0
   sr: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 0}
   enemyCollider: {fileID: 0}
   bulletPrefab: {fileID: 668899891148364038, guid: becf787f24ad366458d5297aff615b63, type: 3}
   firePoint: {fileID: 2702570349351630289}
-  bulletSpeed: 8
+  bulletSpeed: 5
 --- !u!58 &7254066167405894336
 CircleCollider2D:
   m_ObjectHideFlags: 0

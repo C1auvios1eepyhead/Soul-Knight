@@ -6,12 +6,12 @@ public class Knife : Melee
     {
         base.Awake();
         weaponName = "Knife";
-        damage = 5f;
+        damage = 30f;
         attackRate = 0.7f;
         attackRange = 4f;
     }
 
-    // µ¥Ìå¹¥»÷
+    // ï¿½ï¿½ï¿½å¹¥ï¿½ï¿½
     protected override Transform[] PerformAttackWithReturnTargets()
     {
         Transform target = FindTarget();

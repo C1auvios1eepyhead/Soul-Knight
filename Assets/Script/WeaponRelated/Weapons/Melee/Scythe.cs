@@ -6,7 +6,7 @@ public class Scythe : Melee
     {
         base.Awake();
         weaponName = "Scythe";
-        damage = 20f;
+        damage = 40f;
         attackRange = 5f;
         attackAngle = 90f; // 大扇形
         attackRate = 2f;

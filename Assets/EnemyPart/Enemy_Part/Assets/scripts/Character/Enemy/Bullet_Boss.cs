@@ -53,11 +53,7 @@ public class Bullet_Boss : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    private void Update()
-    {
-        // 子弹沿自身的右方向移动
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
-    }
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

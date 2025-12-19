@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Monster
+  - Weapon
+  - Bullet
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - DestructibleTile
+  - Obstacle
+  - Bullet
+  - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Tilemap
+    uniqueID: 3153502999
+    locked: 0
+  - name: Potral
+    uniqueID: 2803363523
+    locked: 0
+  - name: Chest
+    uniqueID: 1604765765
+    locked: 0
+  - name: Character
+    uniqueID: 1186996667
+    locked: 0
+  - name: Weapon
+    uniqueID: 3595701809
+    locked: 0
+  - name: Tips
+    uniqueID: 1656885399
+    locked: 0
+  - name: UI
+    uniqueID: 1593224569
+    locked: 0

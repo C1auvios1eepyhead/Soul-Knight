@@ -574,14 +574,20 @@ public class Map_LevelGenerator : MonoBehaviour
 
     private IEnumerator CoMovePlayerNextFrame()
     {
-        yield return null; // Wait for one frame, allowing all the colliders of the door, wall, and corridor to be generated completely.
+        // 先拿到 player（必须在使用 player 之前声明）
+        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
+        if (player == null) yield break;
+
+        // 立刻开启“进房触发保护”，覆盖这一帧（防止生成点重叠触发战斗）
+        var guard = player.GetComponent<Map_PlayerRoomEnterGuard>();
+        guard?.BlockForSeconds(0.5f);
+
+        // 你原本就在这里等一帧
+        yield return null;
         Physics2D.SyncTransforms();
 
         Vector2Int startCell = FindCellByType(RoomType.Start);
         RoomNode start = nodes[startCell];
-
-        GameObject player = GameObject.FindGameObjectWithTag(playerTag);
-        if (player == null) yield break;
 
         Transform center = FindAny(start.go.transform, "RoomCenter");
         Vector3 targetPos = center != null ? center.position : start.go.transform.position;
@@ -590,7 +596,7 @@ public class Map_LevelGenerator : MonoBehaviour
         if (rb != null)
         {
             bool oldSim = rb.simulated;
-            rb.simulated = false;          // Regard physics first, avoid having the characters constantly crowded in the room throughout the entire game.
+            rb.simulated = false;
             player.transform.position = targetPos;
             rb.velocity = Vector2.zero;
             rb.simulated = oldSim;
@@ -599,6 +605,9 @@ public class Map_LevelGenerator : MonoBehaviour
         {
             player.transform.position = targetPos;
         }
+
+        // 移动到起点后再续一小段保护，防止 SyncTransforms 后立即触发
+        guard?.BlockForSeconds(0.35f);
     }
 
     //Utility

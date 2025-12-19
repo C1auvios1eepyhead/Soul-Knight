@@ -79,6 +79,10 @@ public class Map_MonsterRoomController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
+
+        var guard = other.GetComponentInParent<Map_PlayerRoomEnterGuard>();
+        if (guard != null && guard.BlockRoomTrigger) return;
+
         if (hasCleared) return;
         if (inBattle) return;
 

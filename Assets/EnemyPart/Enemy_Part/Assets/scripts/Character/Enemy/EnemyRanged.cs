@@ -1,4 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class EnemyRanged : Enemy
 {

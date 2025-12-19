@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3398081772782759850}
   - component: {fileID: -5715751494485547193}
   - component: {fileID: 2463825006572522205}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HG
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1923, y: 0.0943, z: 0}
-  m_LocalScale: {x: 0.35165027, y: 0.40635598, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,8 +94,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -521141279
-  m_SortingLayer: 0
+  m_SortingLayerID: -699265487
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: -1851325254, guid: 20cb7c475ccc9d346a1663ed75ba9b1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -6,14 +6,17 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    [Header("ÊôÐÔ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField]protected float maxHealth;
 
     [SerializeField] protected float currentHealth;
 
-    [Header("ÎÞµÐ")]
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth => currentHealth;
+
+    [Header("ï¿½Þµï¿½")]
     public bool invulnerable;
-    public float invulnerableDuration;//ÎÞµÐÊ±¼ä
+    public float invulnerableDuration;//ï¿½Þµï¿½Ê±ï¿½ï¿½
 
     public UnityEvent OnHurt;
     public UnityEvent OnDie;
@@ -29,13 +32,13 @@ public class Character : MonoBehaviour
         if (currentHealth -damage > 0f)
         {
             currentHealth -= damage;
-            StartCoroutine(nameof(InvulnerableCoroutine));//Æô¶¯ÎÞµÐÊ±¼äÐ­³Ì
-            //Ö´ÐÐ½ÇÉ«ÊÜÉË¶¯»­
+            StartCoroutine(nameof(InvulnerableCoroutine));//ï¿½ï¿½ï¿½ï¿½Þµï¿½Ê±ï¿½ï¿½Ð­ï¿½ï¿½
+            //Ö´ï¿½Ð½ï¿½É«ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½
             OnHurt?.Invoke();
         }
         else
         {
-            //ËÀÍö
+            //ï¿½ï¿½ï¿½ï¿½
             Die();
         }
     }
@@ -44,16 +47,16 @@ public class Character : MonoBehaviour
     {
         currentHealth = 0f;
         
-        //Ö´ÐÐ½ÇÉ«ËÀÍö¶¯»­
+        //Ö´ï¿½Ð½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         OnDie?.Invoke();
     }
 
-    //ÎÞµÐ
+    //ï¿½Þµï¿½
     protected virtual IEnumerator InvulnerableCoroutine()
     {
         invulnerable = true;
 
-        //µÈ´ýÎÞµÐÊ±¼ä
+        //ï¿½È´ï¿½ï¿½Þµï¿½Ê±ï¿½ï¿½
         yield return new WaitForSeconds(invulnerableDuration);
 
         invulnerable = false;

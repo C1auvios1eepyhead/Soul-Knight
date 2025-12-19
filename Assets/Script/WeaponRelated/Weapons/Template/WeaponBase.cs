@@ -12,12 +12,12 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected float nextAttackTime = 0f;
 
-    // ±ê¼ÇÊÇ·ñ±»Íæ¼ÒÊÖÉÏ³ÖÓÐ
+    // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½
     [HideInInspector] public bool isEquipped = false;
 
     protected virtual void Awake()
     {
-        // Ç¿ÖÆ²éÕÒ FirePoint ×ÓÎïÌå
+        // Ç¿ï¿½Æ²ï¿½ï¿½ï¿½ FirePoint ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (firePoint == null || firePoint.gameObject == null)
             firePoint = transform.Find("FirePoint");
 
@@ -30,10 +30,10 @@ public abstract class WeaponBase : MonoBehaviour
         }
     }
 
-    // ×ÓÀà±ØÐëÊµÏÖ¹¥»÷Âß¼­
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
     public abstract void Attack();
 
-    // ¹¥»÷ÀäÈ´ÅÐ¶Ï
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½Ð¶ï¿½
     public bool CanAttack()
     {
         return Time.time >= nextAttackTime;
@@ -44,7 +44,7 @@ public abstract class WeaponBase : MonoBehaviour
         nextAttackTime = Time.time + attackRate;
     }
 
-    // ²éÕÒ×î½üµÐÈË
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     protected virtual Transform FindTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -73,7 +73,7 @@ public abstract class WeaponBase : MonoBehaviour
         firePoint.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    // ×°±¸
+    // ×°ï¿½ï¿½
     public virtual void OnEquip(Transform holder)
     {
         transform.SetParent(holder);
@@ -82,7 +82,7 @@ public abstract class WeaponBase : MonoBehaviour
         isEquipped = true;
     }
 
-    // È¡Ïû×°±¸
+    // È¡ï¿½ï¿½×°ï¿½ï¿½
     public virtual void OnUnequip(bool drop = false)
     {
         transform.SetParent(null);

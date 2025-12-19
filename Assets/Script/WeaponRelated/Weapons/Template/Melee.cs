@@ -4,21 +4,21 @@ using System.Collections;
 public abstract class Melee : WeaponBase
 {
     [Header("Melee Settings")]
-    public float attackRange = 1f;           // ¹¥»÷·¶Î§
-    public float attackAngle = 60f;          // ÉÈÐÎAOE½Ç¶È£¨Ö»¶ÔAOEÀàÎäÆ÷ÓÐÐ§£©
-    public float visualOffset = 0.5f;        // VisualAttackÆ«ÒÆ¾àÀë
-    public float visualDuration = 0.2f;      // VisualAttackÏÔÊ¾Ê±¼ä
+    public float attackRange = 1f;           // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§
+    public float attackAngle = 60f;          // ï¿½ï¿½ï¿½ï¿½AOEï¿½Ç¶È£ï¿½Ö»ï¿½ï¿½AOEï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
+    public float visualOffset = 0.5f;        // VisualAttackÆ«ï¿½Æ¾ï¿½ï¿½ï¿½
+    public float visualDuration = 0.2f;      // VisualAttackï¿½ï¿½Ê¾Ê±ï¿½ï¿½
 
     private GameObject visualInstance;
 
-    // ×ÓÀà¾ö¶¨ÊÇµ¥Ìå¹¥»÷»¹ÊÇAOE¹¥»÷
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½å¹¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½AOEï¿½ï¿½ï¿½ï¿½
     protected abstract Transform[] PerformAttackWithReturnTargets();
 
-    // ÐÞÕý¾¯¸æ£ºÊ¹ÓÃ override
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£ºÊ¹ï¿½ï¿½ override
     protected override void Awake()
     {
         base.Awake();
-        // ÕâÀï¿ÉÒÔÌí¼Ó½üÕ½ÎäÆ÷¹²ÓÐ³õÊ¼»¯Âß¼­£¬Èç¹ûÃ»ÓÐ¿ÉÁô¿Õ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½Ê¼ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½
     }
 
     public override void Attack()
@@ -27,14 +27,14 @@ public abstract class Melee : WeaponBase
 
         ResetAttackCD();
 
-        // Òþ²ØÎäÆ÷ÌùÍ¼
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null) sr.enabled = false;
 
-        // Ö´ÐÐ×ÓÀà¹¥»÷Âß¼­²¢·µ»Ø±»¹¥»÷µÄµÐÈË
+        // Ö´ï¿½ï¿½ï¿½ï¿½ï¿½à¹¥ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½
         Transform[] targetsHit = PerformAttackWithReturnTargets();
 
-        // Éú³ÉVisualAttack
+        // ï¿½ï¿½ï¿½ï¿½VisualAttack
         GameObject visualPrefab = Resources.Load<GameObject>("Melee/VisualAttack");
         if (visualPrefab != null)
         {
@@ -52,7 +52,7 @@ public abstract class Melee : WeaponBase
             }
             else
             {
-                // ³¡¾°Ã»ÓÐµÐÈË»òÃ»´òµ½µÐÈËÊ±£¬äÖÈ¾ÔÚÎäÆ÷ÓÒ±ßÒ»µã
+                // ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ðµï¿½ï¿½Ë»ï¿½Ã»ï¿½òµ½µï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ï¿½Ò»ï¿½ï¿½
                 Vector2 offsetPos = (Vector2)firePoint.position + Vector2.right * visualOffset;
                 GameObject visual = Instantiate(visualPrefab, offsetPos, Quaternion.identity);
                 visual.transform.SetParent(transform);
@@ -60,7 +60,7 @@ public abstract class Melee : WeaponBase
             }
         }
 
-        // »Ö¸´ÎäÆ÷ÌùÍ¼
+        // ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼
         StartCoroutine(RestoreWeaponSprite(visualDuration));
     }
 
@@ -71,7 +71,7 @@ public abstract class Melee : WeaponBase
         if (sr != null) sr.enabled = true;
     }
 
-    // µ¥Ìå¹¥»÷Ä£°å
+    // ï¿½ï¿½ï¿½å¹¥ï¿½ï¿½Ä£ï¿½ï¿½
     protected Transform[] PerformSingleAttackTemplate(Transform target)
     {
         if (target == null) return new Transform[0];
@@ -79,14 +79,14 @@ public abstract class Melee : WeaponBase
         float distance = Vector2.Distance(firePoint.position, target.position);
         if (distance > attackRange) return new Transform[0];
 
-        //Ôì³ÉÉËº¦
+        //ï¿½ï¿½ï¿½ï¿½Ëºï¿½
         target.GetComponent<Character>()?.TakeDamage(damage);
 
         Debug.Log($"Single attack hits {target.name} for {damage} damage");
         return new Transform[] { target };
     }
 
-    // AOE¹¥»÷Ä£°å
+    // AOEï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
     protected Transform[] PerformAOEAttackTemplate()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -98,10 +98,10 @@ public abstract class Melee : WeaponBase
             float distance = dirToEnemy.magnitude;
             if (distance <= attackRange)
             {
-                float angleToEnemy = Vector2.Angle(Vector2.right, dirToEnemy); // ¿É¸ÄÎªÊÖ³Ö·½Ïò
+                float angleToEnemy = Vector2.Angle(Vector2.right, dirToEnemy); // ï¿½É¸ï¿½Îªï¿½Ö³Ö·ï¿½ï¿½ï¿½
                 if (angleToEnemy <= attackAngle / 2f)
                 {
-                    //Ôì³ÉÉËº¦
+                    //ï¿½ï¿½ï¿½ï¿½Ëºï¿½
                     enemy.GetComponent<Character>()?.TakeDamage(damage);
 
                     Debug.Log($"AOE attack hits {enemy.name} for {damage} damage");

@@ -29,11 +29,15 @@ public class Gun : WeaponBase
         {
             bulletPrefab = Resources.Load<GameObject>("Bullet");
             if (bulletPrefab == null)
-                Debug.LogError("Bullet Prefab ÕÒ²»µ½£¡Çë·Åµ½ Assets/Resources/Bullet.prefab");
+                Debug.LogError("Bullet Prefab ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Åµï¿½ Assets/Resources/Bullet.prefab");
+        }
+        if (currentAmmo == 0)
+        {
+            Reload();
         }
     }
 
-    // Í³Ò»µÄ¹¥»÷Ðý×ªÂß¼­
+    // Í³Ò»ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ß¼ï¿½
     protected void RotateGunToTarget(Transform target)
     {
         if (target == null) return;
@@ -41,16 +45,16 @@ public class Gun : WeaponBase
         Vector2 dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        // Èç¹û³¯×ó£¬Ë®Æ½·­×ª
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë®Æ½ï¿½ï¿½×ª
         Vector3 scale = transform.localScale;
         if (dir.x < 0) scale.y = -Mathf.Abs(scale.y);
         else scale.y = Mathf.Abs(scale.y);
         transform.localScale = scale;
 
-        // Ðý×ªÇ¹ÌùÍ¼
+        // ï¿½ï¿½×ªÇ¹ï¿½ï¿½Í¼
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
-        // firePoint Í¬²½Ðý×ª
+        // firePoint Í¬ï¿½ï¿½ï¿½ï¿½×ª
         if (firePoint != null)
             firePoint.rotation = transform.rotation;
     }
@@ -68,13 +72,13 @@ public class Gun : WeaponBase
         ResetAttackCD();
         currentAmmo--;
 
-        // Ä¬ÈÏÄ¿±ê£¨×î½üµÐÈË£©
+        // Ä¬ï¿½ï¿½Ä¿ï¿½ê£¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½
         Transform target = FindTarget();
 
-        // Í³Ò»Ðý×ªÂß¼­
+        // Í³Ò»ï¿½ï¿½×ªï¿½ß¼ï¿½
         RotateGunToTarget(target);
 
-        // ·¢Éä×Óµ¯
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½
         if (bulletPrefab != null && firePoint != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

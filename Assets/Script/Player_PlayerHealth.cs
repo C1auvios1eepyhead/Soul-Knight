@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -71,10 +72,23 @@ public class PlayerHealth : MonoBehaviour
 
         if(playerConfig.CurrentHealth <= 0){
             PlayerDead();
+            Time.timeScale = 1f; // 防止之前暂停过
+            SceneManager.LoadScene("GameOver");
         }
     }
 
     private void PlayerDead(){
         Destroy(gameObject);
     }
+
+    private void Awake()
+{
+    ResetStatsToFull();
+}
+
+public void ResetStatsToFull()
+{
+    playerConfig.CurrentHealth = playerConfig.MaxHealth;
+    playerConfig.Armor = playerConfig.MaxArmor;
+}
 }

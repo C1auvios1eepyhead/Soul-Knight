@@ -193,7 +193,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1656885399
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &7879309175176881487
@@ -318,6 +318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptText: {fileID: 1002600232263725558}
   interactKey: 101
+  mode: 0
+  sceneToLoad: 
 --- !u!1 &3621022616161323441
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,8 +581,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1491603773
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

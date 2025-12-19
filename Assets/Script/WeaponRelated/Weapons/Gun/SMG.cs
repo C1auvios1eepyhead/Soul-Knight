@@ -6,7 +6,7 @@ public class SMG : Gun
     {
         base.Awake();
         weaponName = "SMG";
-        damage = 5f;
+        damage = 50f;
         weaponRange = 8f;
         attackRate = 0.2f;
         weaponBulletSpeed = 22f;

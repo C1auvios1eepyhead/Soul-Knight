@@ -34,6 +34,10 @@ public class Map_MonsterRoomController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private bool isBossRoom = false;
 
+    [Header("Wave System (Optional)")]
+    [SerializeField] private EnemyManager waveManager;  
+    [SerializeField] private bool useWaveSystem = true;  
+
     [Header("Debug")]
     public bool hasCleared = false;
 
@@ -110,6 +114,11 @@ public class Map_MonsterRoomController : MonoBehaviour
         {
             if (doors[i] != null) doors[i].CloseDoor();
         }
+
+        if (useWaveSystem && waveManager != null)
+        {
+            waveManager.StartWaves();
+        }
     }
 
     private void Update()
@@ -123,14 +132,23 @@ public class Map_MonsterRoomController : MonoBehaviour
             KillAllMonsters();
         }
 
-        // Refresh the monster list (will remove those marked as "Destroy")
-        CollectMonstersSafe();
-
-        // The door must be opened only after the strange thing has been cleared up.
-        if (AreAllMonstersDead())
+        if (useWaveSystem && waveManager != null)
         {
-            EndBattle();
+            // 所有波次结束并且当前怪清空，才算通关
+            if (waveManager.AllWavesCleared())
+            {
+                EndBattle();
+            }
         }
+        else
+        {
+            CollectMonstersSafe();
+            if (AreAllMonstersDead())
+            {
+                EndBattle();
+            }
+        }
+
     }
 
     private void EndBattle()

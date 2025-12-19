@@ -3,31 +3,40 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Header("Bullet Settings")]
-    public float speed = 10f;       // ·ÉÐÐËÙ¶È
-    public float lifeTime = 2f;     // ´æ»îÊ±¼ä
-    public float damage = 10f;      // ×Óµ¯ÉËº¦Öµ£¬ÓÉGun´«Èë
+    public float speed = 10f;       // ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+    public float lifeTime = 2f;     // ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public float damage = 10f;      // ï¿½Óµï¿½ï¿½Ëºï¿½Öµï¿½ï¿½ï¿½ï¿½Gunï¿½ï¿½ï¿½ï¿½
 
     private void Start()
     {
-        // ·ÀÖ¹×Óµ¯ÎÞÏÞ´æÔÚ£¬Õ¼ÓÃÄÚ´æ
+        // ï¿½ï¿½Ö¹ï¿½Óµï¿½ï¿½ï¿½ï¿½Þ´ï¿½ï¿½Ú£ï¿½Õ¼ï¿½ï¿½ï¿½Ú´ï¿½
         Destroy(gameObject, lifeTime);
     }
 
     private void Update()
     {
-        // ×Óµ¯ÑØ×ÔÉíµÄÓÒ·½ÏòÒÆ¶¯
+        // ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
         transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Ö»¶ÔÓÐ¡°Enemy¡±±êÇ©µÄµÐÈËÔì³ÉÉËº¦
+        //Ö»ï¿½ï¿½ï¿½Ð¡ï¿½Enemyï¿½ï¿½ï¿½ï¿½Ç©ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Character>()?.TakeDamage(damage);
+            Destroy(gameObject);
         }
-
-        // µ±Ç°°æ±¾£ºÅöµ½ÈÎºÎ¶«Î÷¾ÍÏú»Ù
-        Destroy(gameObject);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("DestructibleTile"))
+        {
+            
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
+        
+        
     }
 }

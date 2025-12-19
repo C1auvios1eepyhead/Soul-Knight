@@ -28,13 +28,13 @@ public class RF : Gun
         ResetAttackCD();
         currentAmmo--;
 
-        // Ê¹ÓÃ×Ô¶¨ÒåË÷µÐÂß¼­£¨×îÔ¶µÐÈË£©
+        // Ê¹ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Ë£ï¿½
         Transform target = FindFarthestTarget();
 
-        // Ê¹ÓÃ¸¸ÀàÐý×ªÂß¼­
+        // Ê¹ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ß¼ï¿½
         RotateGunToTarget(target);
 
-        // ·¢Éä×Óµ¯
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½
         if (bulletPrefab != null && firePoint != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

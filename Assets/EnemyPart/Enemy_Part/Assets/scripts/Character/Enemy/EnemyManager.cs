@@ -4,78 +4,96 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    //µ¥ÀıÄ£Ê½
     public static EnemyManager Instance { get; private set; }
 
-    [Header("µĞÈËË¢ĞÂµã")]
     public Transform[] spawnPoints;
-
-    [Header("µĞÈËÑ²Âßµã")]
     public Transform[] patrolPoints;
-
-    [Header("¸Ã¹Ø¿¨µÄµĞÈË")]
     public List<EnemyWave> enemyWaves;
 
-    public int currentWaveIndex = 0; //µ±Ç°²¨ÊıµÄË÷Òı
+    public int currentWaveIndex = 0;
+    public int enemyCount = 0;
 
-    public int enemyCount = 0;      //µĞÈËÊıÁ¿
+    private bool running = false;
+    private bool spawningWave = false;
+
     private void Awake()
     {
         Instance = this;
     }
 
+    // âœ… ç”±æˆ¿é—´è°ƒç”¨ï¼šå¼€å§‹æ³¢æ¬¡
+    public void StartWaves()
+    {
+        if (running) return;
+        running = true;
+        currentWaveIndex = 0;
+    }
+
+    // âœ… ç»™æˆ¿é—´æŸ¥è¯¢ï¼šæ˜¯å¦æ‰€æœ‰æ³¢æ¬¡å®Œæˆä¸”æ€ªæ¸…ç©º
+    public bool AllWavesCleared()
+    {
+        return running && currentWaveIndex >= enemyWaves.Count && enemyCount <= 0 && !spawningWave;
+    }
+
     private void Update()
     {
-        if (enemyCount == 0)//µ±Ç°²¨ÊıµĞÈËÈ«²¿ËÀÍö£¬¿ªÊ¼ÏÂÒ»²¨
+        if (!running) return;
+        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        // å½“å‰æ³¢æ€ªæ­»å…‰ â†’ åˆ·ä¸‹ä¸€æ³¢ï¼ˆåªå…è®¸å¼€ä¸€æ¬¡åç¨‹ï¼‰
+        if (enemyCount <= 0 && !spawningWave)
         {
-            StartCoroutine(nameof(startNextWaveCoroutine));
+            StartCoroutine(StartNextWaveCoroutine());
         }
     }
 
-    IEnumerator startNextWaveCoroutine()
+    IEnumerator StartNextWaveCoroutine()
     {
         if (currentWaveIndex >= enemyWaves.Count)
-            yield break;    //ÒÑ¾­Ã»ÓĞ¸ü¶à²¨Êı£¬Ö±½ÓÍË³öĞ­³Ì
+            yield break;
 
-        List<EnemyData> enemies = enemyWaves[currentWaveIndex].enemies;//»ñÈ¡µ±Ç°²¨Êı¶ÔÓ¦µÄµĞÈËÁĞ±í
+        spawningWave = true;
 
-        foreach (EnemyData enemyData in enemies)
+        var enemies = enemyWaves[currentWaveIndex].enemies;
+        foreach (var enemyData in enemies)
         {
             for (int i = 0; i < enemyData.waveEnemyCount; i++)
             {
                 GameObject enemy = Instantiate(enemyData.enemyPrefab, GetRandomSpawnPoint(), Quaternion.identity);
 
-                if (patrolPoints != null)//Ñ²ÂßµãÁĞ±í²»Îª¿Õ£¬¾Í°ÑÑ²ÂßµãÁĞ±í¸³Öµ¸øµĞÈËÔ¤ÖÆÌåµÄÑ²ÂßµãÁĞ±í
-                {
+                // åˆ·å‡ºæ¥å°± +1
+                enemyCount++;
+
+                if (patrolPoints != null)
                     enemy.GetComponent<Enemy>().patrolPoints = patrolPoints;
-                }
 
                 yield return new WaitForSeconds(enemyData.spawnInterval);
             }
         }
 
         currentWaveIndex++;
+        spawningWave = false;
     }
 
-    //´Ó¹ÖÎïË¢ĞÂµãµÄÎ»ÖÃÁĞ±íÖĞËæ»úÑ¡ÔñÒ»¸öË¢ĞÂµã
     private Vector3 GetRandomSpawnPoint()
     {
         int randomIndex = Random.Range(0, spawnPoints.Length);
         return spawnPoints[randomIndex].position;
     }
+
+
 }
 
-//ÒòÎªÃ»¼Ì³ĞMonoBehaviour×é¼ş£¬ÏëÒªĞòÁĞ»¯µÃÌí¼Ó[System.Serializable] 
+//ï¿½ï¿½ÎªÃ»ï¿½Ì³ï¿½MonoBehaviourï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ğ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[System.Serializable] 
 [System.Serializable]   
 public class EnemyData
 {
-    public GameObject enemyPrefab;  //µĞÈËÔ¤ÖÆÌå
-    public float spawnInterval;     //¹ÖÎïÉú³É¼ä¸ô
-    public float waveEnemyCount;    //µĞÈËÊıÁ¿
+    public GameObject enemyPrefab;  //ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½
+    public float spawnInterval;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½
+    public float waveEnemyCount;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 [System.Serializable]
 public class EnemyWave
 {
-    public List<EnemyData> enemies; //Ã¿²¨µĞÈËÁĞ±í
+    public List<EnemyData> enemies; //Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
 }

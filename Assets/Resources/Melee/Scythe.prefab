@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7349302263235732223}
   - component: {fileID: 7733134580531851170}
   - component: {fileID: -5447101062357799386}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Scythe
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -92,8 +92,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -699265487
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: -276616687, guid: 0daa3b2a82ad82f4f8f8f0a742d8eff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 6138745766540435820}
   - component: {fileID: 6138745766540435821}
   - component: {fileID: 6138745766540435818}
-  - component: {fileID: 6138745766540435819}
   - component: {fileID: 6138745766540435816}
   - component: {fileID: 6138745766540435814}
   - component: {fileID: 604438100566669300}
+  - component: {fileID: 7254066167405894336}
   m_Layer: 7
   m_Name: Boss_1
   m_TagString: Enemy
@@ -108,9 +108,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1186996667
+  m_SortingLayer: 4
+  m_SortingOrder: 8
   m_Sprite: {fileID: -1162873526, guid: e73319a768d5cca46a7f040464566bcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -149,51 +149,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &6138745766540435819
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6138745766540435822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.08}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.61, y: 0.37}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4123, y: 0.29}
-  m_EdgeRadius: 0
 --- !u!95 &6138745766540435816
 Animator:
   serializedVersion: 5
@@ -294,7 +249,7 @@ MonoBehaviour:
   patrolPoints: []
   targetPointIndex: 0
   currentSpeed: 5
-  chaseDistance: 3
+  chaseDistance: 6
   attackDistance: 5
   pathPointList: []
   currentIndex: 0
@@ -303,8 +258,8 @@ MonoBehaviour:
   distance: 0
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
-  AttackCooldownDuration: 2
+    m_Bits: 64
+  AttackCooldownDuration: 1
   isHurt: 0
   isKnokback: 1
   knokbackForce: 10
@@ -316,6 +271,41 @@ MonoBehaviour:
   bulletPrefab: {fileID: 668899891148364038, guid: becf787f24ad366458d5297aff615b63, type: 3}
   firePoint: {fileID: 2702570349351630289}
   bulletSpeed: 8
+--- !u!58 &7254066167405894336
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138745766540435822}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005679692, y: -0.039758023}
+  serializedVersion: 2
+  m_Radius: 0.11780181
 --- !u!1 &6138745767510600804
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +333,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.17, z: 0}
-  m_LocalScale: {x: 0.54038, y: 0.54038, z: 0.54038}
+  m_LocalScale: {x: 0.26813117, y: 0.26813117, z: 0.26813117}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6138745766540435820}
@@ -386,8 +376,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1186996667
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 42875b0691292304db1dcf5a99a4c71d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.45490196}

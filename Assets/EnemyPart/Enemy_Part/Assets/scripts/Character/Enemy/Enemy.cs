@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
-//µÐÈË×´Ì¬Ã¶¾Ù
+//ï¿½ï¿½ï¿½ï¿½×´Ì¬Ã¶ï¿½ï¿½
 public enum EnemyStateType
 { 
     Idle,Patrol,Chase,Attack,Hurt,Death
@@ -12,34 +12,34 @@ public enum EnemyStateType
 
 public class Enemy : Character
 {
-    [Header("Ä¿±ê")]
+    [Header("Ä¿ï¿½ï¿½")]
     public Transform player;
-    [Header("´ý»úÑ²Âß")]
-    public float IdleDuration; //´ý»úÊ±¼ä
-    public Transform[] patrolPoints;//Ñ²Âßµã
-    public int targetPointIndex = 0;//Ä¿±êµãË÷Òý
+    [Header("ï¿½ï¿½ï¿½ï¿½Ñ²ï¿½ï¿½")]
+    public float IdleDuration; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public Transform[] patrolPoints;//Ñ²ï¿½ßµï¿½
+    public int targetPointIndex = 0;//Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    [Header("ÒÆ¶¯×·»÷")]
+    [Header("ï¿½Æ¶ï¿½×·ï¿½ï¿½")]
     public float currentSpeed = 0;
     public Vector2 MovementInput { get; set; }
 
-    public float chaseDistance = 3f;//×·»÷¾àÀë
-    public float attackDistance = 0.8f;//¹¥»÷¾àÀë
+    public float chaseDistance = 3f;//×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public float attackDistance = 0.8f;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     private Seeker seeker;
-    [HideInInspector] public List<Vector3> pathPointList;//Â·¾¶µãÁÐ±í
-    [HideInInspector] public int currentIndex = 0;//Â·¾¶µãµÄË÷Òý
-    private float pathGenerateInterval = 0.5f; //Ã¿0.5ÃëÉú³ÉÒ»´ÎÂ·¾¶
-    private float pathGenerateTimer = 0f;//¼ÆÊ±Æ÷
+    [HideInInspector] public List<Vector3> pathPointList;//Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+    [HideInInspector] public int currentIndex = 0;//Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private float pathGenerateInterval = 0.5f; //Ã¿0.5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â·ï¿½ï¿½
+    private float pathGenerateTimer = 0f;//ï¿½ï¿½Ê±ï¿½ï¿½
 
-    [Header("¹¥»÷")]
-    public float meleeAttackDamage;//¹¥»÷ÉËº¦
+    [Header("ï¿½ï¿½ï¿½ï¿½")]
+    public float meleeAttackDamage;//ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
     public bool isAttack = true;
     [HideInInspector] public float distance;
-    public LayerMask playerLayer;//±íÊ¾Íæ¼ÒÍ¼²ã
-    public float AttackCooldownDuration = 2f;//ÀäÈ´Ê±¼ä
+    public LayerMask playerLayer;//ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
+    public float AttackCooldownDuration = 2f;//ï¿½ï¿½È´Ê±ï¿½ï¿½
 
-    [Header("ÊÜÉË»÷ÍË")]
+    [Header("ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½")]
     public bool isHurt;
     public bool isKnokback = true;
     public float knokbackForce = 10f;
@@ -50,20 +50,20 @@ public class Enemy : Character
     [HideInInspector] public Animator animator;
     [HideInInspector] public Collider2D enemyCollider;
 
-    private IState currentState;//µ±Ç°×´Ì¬
+    private IState currentState;//ï¿½ï¿½Ç°×´Ì¬
 
-    //×ÖµäDictionary<¼ü£¬Öµ>¶Ô
+    //ï¿½Öµï¿½Dictionary<ï¿½ï¿½ï¿½ï¿½Öµ>ï¿½ï¿½
     private Dictionary<EnemyStateType, IState> states = new Dictionary<EnemyStateType, IState>();
 
     private void Awake()
     {
-        seeker = GetComponent<Seeker>();//Ñ°Â·×é¼þ
-        sr = GetComponent<SpriteRenderer>();//Í¼Æ¬×é¼þ
-        rb = GetComponent<Rigidbody2D>();//¸ÕÌå×é¼þ
-        enemyCollider = GetComponent<Collider2D>();//Åö×²Æ÷×é¼þ
-        animator = GetComponent<Animator>();//¶¯»­¿ØÖÆÆ÷×é¼þ
+        seeker = GetComponent<Seeker>();//Ñ°Â·ï¿½ï¿½ï¿½
+        sr = GetComponent<SpriteRenderer>();//Í¼Æ¬ï¿½ï¿½ï¿½
+        rb = GetComponent<Rigidbody2D>();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        enemyCollider = GetComponent<Collider2D>();//ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½
+        animator = GetComponent<Animator>();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        //ÊµÀý»¯µÐÈË×´Ì¬
+        //Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
         states.Add(EnemyStateType.Idle, new EnemyIdleState(this));
         states.Add(EnemyStateType.Chase, new EnemyChaseState(this));
         states.Add(EnemyStateType.Attack, new EnemyAttackState(this));
@@ -71,19 +71,19 @@ public class Enemy : Character
         states.Add(EnemyStateType.Death, new EnemyDeathState(this));
         states.Add(EnemyStateType.Patrol, new EnemyPatrolState(this));
 
-        //ÉèÖÃÄ¬ÈÏ×´Ì¬ÎªIdle
+        //ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½×´Ì¬ÎªIdle
         TransitionState(EnemyStateType.Idle);
     }
 
-    //ÓÃÓÚÇÐ»»µÐÈË×´Ì¬µÄº¯Êý
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Äºï¿½ï¿½ï¿½
     public void TransitionState(EnemyStateType type)
     {
-        //µ±Ç°×´Ì¬²»Îª¿Õ£¬ÈÃËûÍË³öµ±Ç°×´Ì¬
+        //ï¿½ï¿½Ç°×´Ì¬ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½Ç°×´Ì¬
         if (currentState != null)
         {
             currentState.OnExit();
         }
-        //Í¨¹ý×ÖµäµÄ¼üÀ´ÕÒµ½¶ÔÓ¦µÄ×´Ì¬,½øÈëÐÂ×´Ì¬
+        //Í¨ï¿½ï¿½ï¿½Öµï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Ó¦ï¿½ï¿½×´Ì¬,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
         currentState = states[type];
         currentState.OnEnter();
 
@@ -107,41 +107,41 @@ public class Enemy : Character
         currentState.OnFixedUpdate();
     }
 
-    //ÅÐ¶¨Íæ¼ÒÊÇ·ñÔÚ×·»÷·¶Î§ÄÚ
+    //ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½×·ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½
     public void GetPlayerTransform()
     {
         Collider2D[] chaseColliders = Physics2D.OverlapCircleAll(transform.position, chaseDistance, playerLayer);
 
-        if (chaseColliders.Length > 0)//Íæ¼ÒÔÚ×·»÷·¶Î§ÄÚ
+        if (chaseColliders.Length > 0)//ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½
         {
-            player = chaseColliders[0].transform;//»ñÈ¡Íæ¼ÒµÄTransform
+            player = chaseColliders[0].transform;//ï¿½ï¿½È¡ï¿½ï¿½Òµï¿½Transform
             distance = Vector2.Distance(player.position, transform.position);
         }
         else
         {
-            player = null;//Íæ¼ÒÔÚ×·»÷·¶Î§Íâ
+            player = null;//ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½
         }
     }
 
-    #region ×Ô¶¯Ñ°Â·
-    //×Ô¶¯Ñ°Â·
+    #region ï¿½Ô¶ï¿½Ñ°Â·
+    //ï¿½Ô¶ï¿½Ñ°Â·
     public void AutoPath()
     {
         pathGenerateTimer += Time.deltaTime;
 
-        //¼ä¸ôÒ»¶¨Ê±¼äÀ´»ñÈ¡Â·¾¶µã
+        //ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Â·ï¿½ï¿½ï¿½ï¿½
         if (pathGenerateTimer >= pathGenerateInterval)
         {
             GeneratePath(player.position);
-            pathGenerateTimer = 0;//ÖØÖÃ¼ÆÊ±Æ÷
+            pathGenerateTimer = 0;//ï¿½ï¿½ï¿½Ã¼ï¿½Ê±ï¿½ï¿½
         }
 
 
-        //µ±Â·¾¶µãÁÐ±íÎª¿ÕÊ±£¬½øÐÐÂ·¾¶¼ÆËã
+        //ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½Îªï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (pathPointList == null || pathPointList.Count <= 0)
         {
             GeneratePath(player.position);
-        }//µ±µÐÈËµ½´ïµ±Ç°Â·¾¶µãÊ±£¬µÝÔöË÷ÒýcurrentIndex²¢½øÐÐÂ·¾¶¼ÆËã
+        }//ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ïµ±Ç°Â·ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½currentIndexï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         else if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.1f)
         {
             currentIndex++;
@@ -150,32 +150,32 @@ public class Enemy : Character
         }
     }
 
-    //»ñÈ¡Â·¾¶µã
+    //ï¿½ï¿½È¡Â·ï¿½ï¿½ï¿½ï¿½
     public void GeneratePath(Vector3 target)
     {
         currentIndex = 0;
-        //Èý¸ö²ÎÊý£ºÆðµã¡¢ÖÕµã¡¢»Øµ÷º¯Êý
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡¢ï¿½Õµã¡¢ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
         seeker.StartPath(transform.position, target, Path =>
         {
-            pathPointList = Path.vectorPath;//Path.vectorPath°üº¬ÁË´ÓÆðµãµ½ÖÕµãµÄÍêÕûÂ·¾¶
+            pathPointList = Path.vectorPath;//Path.vectorPathï¿½ï¿½ï¿½ï¿½ï¿½Ë´ï¿½ï¿½ï¿½ãµ½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
         });
     }
     #endregion
 
-    #region ÒÆ¶¯
+    #region ï¿½Æ¶ï¿½
 
-    //ÒÆ¶¯º¯Êý
+    //ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
     public void Move()
     {
         if (MovementInput.magnitude > 0.1f && currentSpeed >= 0)
         {
             rb.velocity = MovementInput * currentSpeed;
-            //µÐÈË×óÓÒ·­×ª
-            if (MovementInput.x < 0)//×ó
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò·ï¿½×ª
+            if (MovementInput.x < 0)//ï¿½ï¿½
             {
                 sr.flipX = false;
             }
-            if (MovementInput.x > 0)//ÓÒ
+            if (MovementInput.x > 0)//ï¿½ï¿½
             {
                 sr.flipX = true;
             }
@@ -188,11 +188,11 @@ public class Enemy : Character
 
     #endregion
 
-    #region µÐÈË½üÕ½¹¥»÷Ö¡ÊÂ¼þ
-    //µÐÈË½üÕ½¹¥»÷
+    #region ï¿½ï¿½ï¿½Ë½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½Â¼ï¿½
+    //ï¿½ï¿½ï¿½Ë½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½
 public virtual void Attack()
 {
-    // Ä¬ÈÏ½üÕ½¹¥»÷
+    // Ä¬ï¿½Ï½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½
     Collider2D[] hitColliders =
         Physics2D.OverlapCircleAll(transform.position, attackDistance, playerLayer);
 
@@ -207,7 +207,7 @@ public virtual void Attack()
         StartCoroutine(nameof(AttackCooldownCoroutine));
     }
 
-    //¹¥»÷ÀäÈ´Ê±¼ä
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´Ê±ï¿½ï¿½
     IEnumerator AttackCooldownCoroutine()
     {
         yield return new WaitForSeconds(AttackCooldownDuration);
@@ -215,15 +215,15 @@ public virtual void Attack()
     }
     #endregion
 
-    #region ÊÜÉË
-    //¶¯ÈËÊÜÉËÊÂ¼þ´¥·¢µÄ»Øµ÷º¯Êý
+    #region ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½
     public void EnemyHurt()
     {
         isHurt = true;
     }
     #endregion
 
-    #region ËÀÍö
+    #region ï¿½ï¿½ï¿½ï¿½
     public void EnemyDie()
     {
         TransitionState(EnemyStateType.Death);
@@ -237,11 +237,11 @@ public virtual void Attack()
 
     private void OnDrawGizmosSelected()
     {
-        //ÏÔÊ¾¹¥»÷·¶Î§
+        //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackDistance);
 
-        //ÏÔÊ¾×·»÷·¶Î§
+        //ï¿½ï¿½Ê¾×·ï¿½ï¿½ï¿½ï¿½Î§
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }

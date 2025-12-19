@@ -10,7 +10,7 @@ public class Shotgun : Gun
     {
         base.Awake();
         weaponName = "Shotgun";
-        damage = 8f;
+        damage = 30f;
         pellets = 7;
         spreadAngle = 35f;
         attackRate = 1f;
@@ -34,11 +34,11 @@ public class Shotgun : Gun
         ResetAttackCD();
         currentAmmo--;
 
-        // ¸¸Àà´¦ÀíÐý×ªÂß¼­
+        // ï¿½ï¿½ï¿½à´¦ï¿½ï¿½ï¿½ï¿½×ªï¿½ß¼ï¿½
         Transform target = FindTarget();
         RotateGunToTarget(target);
 
-        // ·¢ÉäÉ¢µ¯
+        // ï¿½ï¿½ï¿½ï¿½É¢ï¿½ï¿½
         for (int i = 0; i < pellets; i++)
         {
             float angleOffset = Random.Range(-spreadAngle, spreadAngle);

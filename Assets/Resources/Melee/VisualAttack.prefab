@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121962936212839457}
   - component: {fileID: 5240305433311698446}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: VisualAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -699265487
+  m_SortingLayer: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1248543221, guid: 42c304f7f4afd194e883dcd1dfe42777, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

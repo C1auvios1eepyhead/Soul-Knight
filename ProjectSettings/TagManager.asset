@@ -45,6 +45,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 2432013003
+    locked: 0
+  - name: Wall
+    uniqueID: 256437471
+    locked: 0
+  - name: Prop
+    uniqueID: 3914700305
+    locked: 0
   - name: Tilemap
     uniqueID: 3153502999
     locked: 0

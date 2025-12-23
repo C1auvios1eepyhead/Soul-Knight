@@ -17,6 +17,10 @@ public class Map_PortalTrigger : MonoBehaviour
     [SerializeField] private PortalMode mode = PortalMode.LoadScene;
     [SerializeField] private string sceneToLoad; // mode=LoadScene 时用
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip portalUseSFX;
+
     private bool playerInRange;
 
     private void Start()
@@ -24,29 +28,42 @@ public class Map_PortalTrigger : MonoBehaviour
         if (promptText != null) promptText.SetActive(false);
     }
 
+    private void DoPortalAction()
+    {
+        if (mode == PortalMode.EndGame)
+        {
+            ExitGame();
+            return;
+        }
+
+        if (Map_LevelFlowManager.Instance != null)
+        {
+            Map_LevelFlowManager.Instance.EnterNextStage();
+        }
+        else
+        {
+            Debug.LogError("[Portal] LevelFlowManager not found!");
+        }
+    }
+
+
     private void Update()
     {
         if (!playerInRange) return;
 
         if (Input.GetKeyDown(interactKey))
         {
-            if (mode == PortalMode.EndGame)
+            // 播放传送音效
+            if (audioSource != null && portalUseSFX != null)
             {
-                ExitGame();
+                audioSource.PlayOneShot(portalUseSFX, 2.0f);
             }
-            else
-            {
-                if (!string.IsNullOrEmpty(sceneToLoad)) 
-                {
-                    CleanupPickups();
-                    SceneManager.LoadScene(sceneToLoad);
-                }
 
-                else
-                    Debug.LogWarning("[Portal] sceneToLoad is empty!");
-            }
+            // 延迟执行真正的传送逻辑
+            Invoke(nameof(DoPortalAction), 0.8f);
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -76,7 +93,7 @@ public class Map_PortalTrigger : MonoBehaviour
         var all = GameObject.FindObjectsOfType<Transform>(true);
         foreach (var t in all)
         {
-            if (t.name.StartsWith("Weapon_")) 
+            if (t.name.StartsWith("Weapon_"))
             {
                 Destroy(t.gameObject);
                 count++;

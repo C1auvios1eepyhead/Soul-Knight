@@ -108,10 +108,14 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 6
-    m_Data: {fileID: 11400000, guid: 3cd5f87e6219c2240bcb869441299db5, type: 2}
+    m_Data: {fileID: 11400000, guid: 7d314bc717408d847b38d2872d0d7b6c, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 6
-    m_Data: {fileID: -1016761144, guid: acd2ebd0b23d96b4897052641fb4d825, type: 3}
+    m_Data: {fileID: 29252438, guid: 8bde3fa01b8f4a14ca186d0919676fd8, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 6
     m_Data:
@@ -197,7 +201,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1141464297
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

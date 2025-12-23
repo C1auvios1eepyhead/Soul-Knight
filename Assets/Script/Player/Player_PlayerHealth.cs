@@ -53,7 +53,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float amount){
 
         lastDamageTime = Time.time;
-
+        GetComponent<HitFlash>().FlashRed();
         if (armorRegenCoroutine != null)
         {
             StopCoroutine(armorRegenCoroutine);

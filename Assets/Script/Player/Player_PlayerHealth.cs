@@ -8,6 +8,9 @@ public class PlayerHealth : MonoBehaviour
     [Header("Player")]
     [SerializeField] private PlayerConfig playerConfig;
     
+    [SerializeField] private AudioClip hitSFX;
+    private AudioSource audioSource;
+
     private float lastDamageTime;
     private Coroutine armorRegenCoroutine;
 
@@ -54,7 +57,11 @@ public class PlayerHealth : MonoBehaviour
 
         lastDamageTime = Time.time;
         GetComponent<HitFlash>().FlashRed();
-        if (armorRegenCoroutine != null)
+        if (audioSource != null && hitSFX != null)
+        {
+            audioSource.PlayOneShot(hitSFX);
+        }
+            if (armorRegenCoroutine != null)
         {
             StopCoroutine(armorRegenCoroutine);
             armorRegenCoroutine = null;
@@ -84,6 +91,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
 {
     ResetStatsToFull();
+    audioSource = GetComponent<AudioSource>();
 }
 
 public void ResetStatsToFull()

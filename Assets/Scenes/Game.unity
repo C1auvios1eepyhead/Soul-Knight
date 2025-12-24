@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleBGM: {fileID: 8300000, guid: 50409827571110a41b03d2e5701937a5, type: 3}
   bossBGM: {fileID: 8300000, guid: 29004f03c242280459a9773c5704f250, type: 3}
-  defaultVolume: 0.8
+  defaultVolume: 0.4
   fadeTime: 0.5
   autoPlayBattleOnSceneStart: 1
 --- !u!4 &298344553

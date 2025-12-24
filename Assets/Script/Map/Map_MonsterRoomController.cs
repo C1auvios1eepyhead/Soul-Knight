@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -129,17 +130,17 @@ public class Map_MonsterRoomController : MonoBehaviour
     {
         if (!inBattle) return;
 
-        // Test: Press P to clear monsters
-        if (Input.GetKeyDown(KeyCode.P))
+        // Cheat: Press ; to clear current wave monsters
+        if (useWaveSystem && Input.GetKeyDown(KeyCode.Semicolon))
         {
-            Debug.Log("[MonsterRoom] DEBUG: Force clear room (P key)");
-            KillAllMonsters();
+            Debug.Log("[MonsterRoom] CHEAT: Clear current wave (; key)");
+            CheatClearCurrentWave();
         }
 
         if (useWaveSystem && waveManager != null)
         {
             // 所有波次结束并且当前怪清空，才算通关
-            if (waveManager.AllWavesCleared())
+            if (waveManager.AllWavesCleared() && GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
                 EndBattle();
             }
@@ -153,6 +154,43 @@ public class Map_MonsterRoomController : MonoBehaviour
             }
         }
 
+    }
+
+    private Coroutine cheatClearRoutine;
+
+    private void CheatClearCurrentWave()
+    {
+        if (cheatClearRoutine != null) StopCoroutine(cheatClearRoutine);
+        cheatClearRoutine = StartCoroutine(CheatClearForSeconds(0.5f)); // 0.5s 足够把刷怪协程也压住
+    }
+
+    private IEnumerator CheatClearForSeconds(float seconds)
+    {
+        float endTime = Time.time + seconds;
+
+        while (Time.time < endTime)
+        {
+            var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            Debug.Log($"[Cheat] Clearing enemies: {enemies.Length}");
+
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (enemies[i] != null)
+                    Destroy(enemies[i]); // 直接销毁 Enemy tag 的对象（不管它是不是房间子物体）
+            }
+
+            yield return null; // 每帧清一次
+        }
+
+        cheatClearRoutine = null;
+    }
+
+
+    private IEnumerator CheatClearNextFrame()
+    {
+        yield return null; // 等一帧
+        CollectMonstersSafe();
+        KillAllMonsters();
     }
 
     private void EndBattle()

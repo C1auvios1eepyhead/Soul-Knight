@@ -34,7 +34,7 @@ public class Map_DoorToggle : MonoBehaviour
             audioSource.PlayOneShot(doorCloseSFX, 1.5f);
         }
 
-        ScanGraph1();
+
     }
 
 
@@ -56,15 +56,5 @@ public class Map_DoorToggle : MonoBehaviour
 
     public bool IsClosed() => isClosed;
 
-    public void ScanGraph1()
-    {
-        if (AstarPath.active == null)
-        {
-            UnityEngine.Debug.LogError("No AstarPath instance found in the scene!");
-            return;
-        }
-
-        AstarPath.active.Scan();  // 扫描所有图
-        UnityEngine.Debug.Log("Pathfinding graph scanned!");
-    }
+  
 }

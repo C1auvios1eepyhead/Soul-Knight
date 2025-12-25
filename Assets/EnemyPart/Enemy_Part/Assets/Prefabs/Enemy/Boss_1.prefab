@@ -261,7 +261,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  AttackCooldownDuration: 1
+  AttackCooldownDuration: 0.5
   isHurt: 0
   isKnokback: 1
   isSuperArmor: 0

@@ -3,7 +3,7 @@ guid: 724ce1e60cc4a5d45a08180b9cd0eab3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -74,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -86,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -98,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -110,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1470,73 +1477,72 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FD_Caves_Animation_25: -1610633999
-      FD_Caves_Animation_46: 1071622195
-      FD_Caves_Animation_63: 1045755408
-      FD_Caves_Animation_28: 627598978
-      FD_Caves_Animation_27: 1619396033
-      FD_Caves_Animation_49: -1319311064
+      FD_Caves_Animation_0: -1276440640
+      FD_Caves_Animation_1: -653315449
       FD_Caves_Animation_10: 1100766917
-      FD_Caves_Animation_43: -1154514303
-      FD_Caves_Animation_4: 1700610838
-      FD_Caves_Animation_8: -1442160418
-      FD_Caves_Animation_40: -593550079
-      FD_Caves_Animation_35: -1735510472
-      FD_Caves_Animation_45: -639022962
-      FD_Caves_Animation_15: 870680827
-      FD_Caves_Animation_2: 1418393871
-      FD_Caves_Animation_29: -1939787278
-      FD_Caves_Animation_18: 579305573
-      FD_Caves_Animation_13: 332696655
-      FD_Caves_Animation_47: -705115142
-      FD_Caves_Animation_30: 1221010425
-      FD_Caves_Animation_5: 1411042499
-      FD_Caves_Animation_55: 918740807
-      FD_Caves_Animation_62: 1792814511
-      FD_Caves_Animation_52: -32744082
-      FD_Caves_Animation_23: 1460785160
-      FD_Caves_Animation_48: -1537292282
-      FD_Caves_Animation_24: -19804877
-      FD_Caves_Animation_6: 558970562
-      FD_Caves_Animation_59: 1316539197
-      FD_Caves_Animation_19: 352277740
-      FD_Caves_Animation_34: 86574724
-      FD_Caves_Animation_36: 753216871
-      FD_Caves_Animation_39: -542089787
-      FD_Caves_Animation_41: -946006038
-      FD_Caves_Animation_37: -1908697015
-      FD_Caves_Animation_17: 670626320
-      FD_Caves_Animation_42: -1471741351
-      FD_Caves_Animation_60: -2005305293
-      FD_Caves_Animation_44: 632814292
+      FD_Caves_Animation_11: -576680881
       FD_Caves_Animation_12: 873328143
+      FD_Caves_Animation_13: 332696655
+      FD_Caves_Animation_14: 1220258470
+      FD_Caves_Animation_15: 870680827
+      FD_Caves_Animation_16: 1405840381
+      FD_Caves_Animation_17: 670626320
+      FD_Caves_Animation_18: 579305573
+      FD_Caves_Animation_19: 352277740
+      FD_Caves_Animation_2: 1418393871
+      FD_Caves_Animation_20: -2117543272
+      FD_Caves_Animation_21: 930509922
+      FD_Caves_Animation_22: -896970161
+      FD_Caves_Animation_23: 1460785160
+      FD_Caves_Animation_24: -19804877
+      FD_Caves_Animation_25: -1610633999
+      FD_Caves_Animation_26: 1128997431
+      FD_Caves_Animation_27: 1619396033
+      FD_Caves_Animation_28: 627598978
+      FD_Caves_Animation_29: -1939787278
+      FD_Caves_Animation_3: -1970924143
+      FD_Caves_Animation_30: 1221010425
+      FD_Caves_Animation_31: 1820822930
+      FD_Caves_Animation_32: 1586846616
+      FD_Caves_Animation_33: -1374290082
+      FD_Caves_Animation_34: 86574724
+      FD_Caves_Animation_35: -1735510472
+      FD_Caves_Animation_36: 753216871
+      FD_Caves_Animation_37: -1908697015
+      FD_Caves_Animation_38: -568397269
+      FD_Caves_Animation_39: -542089787
+      FD_Caves_Animation_4: 1700610838
+      FD_Caves_Animation_40: -593550079
+      FD_Caves_Animation_41: -946006038
+      FD_Caves_Animation_42: -1471741351
+      FD_Caves_Animation_43: -1154514303
+      FD_Caves_Animation_44: 632814292
+      FD_Caves_Animation_45: -639022962
+      FD_Caves_Animation_46: 1071622195
+      FD_Caves_Animation_47: -705115142
+      FD_Caves_Animation_48: -1537292282
+      FD_Caves_Animation_49: -1319311064
+      FD_Caves_Animation_5: 1411042499
       FD_Caves_Animation_50: 679075255
       FD_Caves_Animation_51: -2009791492
-      FD_Caves_Animation_31: 1820822930
-      FD_Caves_Animation_58: -468034120
-      FD_Caves_Animation_0: -1276440640
-      FD_Caves_Animation_7: 1994751171
-      FD_Caves_Animation_33: -1374290082
-      FD_Caves_Animation_21: 930509922
-      FD_Caves_Animation_32: 1586846616
-      FD_Caves_Animation_20: -2117543272
-      FD_Caves_Animation_3: -1970924143
-      FD_Caves_Animation_38: -568397269
-      FD_Caves_Animation_54: 1343857601
-      FD_Caves_Animation_11: -576680881
-      FD_Caves_Animation_26: 1128997431
-      FD_Caves_Animation_22: -896970161
-      FD_Caves_Animation_56: 1879494341
-      FD_Caves_Animation_14: 1220258470
-      FD_Caves_Animation_57: 1441017612
+      FD_Caves_Animation_52: -32744082
       FD_Caves_Animation_53: 686386354
-      FD_Caves_Animation_9: -1089953466
-      FD_Caves_Animation_16: 1405840381
-      FD_Caves_Animation_1: -653315449
+      FD_Caves_Animation_54: 1343857601
+      FD_Caves_Animation_55: 918740807
+      FD_Caves_Animation_56: 1879494341
+      FD_Caves_Animation_57: 1441017612
+      FD_Caves_Animation_58: -468034120
+      FD_Caves_Animation_59: 1316539197
+      FD_Caves_Animation_6: 558970562
+      FD_Caves_Animation_60: -2005305293
       FD_Caves_Animation_61: -1027327815
-  spritePackingTag: 
+      FD_Caves_Animation_62: 1792814511
+      FD_Caves_Animation_63: 1045755408
+      FD_Caves_Animation_7: 1994751171
+      FD_Caves_Animation_8: -1442160418
+      FD_Caves_Animation_9: -1089953466
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

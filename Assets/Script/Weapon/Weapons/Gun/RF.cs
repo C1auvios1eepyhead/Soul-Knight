@@ -46,6 +46,8 @@ public class RF : Gun
                 bulletScript.lifeTime = weaponRange / bulletScript.speed;
             }
         }
+        Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.GunFire);
+
     }
 
     protected Transform FindFarthestTarget()

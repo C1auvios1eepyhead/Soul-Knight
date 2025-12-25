@@ -53,5 +53,7 @@ public class Shotgun : Gun
                 bulletScript.lifeTime = weaponRange / bulletScript.speed;
             }
         }
+        Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.GunFire);
+
     }
 }

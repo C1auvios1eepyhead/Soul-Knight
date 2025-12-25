@@ -93,6 +93,7 @@ public class Map_LevelGenerator : MonoBehaviour
 
         Map_LevelIndicator.Instance.Show($"{worldIndex}-{stageIndex}");
 
+
     }
 
     // Monster pick pool
@@ -265,7 +266,7 @@ public class Map_LevelGenerator : MonoBehaviour
                 q.Enqueue(nextCell);
             }
         }
-        
+       
     }
 
     private GameObject PickPrefab(RoomType type)
@@ -609,6 +610,7 @@ public class Map_LevelGenerator : MonoBehaviour
 
         // 移动到起点后再续一小段保护，防止 SyncTransforms 后立即触发
         guard?.BlockForSeconds(0.35f);
+        ScanGraph();
     }
 
     //Utility

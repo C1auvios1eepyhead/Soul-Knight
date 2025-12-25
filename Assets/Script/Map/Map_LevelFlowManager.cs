@@ -16,18 +16,7 @@ public class Map_LevelFlowManager : MonoBehaviour
     {
         stage++;
         generator.Generate(1, stage);
-        ScanGraph_1();
   
     }
-        public void ScanGraph_1()
-    {
-        if (AstarPath.active == null)
-        {
-            Debug.LogError("No AstarPath instance found in the scene!");
-            return;
-        }
 
-        AstarPath.active.Scan();  // 扫描所有图
-        Debug.Log("Pathfinding graph scanned!");
-    }
 }

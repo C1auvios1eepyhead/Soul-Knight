@@ -12,10 +12,10 @@ public class Shotgun : Gun
         weaponName = "Shotgun";
         damage = 30f;
         pellets = 7;
-        spreadAngle = 35f;
-        attackRate = 1f;
+        spreadAngle = 20f;
+        attackRate = 1.5f;
         weaponBulletSpeed = 15f;
-        weaponRange = 6f;
+        weaponRange = 7f;
         magazineSize = 6;
         reloadTime = 2f;
         currentAmmo = magazineSize;

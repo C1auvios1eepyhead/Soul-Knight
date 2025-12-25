@@ -9,7 +9,7 @@ public class Scythe : Melee
         damage = 40f;
         attackRange = 5f;
         attackAngle = 90f; // 大扇形
-        attackRate = 2f;
+        attackRate = 1.5f;
     }
 
     protected override Transform[] PerformAttackWithReturnTargets()

@@ -6,8 +6,8 @@ public class Sword : Melee
     {
         base.Awake();
         weaponName = "Sword";
-        damage = 80f;
-        attackRate = 0.7f;
+        damage = 50f;
+        attackRate = 0.8f;
         attackRange = 5f;
     }
 

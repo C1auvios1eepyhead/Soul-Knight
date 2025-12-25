@@ -9,7 +9,7 @@ public class Spear : Melee
         damage = 60f;
         attackRange = 6f;
         attackAngle = 10f; // С�Ƕ����Σ�ģ�ⳤǹֱ��
-        attackRate = 2f;
+        attackRate = 1.5f;
     }
 
     protected override Transform[] PerformAttackWithReturnTargets()

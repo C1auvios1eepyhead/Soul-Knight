@@ -7,7 +7,7 @@ public class HG : Gun
         base.Awake();
         weaponName = "HG";
         damage = 20f;
-        weaponRange = 6f;
+        weaponRange = 9f;
         attackRate = 1f;
         weaponBulletSpeed = 20f;
         magazineSize = 8;

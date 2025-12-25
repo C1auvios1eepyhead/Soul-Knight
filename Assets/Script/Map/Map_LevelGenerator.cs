@@ -265,7 +265,7 @@ public class Map_LevelGenerator : MonoBehaviour
                 q.Enqueue(nextCell);
             }
         }
-        ScanGraph();
+        
     }
 
     private GameObject PickPrefab(RoomType type)
@@ -570,6 +570,7 @@ public class Map_LevelGenerator : MonoBehaviour
     private void MovePlayerToStartRoomCenter()
     {
         StartCoroutine(CoMovePlayerNextFrame());
+        ScanGraph();
     }
 
     private IEnumerator CoMovePlayerNextFrame()
@@ -644,7 +645,7 @@ public class Map_LevelGenerator : MonoBehaviour
             _ => Vector2Int.right
         };
     }
-public void ScanGraph()
+    public void ScanGraph()
     {
         if (AstarPath.active == null)
         {
@@ -655,6 +656,7 @@ public void ScanGraph()
         AstarPath.active.Scan();  // 扫描所有图
         Debug.Log("Pathfinding graph scanned!");
     }
+
 }
 
 

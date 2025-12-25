@@ -23,7 +23,10 @@ public class EnemyChaseState : IState
         //判断是否受伤
         if (enemy.isHurt)
         {
-            enemy.TransitionState(EnemyStateType.Hurt);
+            if(enemy.isSuperArmor==false)
+            {
+                enemy.TransitionState(EnemyStateType.Hurt);
+            }
         }
 
         enemy.GetPlayerTransform();//获取玩家位置

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
-//����״̬ö��
+//敌人状态枚举
 public enum EnemyStateType
 { 
     Idle,Patrol,Chase,Attack,Hurt,Death
@@ -12,36 +12,38 @@ public enum EnemyStateType
 
 public class Enemy : Character
 {
-    [Header("Ŀ��")]
+    [Header("目标")]
     public Transform player;
-    [Header("����Ѳ��")]
-    public float IdleDuration; //����ʱ��
-    public Transform[] patrolPoints;//Ѳ�ߵ�
-    public int targetPointIndex = 0;//Ŀ�������
+    [Header("待机巡逻")]
+    public float IdleDuration; //待机时间
+    public Transform[] patrolPoints;//巡逻点
+    public int targetPointIndex = 0;//目标点索引
 
-    [Header("�ƶ�׷��")]
+    [Header("移动追击")]
     public float currentSpeed = 0;
     public Vector2 MovementInput { get; set; }
 
-    public float chaseDistance = 3f;//׷������
-    public float attackDistance = 0.8f;//��������
+    public float chaseDistance = 3f;//追击距离
+    public float attackDistance = 0.8f;//攻击距离
 
     private Seeker seeker;
-    [HideInInspector] public List<Vector3> pathPointList;//·�����б�
-    [HideInInspector] public int currentIndex = 0;//·���������
-    private float pathGenerateInterval = 0.5f; //ÿ0.5������һ��·��
-    private float pathGenerateTimer = 0f;//��ʱ��
+    [HideInInspector] public List<Vector3> pathPointList;//路径点列表
+    [HideInInspector] public int currentIndex = 0;//路径点的索引
+    private float pathGenerateInterval = 0.5f; //每0.5秒生成一次路径
+    private float pathGenerateTimer = 0f;//计时器
 
-    [Header("����")]
-    public float meleeAttackDamage;//�����˺�
+    [Header("攻击")]
+    public float meleeAttackDamage;//攻击伤害
     public bool isAttack = true;
     [HideInInspector] public float distance;
-    public LayerMask playerLayer;//��ʾ���ͼ��
-    public float AttackCooldownDuration = 2f;//��ȴʱ��
+    public LayerMask playerLayer;//表示玩家图层
+    public float AttackCooldownDuration = 2f;//冷却时间
 
-    [Header("���˻���")]
+    [Header("受伤击退")]
     public bool isHurt;
-    public bool isKnokback = true;
+    public bool isKnokback = true;//击退
+
+    public bool isSuperArmor = false;//霸体
     public float knokbackForce = 10f;
     public float knokbackForceDuration = 0.1f;
 
@@ -50,20 +52,20 @@ public class Enemy : Character
     [HideInInspector] public Animator animator;
     [HideInInspector] public Collider2D enemyCollider;
 
-    private IState currentState;//��ǰ״̬
+    private IState currentState;//当前状态
 
-    //�ֵ�Dictionary<����ֵ>��
+    //字典Dictionary<键，值>对
     private Dictionary<EnemyStateType, IState> states = new Dictionary<EnemyStateType, IState>();
 
     private void Awake()
     {
-        seeker = GetComponent<Seeker>();//Ѱ·���
-        sr = GetComponent<SpriteRenderer>();//ͼƬ���
-        rb = GetComponent<Rigidbody2D>();//�������
-        enemyCollider = GetComponent<Collider2D>();//��ײ�����
-        animator = GetComponent<Animator>();//�������������
+        seeker = GetComponent<Seeker>();//寻路组件
+        sr = GetComponent<SpriteRenderer>();//图片组件
+        rb = GetComponent<Rigidbody2D>();//刚体组件
+        enemyCollider = GetComponent<Collider2D>();//碰撞器组件
+        animator = GetComponent<Animator>();//动画控制器组件
 
-        //ʵ��������״̬
+        //实例化敌人状态
         states.Add(EnemyStateType.Idle, new EnemyIdleState(this));
         states.Add(EnemyStateType.Chase, new EnemyChaseState(this));
         states.Add(EnemyStateType.Attack, new EnemyAttackState(this));
@@ -71,19 +73,19 @@ public class Enemy : Character
         states.Add(EnemyStateType.Death, new EnemyDeathState(this));
         states.Add(EnemyStateType.Patrol, new EnemyPatrolState(this));
 
-        //����Ĭ��״̬ΪIdle
+        //设置默认状态为Idle
         TransitionState(EnemyStateType.Idle);
     }
 
-    //�����л�����״̬�ĺ���
+    //用于切换敌人状态的函数
     public void TransitionState(EnemyStateType type)
     {
-        //��ǰ״̬��Ϊ�գ������˳���ǰ״̬
+        //当前状态不为空，让他退出当前状态
         if (currentState != null)
         {
             currentState.OnExit();
         }
-        //ͨ���ֵ�ļ����ҵ���Ӧ��״̬,������״̬
+        //通过字典的键来找到对应的状态,进入新状态
         currentState = states[type];
         currentState.OnEnter();
 
@@ -107,41 +109,41 @@ public class Enemy : Character
         currentState.OnFixedUpdate();
     }
 
-    //�ж�����Ƿ���׷����Χ��
+    //判定玩家是否在追击范围内
     public void GetPlayerTransform()
     {
         Collider2D[] chaseColliders = Physics2D.OverlapCircleAll(transform.position, chaseDistance, playerLayer);
 
-        if (chaseColliders.Length > 0)//�����׷����Χ��
+        if (chaseColliders.Length > 0)//玩家在追击范围内
         {
-            player = chaseColliders[0].transform;//��ȡ��ҵ�Transform
+            player = chaseColliders[0].transform;//获取玩家的Transform
             distance = Vector2.Distance(player.position, transform.position);
         }
         else
         {
-            player = null;//�����׷����Χ��
+            player = null;//玩家在追击范围外
         }
     }
 
-    #region �Զ�Ѱ·
-    //�Զ�Ѱ·
+    #region 自动寻路
+    //自动寻路
     public void AutoPath()
     {
         pathGenerateTimer += Time.deltaTime;
 
-        //���һ��ʱ������ȡ·����
+        //间隔一定时间来获取路径点
         if (pathGenerateTimer >= pathGenerateInterval)
         {
             GeneratePath(player.position);
-            pathGenerateTimer = 0;//���ü�ʱ��
+            pathGenerateTimer = 0;//重置计时器
         }
 
 
-        //��·�����б�Ϊ��ʱ������·������
+        //当路径点列表为空时，进行路径计算
         if (pathPointList == null || pathPointList.Count <= 0)
         {
             GeneratePath(player.position);
-        }//�����˵��ﵱǰ·����ʱ����������currentIndex������·������
+        }//当敌人到达当前路径点时，递增索引currentIndex并进行路径计算
         else if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.1f)
         {
             currentIndex++;
@@ -150,32 +152,32 @@ public class Enemy : Character
         }
     }
 
-    //��ȡ·����
+    //获取路径点
     public void GeneratePath(Vector3 target)
     {
         currentIndex = 0;
-        //������������㡢�յ㡢�ص�����
+        //三个参数：起点、终点、回调函数
         seeker.StartPath(transform.position, target, Path =>
         {
-            pathPointList = Path.vectorPath;//Path.vectorPath�����˴���㵽�յ������·��
+            pathPointList = Path.vectorPath;//Path.vectorPath包含了从起点到终点的完整路径
         });
     }
     #endregion
 
-    #region �ƶ�
+    #region 移动
 
-    //�ƶ�����
+    //移动函数
     public void Move()
     {
         if (MovementInput.magnitude > 0.1f && currentSpeed >= 0)
         {
             rb.velocity = MovementInput * currentSpeed;
-            //�������ҷ�ת
-            if (MovementInput.x < 0)//��
+            //敌人左右翻转
+            if (MovementInput.x < 0)//左
             {
                 sr.flipX = false;
             }
-            if (MovementInput.x > 0)//��
+            if (MovementInput.x > 0)//右
             {
                 sr.flipX = true;
             }
@@ -188,11 +190,11 @@ public class Enemy : Character
 
     #endregion
 
-    #region ���˽�ս����֡�¼�
-    //���˽�ս����
+    #region 敌人近战攻击帧事件
+    //敌人近战攻击
 public virtual void Attack()
 {
-    // Ĭ�Ͻ�ս����
+    // 默认近战攻击
     Collider2D[] hitColliders =
         Physics2D.OverlapCircleAll(transform.position, attackDistance, playerLayer);
 
@@ -207,7 +209,7 @@ public virtual void Attack()
         StartCoroutine(nameof(AttackCooldownCoroutine));
     }
 
-    //������ȴʱ��
+    //攻击冷却时间
     IEnumerator AttackCooldownCoroutine()
     {
         yield return new WaitForSeconds(AttackCooldownDuration);
@@ -215,15 +217,15 @@ public virtual void Attack()
     }
     #endregion
 
-    #region ����
-    //���������¼������Ļص�����
+    #region 受伤
+    //动人受伤事件触发的回调函数
     public void EnemyHurt()
     {
         isHurt = true;
     }
     #endregion
 
-    #region ����
+    #region 死亡
     public void EnemyDie()
     {
         TransitionState(EnemyStateType.Death);
@@ -237,11 +239,11 @@ public virtual void Attack()
 
     private void OnDrawGizmosSelected()
     {
-        //��ʾ������Χ
+        //显示攻击范围
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackDistance);
 
-        //��ʾ׷����Χ
+        //显示追击范围
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseDistance);
     }

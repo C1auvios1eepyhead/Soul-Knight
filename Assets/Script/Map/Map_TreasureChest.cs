@@ -95,8 +95,19 @@ public class Map_TreasureChest : MonoBehaviour
 
             GameObject w = Instantiate(chosen, transform.position, Quaternion.identity);
 
-            if (levelRoot != null)
-                w.transform.SetParent(levelRoot, true);
+            // 先拿到 root：优先用Inspector拖的 levelRoot；如果没有就自动找
+            Transform root = levelRoot != null ? levelRoot : ResolveLevelRoot();
+
+            // 如果找到了，就挂到关卡根节点下面
+            if (root != null)
+            {
+                w.transform.SetParent(root, true);
+            }
+            else
+            {
+                Debug.LogWarning("[TreasureChest] 找不到关卡根节点(root)，请检查Map_LevelManager是否存在/名字是否一致。");
+            }
+
         }
 
     }
@@ -153,5 +164,14 @@ public class Map_TreasureChest : MonoBehaviour
 
         if (promptText != null)
             promptText.gameObject.SetActive(false);
+    }
+
+    private Transform ResolveLevelRoot()
+    {
+        // 通过名字找
+        GameObject go = GameObject.Find("Map_LevelManager");
+        if (go != null) return go.transform;
+
+        return null;
     }
 }

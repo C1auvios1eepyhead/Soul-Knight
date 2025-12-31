@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1200
   currentHealth: 0
-  invulnerable: 1
+  invulnerable: 0
   invulnerableDuration: 1
   OnHurt:
     m_PersistentCalls:

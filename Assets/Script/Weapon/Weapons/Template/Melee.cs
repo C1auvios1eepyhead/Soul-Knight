@@ -26,6 +26,7 @@ public abstract class Melee : WeaponBase
         if (!CanAttack()) return;
 
         ResetAttackCD();
+        Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.MeleeAttack);
 
         // ����������ͼ
         SpriteRenderer sr = GetComponent<SpriteRenderer>();

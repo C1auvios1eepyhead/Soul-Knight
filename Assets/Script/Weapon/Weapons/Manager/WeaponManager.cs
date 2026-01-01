@@ -94,6 +94,8 @@ public class WeaponManager : MonoBehaviour
         // 装备到手上并显示
         currentWeapon.OnEquip(PlayerHandAnchor.HandPoint);
         currentWeapon.gameObject.SetActive(true);
+        Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.WeaponSwitch);
+
     }
 
     /// <summary>
@@ -146,6 +148,8 @@ public class WeaponManager : MonoBehaviour
         currentWeapon = newWeapon;
         currentWeapon.OnEquip(PlayerHandAnchor.HandPoint);
         currentWeapon.gameObject.SetActive(true);
+        Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.WeaponPickup);
+
     }
 
     /// <summary>

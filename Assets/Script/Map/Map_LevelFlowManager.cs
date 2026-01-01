@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using Pathfinding;
 public class Map_LevelFlowManager : MonoBehaviour
 {
     public static Map_LevelFlowManager Instance;
@@ -16,5 +16,7 @@ public class Map_LevelFlowManager : MonoBehaviour
     {
         stage++;
         generator.Generate(1, stage);
+  
     }
+
 }

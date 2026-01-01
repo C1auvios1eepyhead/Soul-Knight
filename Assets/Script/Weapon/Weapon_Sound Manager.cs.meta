@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 79caad6ff1aeb944d845e63c3b9bbb20
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - gunFireClip: {fileID: 8300000, guid: 9533554ebf34c434382c02ca8cb5d7fa, type: 3}
+  - meleeAttackClip: {fileID: 8300000, guid: b70ef538fe1524249a2f9402205c40d5, type: 3}
+  - reloadClip: {fileID: 8300000, guid: d4cdfa6f825ef1449999ce2dcc33c0e2, type: 3}
+  - weaponSwitchClip: {fileID: 8300000, guid: 2c3f82a7a18a9074ab40d64a57072f4b, type: 3}
+  - weaponPickupClip: {fileID: 8300000, guid: f1e4022bea26b0a4aa7bcacdb1436305, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

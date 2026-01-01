@@ -90,11 +90,14 @@ public class Gun : WeaponBase
                 bulletScript.lifeTime = weaponRange / bulletScript.speed;
             }
         }
+        Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.GunFire);
+
     }
 
     protected IEnumerator Reload()
     {
         isReloading = true;
+        Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.Reload);
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = magazineSize;
         isReloading = false;

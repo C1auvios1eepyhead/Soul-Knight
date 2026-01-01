@@ -7,7 +7,7 @@ public class mainscene : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Game"); // 游戏场景名
+        SceneManager.LoadScene("select"); // 游戏场景名
     }
 
     public void QuitGame()

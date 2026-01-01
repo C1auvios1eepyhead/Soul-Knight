@@ -9,7 +9,7 @@ public class PlayerHandAnchor : MonoBehaviour
         
         GameObject hand = new GameObject("HandPoint");
         hand.transform.SetParent(transform);
-        hand.transform.localPosition = new Vector3(0.4f, -0.1f, 0); // Íæ¼ÒÊÖµÄÎ»ÖÃÆ«ÒÆ
+        hand.transform.localPosition = new Vector3(0.4f, -0.1f, 0); // ï¿½ï¿½ï¿½ï¿½Öµï¿½Î»ï¿½ï¿½Æ«ï¿½ï¿½
         hand.transform.localRotation = Quaternion.identity;
 
         HandPoint = hand.transform;

@@ -6,8 +6,6 @@ using TMPro;
 
 public class NewBehaviourScript : MonoBehaviour
 {   
-    [Header("Reference")] //Template
-    [SerializeField] private PlayerConfig playerConfig;
 
     [Header("PlayerUI")]
     [SerializeField] private Image healthBar;
@@ -21,6 +19,7 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     private void UpdatePlayerUI(){
+        PlayerConfig playerConfig = PlayerSelectionManager.Instance.Player;
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, playerConfig.CurrentHealth / playerConfig.MaxHealth,  10f*Time.deltaTime);
         armorBar.fillAmount = Mathf.Lerp(armorBar.fillAmount, playerConfig.Armor / playerConfig.MaxArmor,  10f*Time.deltaTime);
 

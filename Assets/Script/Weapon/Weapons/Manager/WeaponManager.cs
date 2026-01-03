@@ -23,25 +23,32 @@ public class WeaponManager : MonoBehaviour
     public WeaponBase CurrentWeapon => currentWeapon;
 
     [Header("Drop target (Method 1: Find by name/path)")]
-    [Tooltip("Hierarchy 里 Map_LevelManager 的对象名字（必须完全一致）")]
     [SerializeField] private string levelManagerName = "Map_LevelManager";
-
-    [Tooltip("如果 Map_LevelManager 下有这个子节点，就把掉落武器放进去；没有则直接挂到 Map_LevelManager 下")]
     [SerializeField] private string droppedContainerName = "DroppedWeapons";
 
     [Header("Drop placement")]
-    [Tooltip("掉落在玩家脚边的偏移（避免和玩家重叠）")]
     [SerializeField] private Vector3 dropOffset = new Vector3(0.5f, 0f, 0f);
 
-    void Start()
+    // ---------- 新增 ----------
+    private Transform playerTransform; // 玩家 Transform
+
+    // ---------- 修改 Start 为 IEnumerator ----------
+    IEnumerator Start()
     {
+        // 等到 HandPoint 被生成（PlayerHandAnchor 的 Awake 执行完）
+        while (PlayerHandAnchor.HandPoint == null)
+            yield return null; // 等一帧再试
+
+        // 尝试先找玩家
+        TryFindPlayer();
+
         // 自动加载主武器
         WeaponBase hgPrefab = Resources.Load<WeaponBase>("Gun/HG");
         if (hgPrefab != null)
         {
             primaryWeapon = Instantiate(hgPrefab);
             primaryWeapon.OnEquip(PlayerHandAnchor.HandPoint);
-            primaryWeapon.gameObject.SetActive(true); // 当前武器显示
+            primaryWeapon.gameObject.SetActive(true);
         }
 
         // 自动加载副武器
@@ -50,20 +57,40 @@ public class WeaponManager : MonoBehaviour
         {
             secondaryWeapon = Instantiate(knifePrefab);
             secondaryWeapon.OnEquip(PlayerHandAnchor.HandPoint);
-            secondaryWeapon.gameObject.SetActive(false); // 非当前武器隐藏
+            secondaryWeapon.gameObject.SetActive(false);
         }
 
         currentWeapon = primaryWeapon;
     }
 
+    void LateUpdate()
+    {
+        // 如果还没找到玩家，每帧尝试一次
+        if (playerTransform == null)
+            TryFindPlayer();
+
+        // 跟随玩家
+        if (playerTransform != null)
+        {
+            transform.position = playerTransform.position;
+            transform.rotation = playerTransform.rotation;
+        }
+    }
+
+    private void TryFindPlayer()
+    {
+        GameObject player = GameObject.FindWithTag("Player"); // 玩家预制体必须打 Player tag
+        if (player != null)
+            playerTransform = player.transform;
+    }
+
     void Update()
     {
         UpdateWeaponUI();
-        // 切换武器
+
         if (Input.GetKeyDown(switchKey))
             SwitchWeapon();
 
-        // 尝试拾取附近武器
         if (Input.GetKeyDown(pickupKey))
         {
             WeaponBase nearest = FindNearestWeapon();
@@ -71,36 +98,23 @@ public class WeaponManager : MonoBehaviour
                 PickupWeapon(nearest);
         }
 
-        // 玩家手上武器攻击
         if (Input.GetKey(KeyCode.Space) && currentWeapon != null && currentWeapon.CanAttack())
         {
             currentWeapon.Attack();
         }
     }
 
-    /// <summary>
-    /// 切换当前手上武器
-    /// </summary>
     void SwitchWeapon()
     {
         if (primaryWeapon == null || secondaryWeapon == null) return;
 
-        // 隐藏当前手上武器
         currentWeapon.gameObject.SetActive(false);
-
-        // 切换
         currentWeapon = currentWeapon == primaryWeapon ? secondaryWeapon : primaryWeapon;
-
-        // 装备到手上并显示
         currentWeapon.OnEquip(PlayerHandAnchor.HandPoint);
         currentWeapon.gameObject.SetActive(true);
         Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.WeaponSwitch);
-
     }
 
-    /// <summary>
-    /// 查找玩家周围最近的可拾取武器
-    /// </summary>
     WeaponBase FindNearestWeapon()
     {
         WeaponBase[] weapons = GameObject.FindObjectsOfType<WeaponBase>();
@@ -109,8 +123,7 @@ public class WeaponManager : MonoBehaviour
 
         foreach (WeaponBase w in weapons)
         {
-            if (w.isEquipped) continue; // 手上武器跳过
-
+            if (w.isEquipped) continue;
             float dist = Vector2.Distance(transform.position, w.transform.position);
             if (dist <= pickupRange && dist < minDist)
             {
@@ -122,60 +135,38 @@ public class WeaponManager : MonoBehaviour
         return nearest;
     }
 
-    /// <summary>
-    /// 拾取武器并替换当前手上武器
-    /// </summary>
     void PickupWeapon(WeaponBase newWeapon)
     {
-        if (newWeapon == null) return;
+        if (newWeapon == null || newWeapon == currentWeapon) return;
 
-        // 如果捡到的是自己手上的武器（极少数情况），直接返回
-        if (newWeapon == currentWeapon) return;
-
-        // ① 旧武器掉落到 Map_LevelManager
         if (currentWeapon != null)
-        {
             DropWeaponToMapLevelManager(currentWeapon);
-        }
 
-        // ② 更新槽位
         if (currentWeapon == primaryWeapon)
             primaryWeapon = newWeapon;
         else
             secondaryWeapon = newWeapon;
 
-        // ③ 切换当前武器并装备
         currentWeapon = newWeapon;
         currentWeapon.OnEquip(PlayerHandAnchor.HandPoint);
         currentWeapon.gameObject.SetActive(true);
         Weapon_SoundManager.Instance?.PlaySound(WeaponSoundType.WeaponPickup);
-
     }
 
-    /// <summary>
-    /// 方法一：根据名字找到 Map_LevelManager，然后把旧武器直接挂到它下面（或其 DroppedWeapons 子节点）
-    /// </summary>
     private void DropWeaponToMapLevelManager(WeaponBase weapon)
     {
         if (weapon == null) return;
 
-        // 1) 卸下（解除 HandPoint 的父子关系，避免继续跟着 DDOL 玩家）
         weapon.OnUnequip(true);
-
-        // 2) 放到玩家脚边
         weapon.transform.position = transform.position + dropOffset;
-
-        // 3) 关键：把武器从 DontDestroyOnLoad 场景搬回“当前活动场景”
         SceneManager.MoveGameObjectToScene(weapon.gameObject, SceneManager.GetActiveScene());
 
-        // 4) 按“路径”找 Map_LevelManager -> (可选) DroppedWeapons
         Transform parent = FindDropParentByName();
         if (parent != null)
             weapon.transform.SetParent(parent, true);
         else
-            weapon.transform.SetParent(null, true); // 找不到就先丢在场景根
+            weapon.transform.SetParent(null, true);
 
-        // 5) 确保状态正确（可拾取、可见）
         weapon.isEquipped = false;
         weapon.gameObject.SetActive(true);
     }
@@ -194,22 +185,16 @@ public class WeaponManager : MonoBehaviour
             energyText.text = "--";
         }
     }
-    /// <summary>
-    /// 找到掉落物的父节点：
-    /// - 先找 Map_LevelManager
-    /// - 再尝试找它下面的 DroppedWeapons
-    /// </summary>
+
     private Transform FindDropParentByName()
     {
         GameObject lm = GameObject.Find(levelManagerName);
         if (lm == null)
         {
-            Debug.LogWarning($"[WeaponManager] Cannot find GameObject named '{levelManagerName}'. " +
-                             $"Old weapon will be dropped to scene root.");
+            Debug.LogWarning($"[WeaponManager] Cannot find GameObject named '{levelManagerName}'. Old weapon will be dropped to scene root.");
             return null;
         }
 
-        // 如果有子节点 DroppedWeapons，就挂到那里
         Transform container = lm.transform.Find(droppedContainerName);
         return container != null ? container : lm.transform;
     }

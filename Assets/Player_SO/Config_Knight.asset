@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd344d631ab09e646a62ac0b341ee1f5, type: 3}
   m_Name: Config_Knight
   m_EditorClassIdentifier: 
+  playerType: 0
   Level: 1
   Name: Knight
   Icon: {fileID: -1552266315, guid: 0daa3b2a82ad82f4f8f8f0a742d8eff7, type: 3}
@@ -23,4 +24,5 @@ MonoBehaviour:
   MaxEnergy: 200
   CriticalChance: 10
   CriticalDamage: 50
+  describe: A familiar figure stands before you, ready to step into another journey.
   UpgradeMultiplier: 0

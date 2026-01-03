@@ -24,4 +24,5 @@ MonoBehaviour:
   MaxEnergy: 150
   CriticalChance: 10
   CriticalDamage: 50
+  describe: A raw presence that feels born from the wild itself.
   UpgradeMultiplier: 0

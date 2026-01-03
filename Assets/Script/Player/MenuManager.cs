@@ -16,7 +16,7 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField] private TextMeshProUGUI playerLevel;
     [SerializeField] private TextMeshProUGUI playerHealthMaxStat;
     [SerializeField] private TextMeshProUGUI playerArmorMaxStat;
-
+    [SerializeField] private TextMeshProUGUI describe;
 
     private SelectablePlayer currentPlayer; 
 
@@ -63,6 +63,7 @@ public class MenuManager : Singleton<MenuManager>
         playerLevel.text = $"Level {currentPlayer.Config.Level}";
         playerHealthMaxStat.text = currentPlayer.Config.MaxHealth.ToString();
         playerArmorMaxStat.text = currentPlayer.Config.MaxArmor.ToString();
+        describe.text = currentPlayer.Config.describe;
     }
 
     public void ClosePlayerPanel(){

@@ -24,4 +24,5 @@ MonoBehaviour:
   MaxEnergy: 0
   CriticalChance: 0
   CriticalDamage: 0
+  describe: Neither fully present nor entirely gone, lingering between moments.
   UpgradeMultiplier: 0

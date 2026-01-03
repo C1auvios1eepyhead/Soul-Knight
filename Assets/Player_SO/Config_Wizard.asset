@@ -24,4 +24,5 @@ MonoBehaviour:
   MaxEnergy: 250
   CriticalChance: 5
   CriticalDamage: 100
+  describe: Cloaked in mystery, hinting at knowledge beyond the ordinary.
   UpgradeMultiplier: 0

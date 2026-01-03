@@ -28,6 +28,7 @@ public class PlayerConfig : ScriptableObject
 	public float MaxEnergy;
 	public float CriticalChance; 
 	public float CriticalDamage;
+	public string describe;
 	[Range(0, 100f)]
 	public int UpgradeMultiplier;
 

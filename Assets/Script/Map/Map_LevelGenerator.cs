@@ -11,8 +11,8 @@ public class Map_LevelGenerator : MonoBehaviour
     [SerializeField] private Vector3 worldOrigin = Vector3.zero;
 
     [Header("Corridor")]
-    [SerializeField] private GameObject corridorPrefab;          // Corridor_H
-    [SerializeField] private float corridorRotateZForVertical = 90f;
+    [SerializeField] private GameObject corridorPrefabH;
+    [SerializeField] private GameObject corridorPrefabV;
 
     [Tooltip("Corridor length in world units. When Tile cellSize = 1, set this to the number of tiles (e.g. 15). If the map or prefab is scaled, multiply by the scale factor (e.g. 15 * 0.16).")]
     [SerializeField] private float corridorLengthWorld = 15f;
@@ -37,8 +37,16 @@ public class Map_LevelGenerator : MonoBehaviour
     private readonly int[] roomCounts = { 4, 5, 5, 6, 6 };
     private System.Random rng;
 
-    private enum RoomType { Start, Monster, Portal, Boss }
+    public enum RoomType { Start, Monster, Portal, Boss }
     private enum Dir4 { Up, Down, Left, Right }
+
+    [System.Serializable]
+    public struct MiniMapRoomInfo
+    {
+        public Vector2Int cell;      // 拓扑坐标 (x,y)
+        public RoomType type;        // Start/Monster/Portal/Boss
+        public Vector3 worldCenter;  // 房间中心点世界坐标
+    }
 
     private class RoomNode
     {
@@ -54,6 +62,8 @@ public class Map_LevelGenerator : MonoBehaviour
 
     private Dictionary<Vector2Int, RoomNode> nodes = new();
     private HashSet<(Vector2Int, Vector2Int)> spawnedEdges = new();
+
+    public event Action<List<MiniMapRoomInfo>> OnMiniMapBuilt;
 
     // Monster Room does not repeat the draw.
     private List<int> monsterPickPool = new();
@@ -88,6 +98,8 @@ public class Map_LevelGenerator : MonoBehaviour
         SpawnCorridorsByAlign();
 
         ConfigureAllRoomsConnections();
+
+        BuildMiniMapDataAndNotify();
 
         MovePlayerToStartRoomCenter();
 
@@ -304,7 +316,11 @@ public class Map_LevelGenerator : MonoBehaviour
         n.go.transform.position = worldPos;
 
         Transform rotRoot = GetRotRoot(n.go);
-        rotRoot.rotation = Quaternion.Euler(0, 0, -90f * n.rotStepsCW);
+
+        float z = -90f * n.rotStepsCW;
+        if (n.type == RoomType.Portal) z = 0f;
+
+        rotRoot.rotation = Quaternion.Euler(0, 0, z);
 
         // The Portal does not rotate, but its position always follows the anchor point.
         if (n.type == RoomType.Portal)
@@ -328,7 +344,7 @@ public class Map_LevelGenerator : MonoBehaviour
         Vector3 dir = DirToWorldVector(dirFromTo);
 
         // First, make sure that if "from" is "Start/Portal", then its "right door" is already aligned with its only connection direction.
-        if (from.type == RoomType.Start || from.type == RoomType.Portal)
+        if (from.type == RoomType.Start)
         {
             RotateSingleDoorRoomToMatchConnection(from, forcedConnDir: GetOnlyConnectionDir(from));
         }
@@ -344,12 +360,16 @@ public class Map_LevelGenerator : MonoBehaviour
         {
             rotCandidates.Add(0); // The boss room does not rotate.
         }
-        else if (to.type == RoomType.Start || to.type == RoomType.Portal)
+        else if (to.type == RoomType.Start)
         {
             // There is only one door and it is set to be on the right by default. It must be made to "face towards from".
             Dir4 toConnDir = Opposite(dirFromTo); // to -> from
             int need = RotationStepsToMap(Dir4.Right, toConnDir);
             rotCandidates.Add(need);
+        }
+        else if (to.type == RoomType.Portal)
+        {
+            rotCandidates.Add(0);
         }
         else
         {
@@ -395,8 +415,7 @@ public class Map_LevelGenerator : MonoBehaviour
 
         PlaceRoomAt(to, bestPos, bestRot);
 
-        // If "to" is "Start/Portal", then force it again (to avoid being overwritten by the "rotCandidates" of the Monster)
-        if (to.type == RoomType.Start || to.type == RoomType.Portal)
+        if (to.type == RoomType.Start)
         {
             RotateSingleDoorRoomToMatchConnection(to, forcedConnDir: GetOnlyConnectionDir(to));
         }
@@ -406,7 +425,7 @@ public class Map_LevelGenerator : MonoBehaviour
     private void RotateSingleDoorRoomToMatchConnection(RoomNode n, Dir4 forcedConnDir)
     {
         // Only the Start/Portal can rotate. The Boss does not rotate.
-        if (n.type != RoomType.Start && n.type != RoomType.Portal) return;
+        if (n.type != RoomType.Start) return;
 
         if (Degree(n) != 1) return;
 
@@ -503,7 +522,11 @@ public class Map_LevelGenerator : MonoBehaviour
     // Corridors (Align-to-Align)
     private void SpawnCorridorsByAlign()
     {
-        if (corridorPrefab == null) return;
+        if (corridorPrefabH == null || corridorPrefabV == null)
+        {
+            Debug.LogError("Corridor prefabs (H/V) are not assigned!");
+            return;
+        }
 
         spawnedEdges.Clear();
 
@@ -537,9 +560,12 @@ public class Map_LevelGenerator : MonoBehaviour
         Vector3 mid = (alignA.position + alignB.position) * 0.5f;
 
         bool vertical = (dirAtoB == Dir4.Up);
-        Quaternion rot = vertical ? Quaternion.Euler(0, 0, corridorRotateZForVertical) : Quaternion.identity;
 
-        GameObject go = Instantiate(corridorPrefab, mid, rot, transform);
+        // 根据方向选 prefab，而不是旋转
+        GameObject prefab = vertical ? corridorPrefabV : corridorPrefabH;
+        if (prefab == null) return;
+
+        GameObject go = Instantiate(prefab, mid, Quaternion.identity, transform);
         go.name = $"Corridor_({a.x},{a.y})_to_({b.x},{b.y})";
     }
 
@@ -565,6 +591,28 @@ public class Map_LevelGenerator : MonoBehaviour
                 layout.SetupDoors(n.up, n.down, n.left, n.right);
             }
         }
+    }
+
+    private void BuildMiniMapDataAndNotify()
+    {
+        var list = new List<MiniMapRoomInfo>();
+
+        foreach (var kv in nodes)
+        {
+            RoomNode n = kv.Value;
+            if (n.go == null) continue;
+
+            Transform center = FindAny(n.go.transform, "RoomCenter");
+
+            list.Add(new MiniMapRoomInfo
+            {
+                cell = n.cell,
+                type = n.type,
+                worldCenter = center != null ? center.position : n.go.transform.position
+            });
+        }
+
+        OnMiniMapBuilt?.Invoke(list);
     }
 
     // Player Spawn

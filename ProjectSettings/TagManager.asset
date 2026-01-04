@@ -69,6 +69,9 @@ TagManager:
   - name: Weapon
     uniqueID: 3595701809
     locked: 0
+  - name: Cover
+    uniqueID: 890322343
+    locked: 0
   - name: Tips
     uniqueID: 1656885399
     locked: 0

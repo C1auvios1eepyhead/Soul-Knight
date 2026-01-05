@@ -53,7 +53,7 @@ public class MenuManager : Singleton<MenuManager>
     }
      
     public void StartButton(){
-        SceneManager.LoadScene("Stage 0");
+        SceneManager.LoadScene("Stage1");
     }
 
     private void showPlayerStats(){

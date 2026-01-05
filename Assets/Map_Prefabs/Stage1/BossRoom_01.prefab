@@ -220,7 +220,7 @@ Tilemap:
       - {fileID: 848964434, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -1984102530, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
       - {fileID: -1742372518, guid: 2210cb01db4ab534795e008739dc432e, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   rewardSpawnPoint: {fileID: 3878051197819755301}
   spawnChestOnClear: 1
   spawnPortalOnClear: 1
-  portalPrefab: {fileID: 5856966965541517753, guid: 503f8cd13b8fc8c49b7064d2565b1113, type: 3}
+  portalPrefab: {fileID: 5856966965541517753, guid: 65259d9832221b348850d1bec28e4d58, type: 3}
   bossPortalSpawnPoint: {fileID: 1668618196491654752}
   isBossRoom: 1
   waveManager: {fileID: 3831807453426375884}
@@ -8134,7 +8134,7 @@ MonoBehaviour:
   rewardSpawnPoint: {fileID: 3878051197819755301}
   spawnChestOnClear: 1
   spawnPortalOnClear: 1
-  portalPrefab: {fileID: 5856966965541517753, guid: 503f8cd13b8fc8c49b7064d2565b1113, type: 3}
+  portalPrefab: {fileID: 5856966965541517753, guid: 65259d9832221b348850d1bec28e4d58, type: 3}
   bossPortalSpawnPoint: {fileID: 1668618196491654752}
   isBossRoom: 1
   waveManager: {fileID: 3831807453426375884}

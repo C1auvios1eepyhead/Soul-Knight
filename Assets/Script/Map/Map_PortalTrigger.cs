@@ -36,6 +36,14 @@ public class Map_PortalTrigger : MonoBehaviour
             return;
         }
 
+        // 如果填了sceneToLoad，就直接加载该场景
+        if (!string.IsNullOrEmpty(sceneToLoad))
+        {
+            SceneManager.LoadScene(sceneToLoad);
+            return;
+        }
+
+        // 否则走原本的“下一关”流程
         if (Map_LevelFlowManager.Instance != null)
         {
             Map_LevelFlowManager.Instance.EnterNextStage();

@@ -1,23 +1,23 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Shotgun : Gun
+public class BestGun : Gun
 {
-    [Header("Shotgun Settings")]
-    public int pellets = 5;
+    [Header("BestGun Settings")]
+    public int pellets = 7;
     public float spreadAngle = 30f;
 
     protected override void Awake()
     {
         base.Awake();
-        weaponName = "Shotgun";
-        damage = 50f;
-        pellets = 5;
+        weaponName = "BestGun";
+        damage = 80f;
+        pellets = 7;
         spreadAngle = 20f;
-        attackRate = 1.5f;
-        weaponBulletSpeed = 15f;
-        weaponRange = 7f;
-        magazineSize = 6;
-        reloadTime = 2f;
+        attackRate = 0.4f;
+        weaponBulletSpeed = 30f;
+        weaponRange = 14f;
+        magazineSize = 30;
+        reloadTime = 1.5f;
         currentAmmo = magazineSize;
     }
 

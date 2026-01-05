@@ -251,6 +251,7 @@ MonoBehaviour:
   patrolPoints: []
   targetPointIndex: 0
   currentSpeed: 5
+  speedMultiplier: 1
   chaseDistance: 12
   attackDistance: 8
   pathPointList: []
@@ -263,8 +264,8 @@ MonoBehaviour:
     m_Bits: 64
   AttackCooldownDuration: 0.5
   isHurt: 0
-  isKnokback: 1
-  isSuperArmor: 0
+  isKnokback: 0
+  isSuperArmor: 1
   knokbackForce: 0
   knokbackForceDuration: 0
   sr: {fileID: 0}

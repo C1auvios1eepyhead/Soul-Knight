@@ -657,7 +657,8 @@ public class Map_LevelGenerator : MonoBehaviour
         }
 
         // 移动到起点后再续一小段保护，防止 SyncTransforms 后立即触发
-        guard?.BlockForSeconds(0.35f);
+        guard?.BlockForSeconds(0.7f);
+        UnityEngine.Debug.Log("111111");
         ScanGraph();
     }
 

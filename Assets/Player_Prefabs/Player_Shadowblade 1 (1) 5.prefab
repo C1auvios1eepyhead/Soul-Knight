@@ -391,6 +391,7 @@ MonoBehaviour:
   dashSpeed: 20
   dashTime: 0.2
   transperency: 5
+  speedMultiplier: 1
 --- !u!95 &7368285206990241444
 Animator:
   serializedVersion: 5
@@ -647,7 +648,7 @@ Transform:
   m_GameObject: {fileID: 9033628325523519901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.294, y: -0.337, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

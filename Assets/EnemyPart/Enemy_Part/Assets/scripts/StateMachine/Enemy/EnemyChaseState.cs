@@ -27,6 +27,7 @@ public class EnemyChaseState : IState
             {
                 enemy.TransitionState(EnemyStateType.Hurt);
             }
+   
         }
 
         enemy.GetPlayerTransform();//获取玩家位置

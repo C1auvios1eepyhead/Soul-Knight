@@ -23,6 +23,8 @@ public class Enemy : Character
     public float currentSpeed = 0;
     public Vector2 MovementInput { get; set; }
 
+    [HideInInspector] public float speedMultiplier = 1f;
+
     public float chaseDistance = 3f;//追击距离
     public float attackDistance = 0.8f;//攻击距离
 
@@ -171,7 +173,7 @@ public class Enemy : Character
     {
         if (MovementInput.magnitude > 0.1f && currentSpeed >= 0)
         {
-            rb.velocity = MovementInput * currentSpeed;
+            rb.velocity = MovementInput * (currentSpeed * speedMultiplier);
             //敌人左右翻转
             if (MovementInput.x < 0)//左
             {

@@ -94,9 +94,34 @@ public class PlayerHealth : MonoBehaviour
     audioSource = GetComponent<AudioSource>();
 }
 
-public void ResetStatsToFull()
-{
-    playerConfig.CurrentHealth = playerConfig.MaxHealth;
-    playerConfig.Armor = playerConfig.MaxArmor;
-}
+    public void ResetStatsToFull()
+    {
+        playerConfig.CurrentHealth = playerConfig.MaxHealth;
+        playerConfig.Armor = playerConfig.MaxArmor;
+    }
+
+    public void AddMaxHealth(int amount, bool refillToNewMax)
+    {
+        if (playerConfig == null) return;
+
+        playerConfig.MaxHealth += amount;
+
+        if (refillToNewMax)
+            playerConfig.CurrentHealth = playerConfig.MaxHealth;
+        else
+            playerConfig.CurrentHealth = Mathf.Min(playerConfig.CurrentHealth, playerConfig.MaxHealth);
+    }
+
+    public void AddMaxArmor(int amount, bool refillToNewMax)
+    {
+        if (playerConfig == null) return;
+
+        playerConfig.MaxArmor += amount;
+
+        if (refillToNewMax)
+            playerConfig.Armor = playerConfig.MaxArmor;
+        else
+            playerConfig.Armor = Mathf.Min(playerConfig.Armor, playerConfig.MaxArmor);
+    }
+
 }

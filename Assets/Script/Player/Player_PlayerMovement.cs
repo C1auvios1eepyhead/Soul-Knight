@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed;
     private bool usingDash;
 
+    [HideInInspector] public float speedMultiplier = 1f;
+
     private void Awake(){
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         RotatePlayer();
     }
     private void MovePlayer(){
-        rb2D.MovePosition(rb2D.position + moveDirection*(currentSpeed*Time.fixedDeltaTime));
+        rb2D.MovePosition(rb2D.position + moveDirection * ((currentSpeed * speedMultiplier) * Time.fixedDeltaTime));
     }
     private void Dash(){
         if(usingDash){
@@ -82,5 +84,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDisable(){
         actions.Disable();
+    }
+
+    public void MultiplySpeed(float factor)
+    {
+        speedMultiplier *= factor;
+        speedMultiplier = Mathf.Clamp(speedMultiplier, 0.1f, 3f); 
     }
 }

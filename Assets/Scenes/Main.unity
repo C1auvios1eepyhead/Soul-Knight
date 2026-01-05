@@ -178,7 +178,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1593224569
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: -276616687, guid: 0daa3b2a82ad82f4f8f8f0a742d8eff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2410,7 +2410,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1593224569
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: -1552266315, guid: 0daa3b2a82ad82f4f8f8f0a742d8eff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6946,7 +6946,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1593224569
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 1485813547, guid: 0daa3b2a82ad82f4f8f8f0a742d8eff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7205,7 +7205,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1593224569
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 679787145, guid: 0daa3b2a82ad82f4f8f8f0a742d8eff7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7301,6 +7301,10 @@ PrefabInstance:
     - target: {fileID: 2240962551265015934, guid: e96af65ba29ab524d96c246387f05d24, type: 3}
       propertyPath: m_Name
       value: Player_Shadowblade 1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240962551265015934, guid: e96af65ba29ab524d96c246387f05d24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5449962143116012474, guid: e96af65ba29ab524d96c246387f05d24, type: 3}
       propertyPath: m_LocalPosition.x

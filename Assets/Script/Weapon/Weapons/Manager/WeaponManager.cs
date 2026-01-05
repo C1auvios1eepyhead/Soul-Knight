@@ -8,8 +8,8 @@ using TMPro;
 public class WeaponManager : MonoBehaviour
 {
     [Header("WeaponUI")]
-    private Image energyBar;                     // ---------- 改动：取消 SerializeField，由运行时绑定
-    private TextMeshProUGUI energyText;         // ---------- 改动：取消 SerializeField，由运行时绑定
+    private Image energyBar;
+    private TextMeshProUGUI energyText;
 
     [Header("Weapon pick and switch setting")]
     public float pickupRange = 1.2f;
@@ -29,7 +29,17 @@ public class WeaponManager : MonoBehaviour
     [Header("Drop placement")]
     [SerializeField] private Vector3 dropOffset = new Vector3(0.5f, 0f, 0f);
 
+    // ★ 新增：允许存在的关卡名
+    private static readonly HashSet<string> gameplayScenes = new HashSet<string>
+    {
+        "Stage1",
+        "Stage2"
+    };
+
     private static WeaponManager instance;
+
+    // ---------- 新增 ----------
+    private Transform playerTransform;
 
     void Awake()
     {
@@ -41,21 +51,33 @@ public class WeaponManager : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        // ★ 新增：监听场景加载
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // ---------- 新增 ----------
-    private Transform playerTransform; // 玩家 Transform
+    // ★ 新增：反注册事件，防止幽灵回调
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // ★ 新增：场景切换时检查
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!gameplayScenes.Contains(scene.name))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     IEnumerator Start()
     {
-        // 等到 HandPoint 被生成（PlayerHandAnchor 的 Awake 执行完）
         while (PlayerHandAnchor.HandPoint == null)
-            yield return null; // 等一帧再试
+            yield return null;
 
-        // 尝试先找玩家
         TryFindPlayer();
 
-        // 自动加载主武器
         WeaponBase hgPrefab = Resources.Load<WeaponBase>("Gun/HG");
         if (hgPrefab != null)
         {
@@ -64,7 +86,6 @@ public class WeaponManager : MonoBehaviour
             primaryWeapon.gameObject.SetActive(true);
         }
 
-        // 自动加载副武器
         WeaponBase knifePrefab = Resources.Load<WeaponBase>("Melee/Knife");
         if (knifePrefab != null)
         {
@@ -78,11 +99,9 @@ public class WeaponManager : MonoBehaviour
 
     void LateUpdate()
     {
-        // 如果还没找到玩家，每帧尝试一次
         if (playerTransform == null)
             TryFindPlayer();
 
-        // 跟随玩家
         if (playerTransform != null)
         {
             transform.position = playerTransform.position;
@@ -92,7 +111,7 @@ public class WeaponManager : MonoBehaviour
 
     private void TryFindPlayer()
     {
-        GameObject player = GameObject.FindWithTag("Player"); // 玩家预制体必须打 Player tag
+        GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
             playerTransform = player.transform;
     }
@@ -175,24 +194,19 @@ public class WeaponManager : MonoBehaviour
         SceneManager.MoveGameObjectToScene(weapon.gameObject, SceneManager.GetActiveScene());
 
         Transform parent = FindDropParentByName();
-        if (parent != null)
-            weapon.transform.SetParent(parent, true);
-        else
-            weapon.transform.SetParent(null, true);
+        weapon.transform.SetParent(parent, true);
 
         weapon.isEquipped = false;
         weapon.gameObject.SetActive(true);
     }
 
-    // ---------- 修改过的 UpdateWeaponUI ----------
     private void UpdateWeaponUI()
     {
-        // ---------- 改动：UI 如果为空，每帧尝试绑定一次 ----------
         if (energyBar == null || energyText == null)
         {
             TryBindWeaponUI();
             if (energyBar == null || energyText == null)
-                return; // UI 还没生成，跳过
+                return;
         }
 
         if (currentWeapon is Gun gun)
@@ -208,10 +222,8 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    // ---------- 新增方法：TryBindWeaponUI ----------
     private void TryBindWeaponUI()
     {
-        // ---------- 改动：去掉 Stage 名称，通用 Canvas 路径 ----------
         GameObject barGO = GameObject.Find("Canvas/Panel/Player Panel/Stat - Energy/BlackBar/EnergyBar");
         if (barGO != null)
             energyBar = barGO.GetComponent<Image>();
@@ -225,10 +237,7 @@ public class WeaponManager : MonoBehaviour
     {
         GameObject lm = GameObject.Find(levelManagerName);
         if (lm == null)
-        {
-            Debug.LogWarning($"[WeaponManager] Cannot find GameObject named '{levelManagerName}'. Old weapon will be dropped to scene root.");
             return null;
-        }
 
         Transform container = lm.transform.Find(droppedContainerName);
         return container != null ? container : lm.transform;

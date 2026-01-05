@@ -460,8 +460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptText: {fileID: 4773551130606926238}
   interactKey: 101
-  mode: 1
-  sceneToLoad: 
+  mode: 0
+  sceneToLoad: Win
   audioSource: {fileID: 340543114910416678}
   portalUseSFX: {fileID: 8300000, guid: 47afc4ef01b8dcf4191797c7275b82e1, type: 3}
 --- !u!1 &4773551130606926238
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 2268762554907188059}
   - component: {fileID: 7253133966595498676}
   m_Layer: 0
-  m_Name: Portal_BossExit
+  m_Name: Portal_BossWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1564,6 +1564,37 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &939664718789677534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6411433466804309579}
+  m_Layer: 0
+  m_Name: ChestSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6411433466804309579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939664718789677534}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: -2, z: 0.005684832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7227477142404265820}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027821005283485551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,6 +2718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6411433466804309579}
   - {fileID: 3540472337293930626}
   - {fileID: 6061522473418560934}
   - {fileID: 3579535029851891602}
@@ -2759,7 +2791,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 6411433466804309579}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}
@@ -6942,7 +6974,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 6411433466804309579}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}

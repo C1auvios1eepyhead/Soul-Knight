@@ -911,7 +911,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 9184181398908620390}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}
@@ -3217,6 +3217,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8520662750236899751}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6791519078499620175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9184181398908620390}
+  m_Layer: 0
+  m_Name: ChestSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9184181398908620390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791519078499620175}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: -4, z: 0.005684832}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7476,6 +7507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9184181398908620390}
   - {fileID: 4805590975887438713}
   - {fileID: 5360730430171851794}
   - {fileID: 2557460629723164965}
@@ -7547,7 +7579,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 9184181398908620390}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}

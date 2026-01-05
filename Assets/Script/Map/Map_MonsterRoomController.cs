@@ -214,12 +214,10 @@ public class Map_MonsterRoomController : MonoBehaviour
 
             if (rewardSpawnPoint != null)
             {
-                // Boss 房固定位置
                 spawnPos = rewardSpawnPoint.position;
             }
             else
             {
-                // 普通房随机
                 spawnPos = roomRoot.position;
                 if (roomBoundsCol != null)
                 {

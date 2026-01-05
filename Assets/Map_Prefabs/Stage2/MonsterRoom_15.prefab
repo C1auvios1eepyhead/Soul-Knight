@@ -5954,6 +5954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4558557974607547767}
   - {fileID: 718695873842877148}
   - {fileID: 4250654516932165990}
   - {fileID: 7438654833461477929}
@@ -6026,7 +6027,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 4558557974607547767}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}
@@ -6879,7 +6880,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6889,7 +6890,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 12
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6899,7 +6900,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6939,7 +6940,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 1
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6998,24 +6999,24 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -36714502, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 2045870577, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1881131819, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
-  - m_RefCount: 1
     m_Data: {fileID: -1850612230, guid: 84179e5445cabcb4493585cfb0d0df8f, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 882089712, guid: 84179e5445cabcb4493585cfb0d0df8f, type: 3}
+    m_Data: {fileID: 1881131819, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1587946374, guid: 84179e5445cabcb4493585cfb0d0df8f, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 447394113, guid: 84179e5445cabcb4493585cfb0d0df8f, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 882089712, guid: 84179e5445cabcb4493585cfb0d0df8f, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -36714502, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
@@ -8308,7 +8309,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 4558557974607547767}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}
@@ -9248,3 +9249,34 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &9120509872149897626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4558557974607547767}
+  m_Layer: 0
+  m_Name: ChestSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4558557974607547767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9120509872149897626}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 0.005684832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8097641126076055316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

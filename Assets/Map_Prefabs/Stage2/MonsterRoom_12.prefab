@@ -5688,6 +5688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 125870257925507874}
   - {fileID: 718695873842877148}
   - {fileID: 4250654516932165990}
   - {fileID: 7438654833461477929}
@@ -5760,7 +5761,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 125870257925507874}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}
@@ -7557,7 +7558,7 @@ MonoBehaviour:
     m_Bits: 768
   spawnCheckBoxSize: {x: 0.6, y: 0.6}
   chestPrefab: {fileID: 1657095485358504234, guid: 076841968e597694bb748657f694a314, type: 3}
-  rewardSpawnPoint: {fileID: 0}
+  rewardSpawnPoint: {fileID: 125870257925507874}
   spawnChestOnClear: 1
   spawnPortalOnClear: 0
   portalPrefab: {fileID: 0}
@@ -8497,3 +8498,34 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &8886208475061535058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125870257925507874}
+  m_Layer: 0
+  m_Name: ChestSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &125870257925507874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886208475061535058}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: -8, z: 0.005684832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8097641126076055316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

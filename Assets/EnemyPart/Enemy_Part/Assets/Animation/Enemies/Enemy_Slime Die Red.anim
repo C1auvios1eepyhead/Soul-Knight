@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy_Slime Hurt
+  m_Name: Enemy_Slime Die Red
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1907753367, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+      value: {fileID: -1694216237, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
     - time: 0.1
-      value: {fileID: 172187998, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+      value: {fileID: -1216750266, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
     - time: 0.2
-      value: {fileID: 1217997934, guid: ed8f3bd11e36f274796f7261bd975600, type: 3}
+      value: {fileID: -1216750266, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
     - time: 0.3
-      value: {fileID: -1485859230, guid: ed8f3bd11e36f274796f7261bd975600, type: 3}
+      value: {fileID: -1916067580, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
     - time: 0.4
-      value: {fileID: -619982622, guid: ed8f3bd11e36f274796f7261bd975600, type: 3}
+      value: {fileID: -1916067580, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - time: 0.5
+      value: {fileID: -1403480350, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - time: 0.6
+      value: {fileID: -1403480350, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -52,22 +56,24 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1907753367, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
-    - {fileID: 172187998, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
-    - {fileID: 1217997934, guid: ed8f3bd11e36f274796f7261bd975600, type: 3}
-    - {fileID: -1485859230, guid: ed8f3bd11e36f274796f7261bd975600, type: 3}
-    - {fileID: -619982622, guid: ed8f3bd11e36f274796f7261bd975600, type: 3}
+    - {fileID: -1694216237, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - {fileID: -1216750266, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - {fileID: -1216750266, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - {fileID: -1916067580, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - {fileID: -1916067580, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - {fileID: -1403480350, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+    - {fileID: -1403480350, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.70000005
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -83,9 +89,16 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: PlayHurtstepSound
+    functionName: PlayDeadstepSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: DestroyEnemy
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0

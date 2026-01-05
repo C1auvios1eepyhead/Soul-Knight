@@ -28,7 +28,11 @@ public class EnemyPatrolState : IState
         //����Ƿ�����
         if (enemy.isHurt)
         {
+            if(enemy.isSuperArmor==false)
+            {
             enemy.TransitionState(EnemyStateType.Hurt);
+            }
+
         }
 
         //��Ѳ�߹����з�����ң��л���׷��״̬

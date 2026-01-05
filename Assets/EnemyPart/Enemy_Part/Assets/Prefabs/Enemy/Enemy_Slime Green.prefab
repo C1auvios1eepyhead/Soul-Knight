@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1307957693176105290}
   - component: {fileID: 7764709286269332018}
   m_Layer: 7
-  m_Name: Enemy_Slime
+  m_Name: Enemy_Slime Green
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 1186996667
   m_SortingLayer: 7
   m_SortingOrder: 8
-  m_Sprite: {fileID: -12435578, guid: a7c942a73b15b8042a2f0ed9fe7e4781, type: 3}
+  m_Sprite: {fileID: 908976682, guid: ed8f3bd11e36f274796f7261bd975600, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ Animator:
   m_GameObject: {fileID: 6138745766540435822}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f729811c53bafa0478e59e162d119f74, type: 2}
+  m_Controller: {fileID: 9100000, guid: 511d0ecbfd24bcc4383860eb2da8fd1a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

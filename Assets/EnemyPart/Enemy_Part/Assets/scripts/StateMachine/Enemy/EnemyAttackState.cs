@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// µĞÈË¹¥»÷×´Ì¬
+/// æ•Œäººæ”»å‡»çŠ¶æ€
 /// </summary>
 public class EnemyAttackState : IState
 {
     private Enemy enemy;
 
     private AnimatorStateInfo info;
-    //¹¹Ôìº¯Êı
+    //æ„é€ å‡½æ•°
     public EnemyAttackState(Enemy enemy)
     {
         this.enemy = enemy;
@@ -19,23 +19,28 @@ public class EnemyAttackState : IState
     {
         if (enemy.isAttack)
         {
-            enemy.animator.Play("Attack");//²¥·Å¹¥»÷¶¯»­
+            enemy.animator.Play("Attack");//æ’­æ”¾æ”»å‡»åŠ¨ç”»
             enemy.isAttack = false;
-            enemy.AttackColdown();//ÀäÈ´Ê±¼ä
+            enemy.AttackColdown();//å†·å´æ—¶é—´
         }
         
     }
     public void OnUpdate()
     {
-        //ÅĞ¶ÏÊÇ·ñÊÜÉË
+        //åˆ¤æ–­æ˜¯å¦å—ä¼¤
         if (enemy.isHurt)
         {
-            enemy.TransitionState(EnemyStateType.Hurt);
+            if(enemy.isSuperArmor==false)
+            {
+                enemy.TransitionState(EnemyStateType.Hurt);
+            }
+        
+           
         }
 
-        //½ûÖ¹µĞÈËÒÆ¶¯
+        //ç¦æ­¢æ•Œäººç§»åŠ¨
         enemy.rb.velocity = Vector2.zero;
-        //ÈËÎï·­×ª
+        //äººç‰©ç¿»è½¬
         float x = enemy.player.position.x - enemy.transform.position.x;
         if (x > 0)
         {
@@ -45,13 +50,13 @@ public class EnemyAttackState : IState
         {
             enemy.sr.flipX = false;
         }
-        //»ñÈ¡µĞÈË½ÇÉ«µ±Ç°²¥·ÅµÄ¶¯»­×´Ì¬µÄĞÅÏ¢
+        //è·å–æ•Œäººè§’è‰²å½“å‰æ’­æ”¾çš„åŠ¨ç”»çŠ¶æ€çš„ä¿¡æ¯
         info = enemy.animator.GetCurrentAnimatorStateInfo(0);
 
      
-        if (info.normalizedTime >= 1f)//²¥·ÅÍêºóÇĞ»»´ı»ú¶¯»­
+        if (info.normalizedTime >= 1f)//æ’­æ”¾å®Œååˆ‡æ¢å¾…æœºåŠ¨ç”»
         {
-            Debug.Log("´¥·¢"+info.normalizedTime);
+            Debug.Log("è§¦å‘"+info.normalizedTime);
             enemy.TransitionState(EnemyStateType.Idle);
         }
     }

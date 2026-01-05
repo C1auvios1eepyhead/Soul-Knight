@@ -45,7 +45,6 @@ public class Enemy : Character
     public bool isHurt;
     public bool isKnokback = true;//击退
 
-    public bool isSuperArmor = false;//霸体
     public float knokbackForce = 10f;
     public float knokbackForceDuration = 0.1f;
 

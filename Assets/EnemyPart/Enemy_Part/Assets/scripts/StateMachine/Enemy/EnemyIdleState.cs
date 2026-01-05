@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// µĞÈË´ı»ú×´Ì¬
+/// æ•Œäººå¾…æœºçŠ¶æ€
 /// </summary>
 public class EnemyIdleState : IState
 {
     private Enemy enemy;
 
-    private float Timer = 0;//¼ÆÊ±Æ÷
+    private float Timer = 0;//è®¡æ—¶å™¨
 
-    //¹¹Ôìº¯Êı
+    //æ„é€ å‡½æ•°
     public EnemyIdleState(Enemy enemy)
     {
         this.enemy = enemy;
@@ -19,31 +19,36 @@ public class EnemyIdleState : IState
     public void OnEnter()
     {
         enemy.animator.Play("Idle");
-        enemy.rb.velocity = Vector2.zero;//´ı»úÊ±²»ÒªÒÆ¶¯
+        enemy.rb.velocity = Vector2.zero;//å¾…æœºæ—¶ä¸è¦ç§»åŠ¨
     }
    
     public void OnUpdate()
     {
-        //ÅĞ¶ÏÊÇ·ñÊÜÉË
+        //åˆ¤æ–­æ˜¯å¦å—ä¼¤
         if (enemy.isHurt)
         {
-            enemy.TransitionState(EnemyStateType.Hurt);
+            if(enemy.isSuperArmor==false)
+            {
+                enemy.TransitionState(EnemyStateType.Hurt);
+            }
+  
+            
         }
 
-        enemy.GetPlayerTransform();//»ñÈ¡Íæ¼ÒÎ»ÖÃ
+        enemy.GetPlayerTransform();//è·å–ç©å®¶ä½ç½®
 
-        if (enemy.player != null)//Èç¹ûÍæ¼Ò²»Îª¿Õ
+        if (enemy.player != null)//å¦‚æœç©å®¶ä¸ä¸ºç©º
         {
-            if (enemy.distance > enemy.attackDistance)//´óÓÚ¹¥»÷¾àÀë£¬ÇĞ»»Îª×·»÷×´Ì¬
+            if (enemy.distance > enemy.attackDistance)//å¤§äºæ”»å‡»è·ç¦»ï¼Œåˆ‡æ¢ä¸ºè¿½å‡»çŠ¶æ€
             {
                 enemy.TransitionState(EnemyStateType.Chase);
             }
-            else if (enemy.distance <= enemy.attackDistance)//Ğ¡ÓÚµÈÓÚ¹¥»÷¾àÀëÇĞ»»Îª¹¥»÷×´Ì¬
+            else if (enemy.distance <= enemy.attackDistance)//å°äºç­‰äºæ”»å‡»è·ç¦»åˆ‡æ¢ä¸ºæ”»å‡»çŠ¶æ€
             {
                 enemy.TransitionState(EnemyStateType.Attack);
             }
         }
-        else { //Èç¹ûÍæ¼ÒÎª¿Õ,µÈ´ıÒ»¶¨Ê±¼äÇĞ»»µ½Ñ²Âß×´Ì¬
+        else { //å¦‚æœç©å®¶ä¸ºç©º,ç­‰å¾…ä¸€å®šæ—¶é—´åˆ‡æ¢åˆ°å·¡é€»çŠ¶æ€
             if (Timer <= enemy.IdleDuration)
             {
                 Timer += Time.deltaTime;

@@ -18,6 +18,9 @@ public class Character : MonoBehaviour
     public bool invulnerable;
     public float invulnerableDuration;//�޵�ʱ��
 
+     public bool isSuperArmor = false;//霸体
+
+
     public UnityEvent OnHurt;
     public UnityEvent OnDie;
     protected virtual void OnEnable()
@@ -35,6 +38,10 @@ public class Character : MonoBehaviour
             StartCoroutine(nameof(InvulnerableCoroutine));//����޵�ʱ��Э��
             //ִ�н�ɫ���˶���
             OnHurt?.Invoke();
+            if(isSuperArmor==true)
+            {
+                GetComponent<HitFlash>().FlashRed();
+            }
         }
         else
         {

@@ -500,7 +500,9 @@ MonoBehaviour:
   promptText: {fileID: 4248413138248653583}
   interactKey: 101
   dropItems:
-  - weaponPrefab: {fileID: 2641122369729996929, guid: 34e381f4ab8101446810c343299dac94, type: 3}
+  - weaponPrefab: {fileID: 5363898330748438595, guid: ee9bde2928a0d0d41b92a572d2600d94, type: 3}
+    weight: 100
+  - weaponPrefab: {fileID: 8194369072259641178, guid: 9426e31fefb4f8e43bf8dc5ca8f15865, type: 3}
     weight: 100
   noRepeatInThisChest: 1
   levelRoot: {fileID: 2930039360149180199, guid: 816dc4fcc1c5d10429a2d70b3dbef5b0, type: 3}

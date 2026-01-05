@@ -34,6 +34,10 @@ public class Map_LevelGenerator : MonoBehaviour
     [Range(1, 5)]
     [SerializeField] private int debugStageIndex = 1;
 
+
+    [SerializeField] private int currentworld;
+
+
     private readonly int[] roomCounts = { 4, 5, 5, 6, 6 };
     private System.Random rng;
 
@@ -72,11 +76,13 @@ public class Map_LevelGenerator : MonoBehaviour
     private void Start()
     {
         if (!autoGenerateOnStart) return;
-        Generate(1, debugStageIndex);
+        Generate(currentworld, debugStageIndex);
     }
 
     public void Generate(int worldIndex, int stageIndex)
     {
+        worldIndex = currentworld;
+
         Debug.Log($"[Generate] worldIndex={worldIndex}, stageIndex={stageIndex}\nCALLER:\n{Environment.StackTrace}");
 
         ClearExisting();
@@ -90,20 +96,21 @@ public class Map_LevelGenerator : MonoBehaviour
         bool isFinal = (stageIndex == 5);
 
         BuildMonsterPickPool();
-
+        Debug.Log("shenqidaima97");
         BuildTopology(totalRooms, isFinal);
-
+        Debug.Log("shenqidaima98");
         SpawnAndPlaceRooms();
-
+        Debug.Log("shenqidaima99");
         SpawnCorridorsByAlign();
-
+        Debug.Log("shenqidaima100");
         ConfigureAllRoomsConnections();
-
+        Debug.Log("shenqidaima101");
         BuildMiniMapDataAndNotify();
-
+        Debug.Log("shenqidaima102");
         MovePlayerToStartRoomCenter();
 
         Map_LevelIndicator.Instance.Show($"{worldIndex}-{stageIndex}");
+        Debug.Log("shenqidaima");
 
 
     }
@@ -620,9 +627,10 @@ public class Map_LevelGenerator : MonoBehaviour
     {
         StartCoroutine(CoMovePlayerNextFrame());
         ScanGraph();
+        Debug.Log("zhixing chongsheng");
     }
 
-    private IEnumerator CoMovePlayerNextFrame()
+    private IEnumerator  CoMovePlayerNextFrame()
     {
         // 先拿到 player（必须在使用 player 之前声明）
         GameObject player = GameObject.FindGameObjectWithTag(playerTag);
@@ -658,8 +666,8 @@ public class Map_LevelGenerator : MonoBehaviour
 
         // 移动到起点后再续一小段保护，防止 SyncTransforms 后立即触发
         guard?.BlockForSeconds(0.7f);
-        UnityEngine.Debug.Log("111111");
         ScanGraph();
+        Debug.Log("chongshengneiceshi");
     }
 
     //Utility

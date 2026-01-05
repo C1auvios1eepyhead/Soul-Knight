@@ -8,8 +8,8 @@ using TMPro;
 public class WeaponManager : MonoBehaviour
 {
     [Header("WeaponUI")]
-    [SerializeField] private Image energyBar;
-    [SerializeField] private TextMeshProUGUI energyText;
+    private Image energyBar;                     // ---------- 改动：取消 SerializeField，由运行时绑定
+    private TextMeshProUGUI energyText;         // ---------- 改动：取消 SerializeField，由运行时绑定
 
     [Header("Weapon pick and switch setting")]
     public float pickupRange = 1.2f;
@@ -29,10 +29,23 @@ public class WeaponManager : MonoBehaviour
     [Header("Drop placement")]
     [SerializeField] private Vector3 dropOffset = new Vector3(0.5f, 0f, 0f);
 
+    private static WeaponManager instance;
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     // ---------- 新增 ----------
     private Transform playerTransform; // 玩家 Transform
 
-    // ---------- 修改 Start 为 IEnumerator ----------
     IEnumerator Start()
     {
         // 等到 HandPoint 被生成（PlayerHandAnchor 的 Awake 执行完）
@@ -171,8 +184,17 @@ public class WeaponManager : MonoBehaviour
         weapon.gameObject.SetActive(true);
     }
 
+    // ---------- 修改过的 UpdateWeaponUI ----------
     private void UpdateWeaponUI()
     {
+        // ---------- 改动：UI 如果为空，每帧尝试绑定一次 ----------
+        if (energyBar == null || energyText == null)
+        {
+            TryBindWeaponUI();
+            if (energyBar == null || energyText == null)
+                return; // UI 还没生成，跳过
+        }
+
         if (currentWeapon is Gun gun)
         {
             float percent = (gun.magazineSize <= 0) ? 0f : (float)gun.currentAmmo / gun.magazineSize;
@@ -184,6 +206,19 @@ public class WeaponManager : MonoBehaviour
             energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, 1f, 10f * Time.deltaTime);
             energyText.text = "--";
         }
+    }
+
+    // ---------- 新增方法：TryBindWeaponUI ----------
+    private void TryBindWeaponUI()
+    {
+        // ---------- 改动：去掉 Stage 名称，通用 Canvas 路径 ----------
+        GameObject barGO = GameObject.Find("Canvas/Panel/Player Panel/Stat - Energy/BlackBar/EnergyBar");
+        if (barGO != null)
+            energyBar = barGO.GetComponent<Image>();
+
+        GameObject textGO = GameObject.Find("Canvas/Panel/Player Panel/Stat - Energy/BlackBar/EnergyBar/Energy - TMP");
+        if (textGO != null)
+            energyText = textGO.GetComponent<TextMeshProUGUI>();
     }
 
     private Transform FindDropParentByName()

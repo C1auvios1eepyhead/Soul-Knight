@@ -34,13 +34,17 @@ public class Character : MonoBehaviour
             return;
         if (currentHealth -damage > 0f)
         {
-            currentHealth -= damage;
-            StartCoroutine(nameof(InvulnerableCoroutine));//����޵�ʱ��Э��
-            //ִ�н�ɫ���˶���
-            OnHurt?.Invoke();
-            if(isSuperArmor==true)
+            if (!isSuperArmor)
             {
-                GetComponent<HitFlash>().FlashRed();
+                currentHealth -= damage;
+                StartCoroutine(nameof(InvulnerableCoroutine));
+                //ִ�н�ɫ���˶���
+                OnHurt?.Invoke();
+            }
+            else
+            {
+                currentHealth -= damage;
+                GetComponent<EnemyHurtFlash>().FlashRed();
             }
         }
         else

@@ -35,7 +35,6 @@ public class Map_AudioManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         bgmSource = GetComponent<AudioSource>();
         if (bgmSource == null) bgmSource = gameObject.AddComponent<AudioSource>();

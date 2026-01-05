@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class EnemyHurtFlash : MonoBehaviour
 {
-    private SpriteRenderer sr;
-    private Color originalColor;
+    public SpriteRenderer sr;
+    public Color originalColor;
 
     void Awake()
     {

@@ -27,7 +27,7 @@ public class Map_LevelIndicator : MonoBehaviour
 
         if (routine != null)
             StopCoroutine(routine);
-
+        Debug.Log("zhixingle");
         routine = StartCoroutine(ShowRoutine(text));
     }
 

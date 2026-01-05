@@ -216,7 +216,8 @@ MonoBehaviour:
   maxHealth: 1200
   currentHealth: 0
   invulnerable: 0
-  invulnerableDuration: 1
+  invulnerableDuration: 0
+  isSuperArmor: 1
   OnHurt:
     m_PersistentCalls:
       m_Calls:
@@ -252,8 +253,9 @@ MonoBehaviour:
   patrolPoints: []
   targetPointIndex: 0
   currentSpeed: 5
+  speedMultiplier: 1
   chaseDistance: 12
-  attackDistance: 8
+  attackDistance: 11
   pathPointList: []
   currentIndex: 0
   meleeAttackDamage: 0
@@ -264,8 +266,7 @@ MonoBehaviour:
     m_Bits: 64
   AttackCooldownDuration: 0.5
   isHurt: 0
-  isKnokback: 1
-  isSuperArmor: 1
+  isKnokback: 0
   knokbackForce: 0
   knokbackForceDuration: 0
   sr: {fileID: 0}
@@ -434,6 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415a3be2eb16d224aa233d2f8e7c05e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6138745767510600804
 GameObject:
   m_ObjectHideFlags: 0

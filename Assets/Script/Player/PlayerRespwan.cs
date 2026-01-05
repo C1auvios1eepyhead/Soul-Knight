@@ -40,7 +40,7 @@ public class PlayerSpawner : MonoBehaviour
                 player = Instantiate(wizardPrefab, spawnPoint.position, Quaternion.identity);
                 break;
         }
-
+        Debug.Log("zhixixixxix");
 
     }
 }

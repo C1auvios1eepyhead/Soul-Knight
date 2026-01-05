@@ -25,5 +25,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         healthText.text = $"{playerConfig.CurrentHealth}/{playerConfig.MaxHealth}";
         armorText.text = $"{playerConfig.Armor}/{playerConfig.MaxArmor}";
+
     }
+
 }

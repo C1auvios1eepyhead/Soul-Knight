@@ -7,8 +7,7 @@ public class Map_MiniMapController : MonoBehaviour
     [Header("UI Refs")]
     [SerializeField] private GameObject miniMapRoot;      
     [SerializeField] private RectTransform container;     // MiniMapContainer
-    [SerializeField] private Image roomIconPrefab;        // RoomIconPrefab（disabled）
-    [SerializeField] private Image linkPrefab;            // LinkPrefab（disabled）
+    [SerializeField] private Image roomIconPrefab;        // RoomIconPrefab（disabled）     // LinkPrefab（disabled）
     [SerializeField] private RectTransform playerMarker;  // PlayerIcon
     [SerializeField] private RectTransform highlightFrame;// HighlightFrame（enabled）
 
@@ -83,41 +82,10 @@ public class Map_MiniMapController : MonoBehaviour
             roomWorldCenters[r.cell] = r.worldCenter;
         }
 
-        // 生成连线
-        foreach (var cell in roomIcons.Keys)
-        {
-            TryCreateLink(cell, cell + Vector2Int.right);
-            TryCreateLink(cell, cell + Vector2Int.up);
-        }
-
         hasData = true;
         UpdatePlayerAndHighlight(); // 立即刷新一次
     }
 
-    private void TryCreateLink(Vector2Int a, Vector2Int b)
-    {
-        if (!roomIcons.ContainsKey(a) || !roomIcons.ContainsKey(b)) return;
-
-        Vector2 pa = CellToUI(a);
-        Vector2 pb = CellToUI(b);
-        Vector2 mid = (pa + pb) * 0.5f;
-
-        var img = Instantiate(linkPrefab, container);
-        img.gameObject.SetActive(true);
-        img.raycastTarget = false;
-
-        RectTransform rt = img.rectTransform;
-        rt.anchoredPosition = mid;
-
-        bool horizontal = (b.x != a.x);
-        float length = cellSize;
-
-        rt.sizeDelta = horizontal
-            ? new Vector2(length, linkThickness)
-            : new Vector2(linkThickness, length);
-
-        links.Add(img);
-    }
 
     private void UpdatePlayerAndHighlight()
     {

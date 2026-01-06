@@ -44,11 +44,11 @@ GameObject:
   - component: {fileID: 6138745766540435818}
   - component: {fileID: 6138745766540435816}
   - component: {fileID: 6138745766540435814}
-  - component: {fileID: 604438100566669300}
   - component: {fileID: 7254066167405894336}
   - component: {fileID: 3185119524112744317}
   - component: {fileID: 3853983629795352911}
   - component: {fileID: 5949716611615940559}
+  - component: {fileID: 4399139091484952082}
   m_Layer: 7
   m_Name: Boss_1
   m_TagString: Enemy
@@ -66,7 +66,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -5.8285184, y: 5.8285184, z: 5.8285184}
+  m_LocalScale: {x: -4.550907, y: 4.550907, z: 4.550907}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6138745767510600803}
@@ -201,81 +201,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &604438100566669300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6138745766540435822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2db652d716387ea4281173fbd93db951, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1200
-  currentHealth: 0
-  invulnerable: 0
-  invulnerableDuration: 0
-  isSuperArmor: 1
-  OnHurt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 604438100566669300}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: EnemyHurt
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 604438100566669300}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: EnemyDie
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  player: {fileID: 0}
-  IdleDuration: 4
-  patrolPoints: []
-  targetPointIndex: 0
-  currentSpeed: 5
-  speedMultiplier: 1
-  chaseDistance: 12
-  attackDistance: 11
-  pathPointList: []
-  currentIndex: 0
-  meleeAttackDamage: 0
-  isAttack: 1
-  distance: 0
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  AttackCooldownDuration: 0.5
-  isHurt: 0
-  isKnokback: 0
-  knokbackForce: 0
-  knokbackForceDuration: 0
-  sr: {fileID: 0}
-  rb: {fileID: 0}
-  animator: {fileID: 0}
-  enemyCollider: {fileID: 0}
-  bulletPrefab: {fileID: 668899891148364038, guid: becf787f24ad366458d5297aff615b63, type: 3}
-  firePoint: {fileID: 2702570349351630289}
-  bulletSpeed: 5
 --- !u!58 &7254066167405894336
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -423,6 +348,7 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: 864eb259730afa149a4faee916ca2d4f, type: 3}
   hurtClip: {fileID: 8300000, guid: b96f23a5148a56a4484310cddbfbd816, type: 3}
   deadClip: {fileID: 8300000, guid: a174c8ecabfa68147a60c38729ad9a3e, type: 3}
+  turnClip: {fileID: 8300000, guid: 13220ddc6dfc99f44a9f45b5a833da0b, type: 3}
 --- !u!114 &5949716611615940559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +363,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &4399139091484952082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138745766540435822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62b9efff8195964f9b1b2657e118501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2400
+  currentHealth: 0
+  invulnerable: 0
+  invulnerableDuration: 0
+  isSuperArmor: 1
+  phase: 1
+  isboss1: 1
+  isboss2: 0
+  bulletSpeed: 12
+  pelletCount: 3
+  spreadAngle: 15
+  AttackCooldownDuration: 1.5
+  OnHurt:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4399139091484952082}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: EnemyHurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4399139091484952082}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: EnemyDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  player: {fileID: 0}
+  IdleDuration: 0
+  patrolPoints: []
+  targetPointIndex: 0
+  currentSpeed: 2
+  speedMultiplier: 1
+  chaseDistance: 30
+  attackDistance: 29
+  pathPointList: []
+  currentIndex: 0
+  meleeAttackDamage: 0
+  isAttack: 0
+  distance: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  isHurt: 0
+  isKnokback: 1
+  knokbackForce: 10
+  knokbackForceDuration: 0.1
+  sr: {fileID: 0}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  enemyCollider: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
 --- !u!1 &6138745767510600804
 GameObject:
   m_ObjectHideFlags: 0

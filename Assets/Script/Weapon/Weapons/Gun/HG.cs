@@ -8,7 +8,7 @@ public class HG : Gun
         weaponName = "HG";
         damage = 20f;
         weaponRange = 9f;
-        attackRate = 1f;
+        attackRate = 0.7f;
         weaponBulletSpeed = 20f;
         magazineSize = 8;
         reloadTime = 1.5f;

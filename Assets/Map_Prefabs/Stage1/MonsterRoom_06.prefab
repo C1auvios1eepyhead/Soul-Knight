@@ -4513,11 +4513,11 @@ MonoBehaviour:
       waveEnemyCount: 1
     - enemyPrefab: {fileID: 6138745766540435822, guid: aba9df536b908b14295a311db9bfe09b, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 1
+      waveEnemyCount: 2
   - enemies:
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 1
+      waveEnemyCount: 2
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
       waveEnemyCount: 1

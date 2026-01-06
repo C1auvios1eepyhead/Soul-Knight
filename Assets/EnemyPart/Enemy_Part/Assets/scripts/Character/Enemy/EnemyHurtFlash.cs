@@ -12,7 +12,7 @@ public class EnemyHurtFlash : MonoBehaviour
         originalColor = sr.color;
     }
 
-    public void FlashRed(float duration = 0.1f)
+    public void FlashRed(float duration = 0.2f)
     {
         StopAllCoroutines(); // 防止多次受击叠加
         StartCoroutine(FlashCoroutine(duration));

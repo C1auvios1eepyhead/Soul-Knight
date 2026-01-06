@@ -5066,7 +5066,7 @@ Tilemap:
       - {fileID: -551373579, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
       - {fileID: 87490011, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
       - {fileID: -696938619, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 37, y: -6, z: 0}
@@ -5126,7 +5126,7 @@ Tilemap:
       - {fileID: -551373579, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
       - {fileID: 87490011, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
       - {fileID: -696938619, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 40, y: 0, z: 0}
@@ -5171,7 +5171,7 @@ Tilemap:
       - {fileID: -551373579, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
       - {fileID: 87490011, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
       - {fileID: -696938619, guid: c6980c68a9db42e4eb1b6279e7716a3b, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -5830,6 +5830,8 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 9190551940643650239}
   - {fileID: 8944277400554631708}
+  - {fileID: 6859631191064859213}
+  - {fileID: 467425831089509902}
   patrolPoints:
   - {fileID: 6859631191064859213}
   - {fileID: 467425831089509902}
@@ -5837,19 +5839,19 @@ MonoBehaviour:
   - {fileID: 1378592182733806788}
   enemyWaves:
   - enemies:
-    - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
+    - enemyPrefab: {fileID: 6138745766540435822, guid: 301fba8d1c8cb214a9a0c22579d9bf6e, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 1
-    - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
+      waveEnemyCount: 3
+    - enemyPrefab: {fileID: 6138745766540435822, guid: 301fba8d1c8cb214a9a0c22579d9bf6e, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 1
+      waveEnemyCount: 3
   - enemies:
+    - enemyPrefab: {fileID: 6138745766540435822, guid: e8b7a08d26fbf5843880706ed46aba1f, type: 3}
+      spawnInterval: 0.5
+      waveEnemyCount: 3
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 2
-    - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
-      spawnInterval: 0.5
-      waveEnemyCount: 2
+      waveEnemyCount: 4
   currentWaveIndex: 0
   enemyCount: 0
 --- !u!1 &3207976962103526816

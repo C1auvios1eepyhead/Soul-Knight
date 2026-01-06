@@ -11,13 +11,13 @@ public class BestGun : Gun
         base.Awake();
         weaponName = "BestGun";
         damage = 80f;
-        pellets = 7;
-        spreadAngle = 20f;
-        attackRate = 0.4f;
-        weaponBulletSpeed = 30f;
-        weaponRange = 14f;
+        pellets = 8;
+        spreadAngle = 30f;
+        attackRate = 0.3f;
+        weaponBulletSpeed = 45f;
+        weaponRange = 21f;
         magazineSize = 30;
-        reloadTime = 1.5f;
+        reloadTime = 1f;
         currentAmmo = magazineSize;
     }
 

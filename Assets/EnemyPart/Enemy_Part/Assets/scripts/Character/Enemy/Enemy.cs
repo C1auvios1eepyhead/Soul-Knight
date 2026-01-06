@@ -25,6 +25,7 @@ public class Enemy : Character
 
     [HideInInspector] public float speedMultiplier = 1f;
 
+
     public float chaseDistance = 3f;//追击距离
     public float attackDistance = 0.8f;//攻击距离
 
@@ -39,7 +40,6 @@ public class Enemy : Character
     public bool isAttack = true;
     [HideInInspector] public float distance;
     public LayerMask playerLayer;//表示玩家图层
-    public float AttackCooldownDuration = 2f;//冷却时间
 
     [Header("受伤击退")]
     public bool isHurt;

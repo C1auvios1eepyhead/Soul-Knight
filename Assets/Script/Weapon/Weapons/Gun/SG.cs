@@ -10,10 +10,10 @@ public class Shotgun : Gun
     {
         base.Awake();
         weaponName = "Shotgun";
-        damage = 50f;
+        damage = 80f;
         pellets = 5;
         spreadAngle = 20f;
-        attackRate = 1.5f;
+        attackRate = 1f;
         weaponBulletSpeed = 15f;
         weaponRange = 7f;
         magazineSize = 6;

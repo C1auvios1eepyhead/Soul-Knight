@@ -8221,14 +8221,14 @@ MonoBehaviour:
   - enemies:
     - enemyPrefab: {fileID: 6138745766540435822, guid: b174c4d49030f8e41b8188aa12f8cb88, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 1
-    - enemyPrefab: {fileID: 6138745766540435822, guid: 17092d468a7e9864b93fda3b13002a26, type: 3}
-      spawnInterval: 0.5
-      waveEnemyCount: 1
-  - enemies:
+      waveEnemyCount: 2
     - enemyPrefab: {fileID: 6138745766540435822, guid: 17092d468a7e9864b93fda3b13002a26, type: 3}
       spawnInterval: 0.5
       waveEnemyCount: 2
+  - enemies:
+    - enemyPrefab: {fileID: 6138745766540435822, guid: 17092d468a7e9864b93fda3b13002a26, type: 3}
+      spawnInterval: 0.5
+      waveEnemyCount: 3
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
       waveEnemyCount: 2

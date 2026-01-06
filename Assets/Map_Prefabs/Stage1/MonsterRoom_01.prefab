@@ -4864,6 +4864,8 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 9190551940643650239}
   - {fileID: 8944277400554631708}
+  - {fileID: 6859631191064859213}
+  - {fileID: 467425831089509902}
   patrolPoints:
   - {fileID: 6859631191064859213}
   - {fileID: 467425831089509902}
@@ -4873,14 +4875,14 @@ MonoBehaviour:
   - enemies:
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 1
-    - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
-      spawnInterval: 0.5
-      waveEnemyCount: 1
-  - enemies:
+      waveEnemyCount: 2
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
       waveEnemyCount: 2
+  - enemies:
+    - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
+      spawnInterval: 0.5
+      waveEnemyCount: 3
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
       waveEnemyCount: 2

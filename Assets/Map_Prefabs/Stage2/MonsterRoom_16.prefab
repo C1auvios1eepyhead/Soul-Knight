@@ -6323,19 +6323,19 @@ MonoBehaviour:
   - {fileID: 1378592182733806788}
   enemyWaves:
   - enemies:
+    - enemyPrefab: {fileID: 6138745766540435822, guid: b174c4d49030f8e41b8188aa12f8cb88, type: 3}
+      spawnInterval: 0.5
+      waveEnemyCount: 2
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 1
-    - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
-      spawnInterval: 0.5
-      waveEnemyCount: 1
+      waveEnemyCount: 2
   - enemies:
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 2
+      waveEnemyCount: 3
     - enemyPrefab: {fileID: 87858297563866410, guid: a4db0167979a03147aebf92942e4bc87, type: 3}
       spawnInterval: 0.5
-      waveEnemyCount: 2
+      waveEnemyCount: 3
   currentWaveIndex: 0
   enemyCount: 0
 --- !u!1 &3207976962103526816

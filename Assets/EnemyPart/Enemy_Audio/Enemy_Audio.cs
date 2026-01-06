@@ -8,6 +8,8 @@ public class AnimationSound : MonoBehaviour
 
     public AudioClip deadClip;
 
+    public AudioClip turnClip;
+
     private void Awake()
     {
         if (audioSource == null)
@@ -28,5 +30,10 @@ public class AnimationSound : MonoBehaviour
      public void PlayDeadstepSound(float volume)
     {
         audioSource.PlayOneShot(deadClip,volume);
+    }
+
+    public void PlayPhaseSound(float volume)
+    {
+        audioSource.PlayOneShot(turnClip,volume);
     }
 }

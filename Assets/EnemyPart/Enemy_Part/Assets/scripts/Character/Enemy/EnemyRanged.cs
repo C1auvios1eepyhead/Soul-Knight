@@ -6,12 +6,15 @@ using UnityEngine.UI;
 using TMPro;
 
 
+
 public class EnemyRanged : Enemy
 {
     [Header("远程攻击")]
     public GameObject bulletPrefab;
     public Transform firePoint;
-    public float bulletSpeed = 8f;
+    
+    [HideInInspector]
+    public new float AttackCooldownDuration;
 
     public override void Attack()
     {

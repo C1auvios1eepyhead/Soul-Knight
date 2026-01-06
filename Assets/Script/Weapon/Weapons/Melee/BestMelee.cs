@@ -6,7 +6,7 @@ public class BestMelee : Melee
     {
         base.Awake();
         weaponName = "BestMelee";
-        damage = 50f;
+        damage = 100f;
         attackRange = 4f;
         attackAngle = 360f; // ¥Û…»–Œ
         attackRate = 0.7f;

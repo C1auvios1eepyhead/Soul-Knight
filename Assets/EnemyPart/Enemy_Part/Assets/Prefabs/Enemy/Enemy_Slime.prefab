@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6138745766540435821}
   - component: {fileID: 6138745766540435818}
   - component: {fileID: 6138745766540435816}
-  - component: {fileID: 6138745766540435817}
   - component: {fileID: 6138745766540435814}
   - component: {fileID: 6226726382095260787}
   - component: {fileID: 1307957693176105290}
   - component: {fileID: 7764709286269332018}
+  - component: {fileID: 1244330100400750111}
   m_Layer: 7
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -2.36, y: 2.36, z: 2.36}
+  m_LocalScale: {x: -2.5839982, y: 2.5839982, z: 2.5839982}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6138745767510600803}
@@ -140,84 +140,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6138745766540435817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6138745766540435822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e239991bad3c9294faed4e178d6378b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 80
-  currentHealth: 0
-  invulnerable: 0
-  invulnerableDuration: 0
-  isSuperArmor: 0
-  OnHurt:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6138745766540435817}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: EnemyHurt
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6138745766540435817}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: EnemyDie
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  player: {fileID: 0}
-  IdleDuration: 2
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  targetPointIndex: 0
-  currentSpeed: 3
-  chaseDistance: 8
-  attackDistance: 1
-  pathPointList: []
-  currentIndex: 0
-  meleeAttackDamage: 1
-  isAttack: 1
-  distance: 0
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  AttackCooldownDuration: 5
-  isHurt: 0
-  isKnokback: 1
-  knokbackForce: 5
-  knokbackForceDuration: 0.1
-  sr: {fileID: 0}
-  rb: {fileID: 0}
-  animator: {fileID: 0}
-  enemyCollider: {fileID: 0}
 --- !u!114 &6138745766540435814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +315,85 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: b02ecc15ac6647445b82e00aaf329207, type: 3}
   hurtClip: {fileID: 8300000, guid: 61b0f8c7092de044faf8e44cca8fd0cd, type: 3}
   deadClip: {fileID: 8300000, guid: 5ec07e194b0a3cf47a0fbf6167b3149b, type: 3}
+  turnClip: {fileID: 0}
+--- !u!114 &1244330100400750111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138745766540435822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e239991bad3c9294faed4e178d6378b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 160
+  currentHealth: 0
+  invulnerable: 0
+  invulnerableDuration: 0
+  isSuperArmor: 0
+  phase: 1
+  isboss1: 0
+  isboss2: 0
+  bulletSpeed: 8
+  pelletCount: 3
+  spreadAngle: 15
+  AttackCooldownDuration: 2
+  OnHurt:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1244330100400750111}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: EnemyHurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1244330100400750111}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: EnemyDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  player: {fileID: 0}
+  IdleDuration: 2
+  patrolPoints: []
+  targetPointIndex: 0
+  currentSpeed: 6
+  speedMultiplier: 1
+  chaseDistance: 10
+  attackDistance: 0.8
+  pathPointList: []
+  currentIndex: 0
+  meleeAttackDamage: 1
+  isAttack: 1
+  distance: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isHurt: 0
+  isKnokback: 1
+  knokbackForce: 2
+  knokbackForceDuration: 0.1
+  sr: {fileID: 0}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  enemyCollider: {fileID: 0}
 --- !u!1 &6138745767510600804
 GameObject:
   m_ObjectHideFlags: 0

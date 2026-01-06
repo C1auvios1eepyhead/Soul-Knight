@@ -956,7 +956,7 @@ Tilemap:
       - {fileID: 867398340, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: 1708290163, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: 1043299283, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 29, y: 5, z: 0}
@@ -8527,7 +8527,7 @@ Tilemap:
       - {fileID: -1835433872, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: -38879134, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: 201958422, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 42, y: -165, z: 0}
@@ -8626,7 +8626,7 @@ Tilemap:
       - {fileID: -1835433872, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: -38879134, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
       - {fileID: 201958422, guid: 727f7723cc841fd47919ea35278e8296, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -9654,7 +9654,7 @@ MonoBehaviour:
   - {fileID: 4349442729859459176}
   enemyWaves:
   - enemies:
-    - enemyPrefab: {fileID: 6138745766540435822, guid: 81f6227f2b9ba794d9b1211cd06013f4, type: 3}
+    - enemyPrefab: {fileID: 6138745766540435822, guid: ffa5bd506ad8efe438d2261acf73cfc3, type: 3}
       spawnInterval: 0.5
       waveEnemyCount: 1
   - enemies: []

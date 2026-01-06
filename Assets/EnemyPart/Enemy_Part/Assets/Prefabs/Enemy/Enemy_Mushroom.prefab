@@ -66,7 +66,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1.0059712, y: 1.0059712, z: 1.0059712}
+  m_LocalScale: {x: -1.7742314, y: 1.7742314, z: 1.7742314}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6138745767510600803}
@@ -348,6 +348,7 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: 864eb259730afa149a4faee916ca2d4f, type: 3}
   hurtClip: {fileID: 8300000, guid: b96f23a5148a56a4484310cddbfbd816, type: 3}
   deadClip: {fileID: 8300000, guid: a174c8ecabfa68147a60c38729ad9a3e, type: 3}
+  turnClip: {fileID: 0}
 --- !u!114 &-5697430823362996768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,9 +363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 400
   currentHealth: 0
-  invulnerable: 0
-  invulnerableDuration: 0
   isSuperArmor: 0
+  phase: 1
   isboss1: 0
   isboss2: 0
   bulletSpeed: 8
@@ -407,8 +407,8 @@ MonoBehaviour:
   targetPointIndex: 0
   currentSpeed: 0
   speedMultiplier: 1
-  chaseDistance: 20
-  attackDistance: 19
+  chaseDistance: 40
+  attackDistance: 39
   pathPointList: []
   currentIndex: 0
   meleeAttackDamage: 0

@@ -129,40 +129,54 @@ public class Enemy : Character
     #region 自动寻路
     //自动寻路
     public void AutoPath()
+{
+    // 如果玩家为空，直接返回
+    if (player == null)
     {
-        pathGenerateTimer += Time.deltaTime;
-
-        //间隔一定时间来获取路径点
-        if (pathGenerateTimer >= pathGenerateInterval)
-        {
-            GeneratePath(player.position);
-            pathGenerateTimer = 0;//重置计时器
-        }
-
-
-        //当路径点列表为空时，进行路径计算
-        if (pathPointList == null || pathPointList.Count <= 0)
-        {
-            GeneratePath(player.position);
-        }//当敌人到达当前路径点时，递增索引currentIndex并进行路径计算
-        else if (Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.1f)
-        {
-            currentIndex++;
-            if (currentIndex >= pathPointList.Count)
-                GeneratePath(player.position);
-        }
+        return;
     }
+    
+    pathGenerateTimer += Time.deltaTime;
+
+    //间隔一定时间来获取路径点
+    if (pathGenerateTimer >= pathGenerateInterval)
+    {
+        GeneratePath(player.position);
+        pathGenerateTimer = 0;//重置计时器
+    }
+
+    //当路径点列表为空时，进行路径计算
+    if (pathPointList == null || pathPointList.Count <= 0)
+    {
+        GeneratePath(player.position);
+    }//当敌人到达当前路径点时，递增索引currentIndex并进行路径计算
+    else if (currentIndex < pathPointList.Count && Vector2.Distance(transform.position, pathPointList[currentIndex]) <= 0.1f)
+    {
+        currentIndex++;
+        if (currentIndex >= pathPointList.Count)
+            GeneratePath(player.position);
+    }
+}
 
     //获取路径点
     public void GeneratePath(Vector3 target)
+{
+    currentIndex = 0;
+    //三个参数：起点、终点、回调函数
+    seeker.StartPath(transform.position, target, Path =>
     {
-        currentIndex = 0;
-        //三个参数：起点、终点、回调函数
-        seeker.StartPath(transform.position, target, Path =>
+        // 添加错误检查
+        if (Path.error)
+        {
+            Debug.LogWarning("Path generation failed: " + Path.errorLog);
+            pathPointList = new List<Vector3>(); // 创建空列表避免空引用
+        }
+        else
         {
             pathPointList = Path.vectorPath;//Path.vectorPath包含了从起点到终点的完整路径
-        });
-    }
+        }
+    });
+}
     #endregion
 
     #region 移动

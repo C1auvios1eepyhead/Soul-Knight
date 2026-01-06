@@ -330,8 +330,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 120
   currentHealth: 0
-  invulnerable: 0
-  invulnerableDuration: 0
   isSuperArmor: 0
   phase: 1
   isboss1: 0
@@ -377,7 +375,7 @@ MonoBehaviour:
   currentSpeed: 4
   speedMultiplier: 1
   chaseDistance: 5
-  attackDistance: 0.8
+  attackDistance: 1.3
   pathPointList: []
   currentIndex: 0
   meleeAttackDamage: 1

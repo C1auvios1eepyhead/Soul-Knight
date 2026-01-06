@@ -220,6 +220,7 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: 9f165c1c0272f5445b55f8e85ee749cb, type: 3}
   hurtClip: {fileID: 8300000, guid: c9e420552d30cf246912bc5149ff7336, type: 3}
   deadClip: {fileID: 8300000, guid: c9e420552d30cf246912bc5149ff7336, type: 3}
+  turnClip: {fileID: 0}
 --- !u!82 &866195767761190863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -344,9 +345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 350
   currentHealth: 0
-  invulnerable: 0
-  invulnerableDuration: 0
   isSuperArmor: 1
+  phase: 1
   isboss1: 0
   isboss2: 0
   bulletSpeed: 8
@@ -389,7 +389,7 @@ MonoBehaviour:
   targetPointIndex: 0
   currentSpeed: 3
   speedMultiplier: 1
-  chaseDistance: 8
+  chaseDistance: 40
   attackDistance: 1.3
   pathPointList: []
   currentIndex: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   distance: 0
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isHurt: 0
   isKnokback: 1
   knokbackForce: 1

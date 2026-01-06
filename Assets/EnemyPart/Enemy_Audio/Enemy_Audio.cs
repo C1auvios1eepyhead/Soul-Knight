@@ -10,6 +10,8 @@ public class AnimationSound : MonoBehaviour
 
     public AudioClip turnClip;
 
+    public AudioClip teleClip;
+
     private void Awake()
     {
         if (audioSource == null)
@@ -35,5 +37,10 @@ public class AnimationSound : MonoBehaviour
     public void PlayPhaseSound(float volume)
     {
         audioSource.PlayOneShot(turnClip,volume);
+    }
+
+     public void PlayTeleSound(float volume)
+    {
+        audioSource.PlayOneShot(teleClip,volume);
     }
 }

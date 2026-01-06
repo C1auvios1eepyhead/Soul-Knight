@@ -9553,7 +9553,7 @@ MonoBehaviour:
   doorPointDown: {fileID: 7112753668742235303}
   doorPointLeft: {fileID: 3479294846631776184}
   doorPointRight: {fileID: 2169949327664038238}
-  gatePrefab: {fileID: 6466436219338576763, guid: 0fabb18c3e5f01844806cc411e0af887, type: 3}
+  gatePrefab: {fileID: 6466436219338576763, guid: ac13fb371989b8042bc524a79e4542bd, type: 3}
   wallUpPrefab: {fileID: 1365491349983227595, guid: c4824e27a6c7dd649b1abcd9b6f9ba36, type: 3}
   wallDownPrefab: {fileID: 6259112967307414161, guid: 64e67b1870643d241984359a38d3eebe, type: 3}
   wallLeftPrefab: {fileID: 6927657219617929026, guid: 399dbd0f80e08cc48a307a0513436dd6, type: 3}

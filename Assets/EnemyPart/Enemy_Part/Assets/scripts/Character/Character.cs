@@ -11,12 +11,14 @@ public class Character : MonoBehaviour
 
     [SerializeField] protected float currentHealth;
 
+    
+    public float damagemutipler = 1;
+
     public float MaxHealth => maxHealth;
     public float CurrentHealth => currentHealth;
 
     [Header("无敌时间或霸体")]
-    public bool invulnerable;
-    public float invulnerableDuration;//�޵�ʱ��
+  
 
      public bool isSuperArmor = false;//霸体
 
@@ -36,72 +38,79 @@ public class Character : MonoBehaviour
 
      public float AttackCooldownDuration = 2f;//攻击冷却时间
 
+    
+
      bool hastriggered =false;
-
-
-
 
     public UnityEvent OnHurt;
     public UnityEvent OnDie;
     protected virtual void OnEnable()
     {
         currentHealth = maxHealth;
+        
     }
 
 
 
     public virtual void TakeDamage(float damage)
     {
-        if (invulnerable)
-            return;
+  
         if (currentHealth -damage > 0f)
         {
-            if (!isSuperArmor)
+                if (!isSuperArmor)
+                {
+                    currentHealth -= damage*damagemutipler;
+                    OnHurt?.Invoke();
+                }
+                else
+                {
+                    currentHealth -= damage*damagemutipler;
+                    GetComponent<EnemyHurtFlash>().FlashRed();
+                }
+            
+                if(currentHealth<=maxHealth*0.5)//阶段判断
+                {
+                    if(isboss1==true&&(!hastriggered))
+                    {
+                        hastriggered=true;
+                        damagemutipler=0.8f;
+                        AnimationSound animSound = GetComponent<AnimationSound>();
+                                if (animSound != null)
+                        {
+                            animSound.PlayPhaseSound(1.0f);
+                        }
+                        AttackCooldownDuration *= 0.8f;
+                        pelletCount += 2;
+                        spreadAngle += 10f;
+                        bulletSpeed+=4f;
+                    
+                        phase+=1;
+                    }
+                    if(isboss2==true&&(!hastriggered))
+                    {
+                        damagemutipler=0.8f;
+                        AnimationSound animSound = GetComponent<AnimationSound>();
+                                if (animSound != null)
+                        {
+                            animSound.PlayPhaseSound(1.0f);
+                        }
+                        GetComponent<BossScale>()?.ScaleUp();
+                        hastriggered=true;
+                        AttackCooldownDuration *= 0.8f;
+                        pelletCount += 2;
+                        spreadAngle += 10f;
+                        bulletSpeed+=4f;
+                        phase+=1;
+                    }
+                }
+                if(isboss1&&phase==2)
             {
-                currentHealth -= damage;
-                StartCoroutine(nameof(InvulnerableCoroutine));
-             
-                OnHurt?.Invoke();
-            }
-            else
-            {
-                currentHealth -= damage;
-                GetComponent<EnemyHurtFlash>().FlashRed();
+                
+                GetComponent<HurtRandomTeleport>()?.OnHurt();
+                
             }
         }
-        if(currentHealth<=maxHealth*0.5)
-        {
-            if(isboss1==true&&(!hastriggered))
-            {
-                hastriggered=true;
-                AnimationSound animSound = GetComponent<AnimationSound>();
-                        if (animSound != null)
-                {
-                    animSound.PlayPhaseSound(1.0f);
-                }
-                AttackCooldownDuration *= 0.8f;
-                pelletCount += 2;
-                spreadAngle += 10f;
-                bulletSpeed+=4f;
-                phase+=1;
-            }
-            if(isboss2==true&&(!hastriggered))
-            {
-                AnimationSound animSound = GetComponent<AnimationSound>();
-                        if (animSound != null)
-                {
-                    animSound.PlayPhaseSound(1.0f);
-                }
-                hastriggered=true;
-                AttackCooldownDuration *= 0.8f;
-                pelletCount += 2;
-                spreadAngle += 10f;
-                bulletSpeed+=4f;
-                phase+=1;
-
-            }
-        }
-        else
+        else 
         {
            
             Die();
@@ -110,24 +119,14 @@ public class Character : MonoBehaviour
 
     protected virtual void Die()
     {
-        currentHealth = 0f;
         
         //ִ�н�ɫ��������
         OnDie?.Invoke();
     }
 
     //�޵�
-    protected virtual IEnumerator InvulnerableCoroutine()
-    {
-        invulnerable = true;
 
-        //�ȴ��޵�ʱ��
-        yield return new WaitForSeconds(invulnerableDuration);
 
-        invulnerable = false;
-    }
-
- 
  
 
 }

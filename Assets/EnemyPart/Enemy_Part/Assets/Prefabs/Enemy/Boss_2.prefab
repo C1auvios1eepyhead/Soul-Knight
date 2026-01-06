@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 3185119524112744317}
   - component: {fileID: 3853983629795352911}
   - component: {fileID: 6794325680122849909}
-  - component: {fileID: 37799570409763794}
   - component: {fileID: 6631754944863734890}
   - component: {fileID: 12977865691388318}
   m_Layer: 7
@@ -68,7 +67,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.8434515, y: 0.8434515, z: 0.8434515}
+  m_LocalScale: {x: -2.0536485, y: 2.0536485, z: 2.0536485}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6138745767510600803}
@@ -139,8 +138,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 1000
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -365,20 +364,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &37799570409763794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6138745766540435822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b5bf72c139a43947876ec11282142c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetScale: 1.5
-  scaleTime: 4
 --- !u!114 &6631754944863734890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,17 +376,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee550223d8b87446833687b922231e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3600
+  maxHealth: 360
   currentHealth: 0
-  invulnerable: 0
-  invulnerableDuration: 0
   isSuperArmor: 1
   phase: 1
   isboss1: 0
   isboss2: 1
-  bulletSpeed: 6
-  pelletCount: 12
-  spreadAngle: 30
+  bulletSpeed: 3
+  pelletCount: 7
+  spreadAngle: 60
   AttackCooldownDuration: 3
   OnHurt:
     m_PersistentCalls:
@@ -460,8 +443,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6662962406351341664, guid: 9ec61347bcfaf8c498c7ae7c1396aa31, type: 3}
   bulletPrefab_2: {fileID: 6662962406351341664, guid: 692643cbfb25c7543822920cab3b4da4, type: 3}
   firePoint: {fileID: 2702570349351630289}
-  scaleScript: {fileID: 0}
-  enabled: 1
 --- !u!114 &12977865691388318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,8 +455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5bf72c139a43947876ec11282142c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: 1.5
-  scaleTime: 1
+  targetScale: 3
+  scaleTime: 3
 --- !u!1 &6138745767510600804
 GameObject:
   m_ObjectHideFlags: 0

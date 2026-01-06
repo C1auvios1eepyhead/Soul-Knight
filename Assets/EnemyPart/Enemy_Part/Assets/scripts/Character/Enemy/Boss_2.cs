@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 public class Boss2 : Enemy
 {
@@ -8,22 +9,12 @@ public class Boss2 : Enemy
     public GameObject bulletPrefab_2;
     public Transform firePoint;
 
-    public BossScale scaleScript;
-
-    public bool enabled=true;
-    
-    void Update()
-    {
-        if ((phase==2)&&enabled)
-        {
-            scaleScript.ScaleUp();
-            enabled = false; // 只执行一次
-        }
-    }
+      
   
     public override void Attack()
     {
         if (player == null) return;
+        UnityEngine.Debug.Log("ZZZNB1");
 
         if(phase==1)
         {

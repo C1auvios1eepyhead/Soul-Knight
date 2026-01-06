@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// µĞÈË×·»÷×´Ì¬
+/// æ•Œäººè¿½å‡»çŠ¶æ€
 /// </summary>
 public class EnemyChaseState : IState
 {
     private Enemy enemy;
 
-    //¹¹Ôìº¯Êı
+    //æ„é€ å‡½æ•°
     public EnemyChaseState(Enemy enemy)
     {
         this.enemy = enemy;
@@ -16,47 +16,43 @@ public class EnemyChaseState : IState
 
     public void OnEnter()
     {
-        enemy.animator.Play("Walk");//Ã»ÓĞ×·»÷¶¯»­£¬ÓÃ×ßÂ·´úÌæ
+        enemy.animator.Play("Walk");//æ²¡æœ‰è¿½å‡»åŠ¨ç”»ï¼Œç”¨èµ°è·¯ä»£æ›¿
     }
     public void OnUpdate()
     {
-        //ÅĞ¶ÏÊÇ·ñÊÜÉË
+        //åˆ¤æ–­æ˜¯å¦å—ä¼¤
         if (enemy.isHurt)
         {
-            if(enemy.isSuperArmor==false)
-            {
-                enemy.TransitionState(EnemyStateType.Hurt);
-            }
-   
+            enemy.TransitionState(EnemyStateType.Hurt);
         }
 
-        enemy.GetPlayerTransform();//»ñÈ¡Íæ¼ÒÎ»ÖÃ
+        enemy.GetPlayerTransform();//è·å–ç©å®¶ä½ç½®
 
-        enemy.AutoPath();//×Ô¶¯Ñ°Â·
-
+        // åªæœ‰åœ¨ç©å®¶ä¸ä¸ºç©ºæ—¶æ‰æ‰§è¡Œè‡ªåŠ¨å¯»è·¯
         if (enemy.player != null)
         {
-            //ÅĞ¶¨Â·¾¶µãÁĞ±íÊÇ·ñÎª¿Õ
-            if (enemy.pathPointList == null || enemy.pathPointList.Count <= 0)
+            enemy.AutoPath();//è‡ªåŠ¨å¯»è·¯
+
+            //åˆ¤å®šè·¯å¾„ç‚¹åˆ—è¡¨æ˜¯å¦ä¸ºç©ºæˆ–ç´¢å¼•è¶Šç•Œ
+            if (enemy.pathPointList == null || enemy.pathPointList.Count <= 0 || enemy.currentIndex >= enemy.pathPointList.Count)
                 return;
 
-            //ÊÇ·ñµ½¹¥»÷·¶Î§ÄÚ
-            if (enemy.distance <= enemy.attackDistance)//ÊÇ·ñ´¦ÓÚ¹¥»÷·¶Î§
+            //æ˜¯å¦åˆ°æ”»å‡»èŒƒå›´å†…
+            if (enemy.distance <= enemy.attackDistance)//æ˜¯å¦å¤„äºæ”»å‡»èŒƒå›´
             {
                 enemy.TransitionState(EnemyStateType.Attack);
             }
             else
             {
-
-                //×·ÖğÍæ¼Ò
+                //è¿½é€ç©å®¶
                 Vector2 direction = (enemy.pathPointList[enemy.currentIndex] - enemy.transform.position).normalized;
-                enemy.MovementInput = direction;//ÒÆ¶¯·½Ïò´«¸øMovementInput
-
+                enemy.MovementInput = direction;//ç§»åŠ¨æ–¹å‘ä¼ ç»™MovementInput
             }
         }
         else
         {
-            //·¶Î§Íâ¾ÍÍ£Ö¹×·»÷£¬»Øµ½´ı»ú×´Ì¬
+            //ç©å®¶ä¸ºç©ºæ—¶ï¼Œåœæ­¢ç§»åŠ¨å¹¶å›åˆ°å¾…æœºçŠ¶æ€
+            enemy.MovementInput = Vector2.zero;
             enemy.TransitionState(EnemyStateType.Idle);
         }
     }
@@ -70,8 +66,4 @@ public class EnemyChaseState : IState
     {
 
     }
-
-  
-
-
 }

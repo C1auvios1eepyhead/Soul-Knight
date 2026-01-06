@@ -22,8 +22,10 @@ public class PlayerConfig : ScriptableObject
 	[Header("Values")]
 	public float CurrentHealth;
 	public float MaxHealth;
+	public float cfgHealth;
 	public float Armor;
 	public float MaxArmor;
+	public float cfgArmor;
 	public float Energy;
 	public float MaxEnergy;
 	public float CriticalChance; 
@@ -33,7 +35,10 @@ public class PlayerConfig : ScriptableObject
 	public int UpgradeMultiplier;
 
 	public void ResetPlayerStats(){
+		MaxHealth = cfgHealth;
+		MaxArmor = cfgArmor;
 		CurrentHealth = MaxHealth;
 		Armor = MaxArmor;
 	}
+	
 }

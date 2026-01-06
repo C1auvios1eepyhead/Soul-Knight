@@ -18,8 +18,10 @@ MonoBehaviour:
   Icon: {fileID: -1232841758, guid: 0daa3b2a82ad82f4f8f8f0a742d8eff7, type: 3}
   CurrentHealth: 6
   MaxHealth: 6
+  cfgHealth: 6
   Armor: 7
   MaxArmor: 7
+  cfgArmor: 7
   Energy: 0
   MaxEnergy: 0
   CriticalChance: 0

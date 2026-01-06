@@ -3299,7 +3299,7 @@ Tilemap:
       - {fileID: -403508026, guid: ce1d9cef60110fd47b213b8935128e34, type: 3}
       - {fileID: -617498350, guid: ce1d9cef60110fd47b213b8935128e34, type: 3}
       - {fileID: 1289182218, guid: ce1d9cef60110fd47b213b8935128e34, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:

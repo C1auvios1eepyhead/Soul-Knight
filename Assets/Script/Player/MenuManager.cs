@@ -38,6 +38,7 @@ public class MenuManager : Singleton<MenuManager>
             currentPlayer.GetComponent<PlayerMovement>().enabled = false;
         }
         currentPlayer = selectablePlayer;
+        currentPlayer.Config.ResetPlayerStats();
         showPlayerStats();
     }
 

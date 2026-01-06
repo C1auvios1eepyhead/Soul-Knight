@@ -3,7 +3,7 @@ using UnityEngine;
 public class Map_SlowingZone : MonoBehaviour
 {
     [Header("Slow Multipliers")]
-    [Range(0.05f, 1f)] public float playerSlow = 0.6f;  // 玩家更慢
+    [Range(0.05f, 1f)] public float playerSlow = 0.4f;  // 玩家更慢
     [Range(0.05f, 1f)] public float enemySlow = 0.85f;  // 敌人减速更少
 
     private void OnTriggerEnter2D(Collider2D other)

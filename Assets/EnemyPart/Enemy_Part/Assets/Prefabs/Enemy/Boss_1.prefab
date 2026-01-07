@@ -435,7 +435,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isHurt: 0
-  isKnokback: 1
+  isKnokback: 0
   knokbackForce: 10
   knokbackForceDuration: 0.1
   sr: {fileID: 0}

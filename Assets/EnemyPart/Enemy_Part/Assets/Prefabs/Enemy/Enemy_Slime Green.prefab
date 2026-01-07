@@ -388,7 +388,7 @@ MonoBehaviour:
     m_Bits: 64
   isHurt: 0
   isKnokback: 1
-  knokbackForce: 2
+  knokbackForce: 3
   knokbackForceDuration: 0.1
   sr: {fileID: 0}
   rb: {fileID: 0}

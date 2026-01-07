@@ -347,7 +347,7 @@ MonoBehaviour:
   maxHealth: 650
   currentHealth: 0
   damagemutipler: 1
-  isSuperArmor: 0
+  isSuperArmor: 1
   phase: 1
   isboss1: 0
   isboss2: 0

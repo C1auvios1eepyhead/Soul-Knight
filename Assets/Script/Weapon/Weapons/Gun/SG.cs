@@ -10,12 +10,12 @@ public class Shotgun : Gun
     {
         base.Awake();
         weaponName = "Shotgun";
-        damage = 80f;
+        damage = 60f;
         pellets = 5;
         spreadAngle = 20f;
         attackRate = 1f;
         weaponBulletSpeed = 15f;
-        weaponRange = 7f;
+        weaponRange = 12f;
         magazineSize = 6;
         reloadTime = 2f;
         currentAmmo = magazineSize;

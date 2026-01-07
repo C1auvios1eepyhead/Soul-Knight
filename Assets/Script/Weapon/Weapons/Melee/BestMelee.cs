@@ -6,10 +6,10 @@ public class BestMelee : Melee
     {
         base.Awake();
         weaponName = "BestMelee";
-        damage = 100f;
-        attackRange = 4f;
+        damage = 200f;
+        attackRange = 7f;
         attackAngle = 360f; // ¥Û…»–Œ
-        attackRate = 0.7f;
+        attackRate = 0.5f;
     }
 
     protected override Transform[] PerformAttackWithReturnTargets()

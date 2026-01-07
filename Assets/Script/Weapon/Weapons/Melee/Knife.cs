@@ -6,8 +6,8 @@ public class Knife : Melee
     {
         base.Awake();
         weaponName = "Knife";
-        damage = 20f;
-        attackRate = 0.6f;
+        damage = 100f;
+        attackRate = 0.4f;
         attackRange = 3f;
     }
 

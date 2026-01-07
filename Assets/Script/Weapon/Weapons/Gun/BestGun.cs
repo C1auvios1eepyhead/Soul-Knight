@@ -12,8 +12,8 @@ public class BestGun : Gun
         weaponName = "BestGun";
         damage = 80f;
         pellets = 8;
-        spreadAngle = 30f;
-        attackRate = 0.3f;
+        spreadAngle = 25f;
+        attackRate = 0.5f;
         weaponBulletSpeed = 45f;
         weaponRange = 21f;
         magazineSize = 30;

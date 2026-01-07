@@ -6,10 +6,10 @@ public class Spear : Melee
     {
         base.Awake();
         weaponName = "Spear";
-        damage = 60f;
+        damage = 200f;
         attackRange = 6f;
         attackAngle = 10f; // С�Ƕ����Σ�ģ�ⳤǹֱ��
-        attackRate = 1.5f;
+        attackRate = 0.8f;
     }
 
     protected override Transform[] PerformAttackWithReturnTargets()

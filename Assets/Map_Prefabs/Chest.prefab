@@ -265,29 +265,29 @@ MonoBehaviour:
   interactKey: 101
   dropItems:
   - weaponPrefab: {fileID: 422724495858099840, guid: 97ae0e0dd6ff10f4aa47577d595ce54d, type: 3}
-    weight: 5
+    weight: 2
   - weaponPrefab: {fileID: 4600270810658940315, guid: 6a998820b88772a459d4efb2b150dc7f, type: 3}
     weight: 20
   - weaponPrefab: {fileID: 5363898330748438595, guid: 2c715e8c31924c64ca6e6cc93bbdb0fc, type: 3}
     weight: 20
   - weaponPrefab: {fileID: 422724495858099840, guid: f8ead583a7ef74e4e89a9e2d41cf2795, type: 3}
-    weight: 10
+    weight: 20
   - weaponPrefab: {fileID: 7007247460516789989, guid: 8c3b7428a674abe46bc016b3703d35ee, type: 3}
-    weight: 5
+    weight: 2
   - weaponPrefab: {fileID: 8194369072259641178, guid: 9fcf4a789de60c54994ad939a9a5e1ef, type: 3}
     weight: 20
   - weaponPrefab: {fileID: 5568597347342766330, guid: b5cbca85879fee04bbebf22b853df058, type: 3}
     weight: 20
   - weaponPrefab: {fileID: 7007247460516789989, guid: ccf576c7c30800e438975dcb7efb7b6d, type: 3}
-    weight: 10
+    weight: 20
   - weaponPrefab: {fileID: 8751266751114903056, guid: 58614b941e1b598468fc16e7dae4e24f, type: 3}
-    weight: 10
+    weight: 5
   - weaponPrefab: {fileID: 3510375843457248215, guid: f51ead823b0e07f43a64ab618e03f039, type: 3}
-    weight: 20
+    weight: 5
   - weaponPrefab: {fileID: 6699001999200349738, guid: 74cfb42d13eb5d84797d61d884dd5fb6, type: 3}
-    weight: 40
+    weight: 10
   - weaponPrefab: {fileID: 5371628471125727180, guid: 79773d104da72eb4a85d9181947e7c49, type: 3}
-    weight: 20
+    weight: 5
   noRepeatInThisChest: 0
   levelRoot: {fileID: 0}
   audioSource: {fileID: 431113518925984650}

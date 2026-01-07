@@ -6,11 +6,11 @@ public class HG : Gun
     {
         base.Awake();
         weaponName = "HG";
-        damage = 20f;
-        weaponRange = 9f;
+        damage = 50f;
+        weaponRange = 15f;
         attackRate = 0.7f;
         weaponBulletSpeed = 20f;
-        magazineSize = 8;
+        magazineSize = 15;
         reloadTime = 1.5f;
         currentAmmo = magazineSize;
     }

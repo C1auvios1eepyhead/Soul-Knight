@@ -6,10 +6,10 @@ public class Scythe : Melee
     {
         base.Awake();
         weaponName = "Scythe";
-        damage = 40f;
+        damage = 150f;
         attackRange = 5f;
         attackAngle = 90f; // 大扇形
-        attackRate = 1.5f;
+        attackRate = 0.8f;
     }
 
     protected override Transform[] PerformAttackWithReturnTargets()

@@ -460,6 +460,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2202627228310478352, guid: 816dc4fcc1c5d10429a2d70b3dbef5b0, type: 3}
+      propertyPath: currentworld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2202627228310478352, guid: 816dc4fcc1c5d10429a2d70b3dbef5b0, type: 3}
       propertyPath: corridorPrefabH
       value: 
       objectReference: {fileID: 3028566939161382433, guid: b636ab8ef3ea79c409a83a1b019394f7, type: 3}

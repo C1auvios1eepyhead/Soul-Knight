@@ -7,8 +7,8 @@ public class SMG : Gun
         base.Awake();
         weaponName = "SMG";
         damage = 40f;
-        weaponRange = 10f;
-        attackRate = 0.6f;
+        weaponRange = 15f;
+        attackRate = 0.3f;
         weaponBulletSpeed = 22f;
         magazineSize = 30;
         reloadTime = 1.5f;

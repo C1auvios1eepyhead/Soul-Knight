@@ -1510,7 +1510,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 375}
+  m_SizeDelta: {x: 500, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &585586956
 MonoBehaviour:
@@ -1532,9 +1532,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Movement: \"WASD\"\nSwith Weapon: \"Q\"\nAttack: \"Space\"\nInteraction:\"E\"\nTest
-    Code:\n\t\"P\" Recovery \n\t\"R\" Take Damage\n\t\";\" Kill All Enemy\nClick
-    Character to Choose, then Select and Start."
+  m_text: "Movement: \"WASD\"\nSwith Weapon: \"Q\"\nAttack: \"Space\"\nInteraction:\"E\"\nDash:
+    \"Shift\"\nTest Code:\n\t\"P\" Recovery \n\t\"R\" Take Damage\n\t\";\" Kill All
+    Enemy\nClick Character to Choose, then Select and Start."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9b0d0f94dbdf1304683b7d8d42f7b321, type: 2}
   m_sharedMaterial: {fileID: 2955839870446560870, guid: 9b0d0f94dbdf1304683b7d8d42f7b321, type: 2}

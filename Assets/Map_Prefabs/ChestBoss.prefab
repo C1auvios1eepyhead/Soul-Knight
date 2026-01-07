@@ -505,7 +505,7 @@ MonoBehaviour:
   - weaponPrefab: {fileID: 8194369072259641178, guid: 9426e31fefb4f8e43bf8dc5ca8f15865, type: 3}
     weight: 100
   noRepeatInThisChest: 1
-  levelRoot: {fileID: 2930039360149180199, guid: 816dc4fcc1c5d10429a2d70b3dbef5b0, type: 3}
+  levelRoot: {fileID: 0}
   audioSource: {fileID: 6502393514337397966}
   chestOpenSFX: {fileID: 8300000, guid: e2f49b64767017c409f8257c9856c30d, type: 3}
 --- !u!61 &199961327243940320

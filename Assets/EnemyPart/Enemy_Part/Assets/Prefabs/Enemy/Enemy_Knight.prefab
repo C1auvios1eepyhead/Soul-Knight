@@ -221,6 +221,7 @@ MonoBehaviour:
   hurtClip: {fileID: 8300000, guid: c9e420552d30cf246912bc5149ff7336, type: 3}
   deadClip: {fileID: 8300000, guid: c9e420552d30cf246912bc5149ff7336, type: 3}
   turnClip: {fileID: 0}
+  teleClip: {fileID: 0}
 --- !u!82 &866195767761190863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -345,6 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 350
   currentHealth: 0
+  damagemutipler: 1
   isSuperArmor: 1
   phase: 1
   isboss1: 0
@@ -352,7 +354,7 @@ MonoBehaviour:
   bulletSpeed: 8
   pelletCount: 3
   spreadAngle: 15
-  AttackCooldownDuration: 2
+  AttackCooldownDuration: 4
   OnHurt:
     m_PersistentCalls:
       m_Calls:
@@ -387,7 +389,7 @@ MonoBehaviour:
   IdleDuration: 2
   patrolPoints: []
   targetPointIndex: 0
-  currentSpeed: 3
+  currentSpeed: 2.5
   speedMultiplier: 1
   chaseDistance: 40
   attackDistance: 1.3

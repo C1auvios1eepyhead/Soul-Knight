@@ -86,9 +86,10 @@ public class Character : MonoBehaviour
                     
                         phase+=1;
                     }
+
                     if(isboss2==true&&(!hastriggered))
                     {
-                        damagemutipler=0.8f;
+                        damagemutipler=0.5f;
                         AnimationSound animSound = GetComponent<AnimationSound>();
                                 if (animSound != null)
                         {
@@ -96,10 +97,10 @@ public class Character : MonoBehaviour
                         }
                         GetComponent<BossScale>()?.ScaleUp();
                         hastriggered=true;
-                        AttackCooldownDuration *= 0.8f;
-                        pelletCount += 2;
-                        spreadAngle += 10f;
-                        bulletSpeed+=4f;
+                        AttackCooldownDuration *= 0.7f;
+                        pelletCount += 4;
+                        spreadAngle += 20f;
+                        bulletSpeed+=8f;
                         phase+=1;
                     }
                 }

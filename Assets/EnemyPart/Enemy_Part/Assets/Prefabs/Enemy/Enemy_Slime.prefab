@@ -316,6 +316,7 @@ MonoBehaviour:
   hurtClip: {fileID: 8300000, guid: 61b0f8c7092de044faf8e44cca8fd0cd, type: 3}
   deadClip: {fileID: 8300000, guid: 5ec07e194b0a3cf47a0fbf6167b3149b, type: 3}
   turnClip: {fileID: 0}
+  teleClip: {fileID: 0}
 --- !u!114 &1244330100400750111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 160
   currentHealth: 0
+  damagemutipler: 1
   isSuperArmor: 0
   phase: 1
   isboss1: 0
@@ -372,10 +374,10 @@ MonoBehaviour:
   IdleDuration: 2
   patrolPoints: []
   targetPointIndex: 0
-  currentSpeed: 6
+  currentSpeed: 4
   speedMultiplier: 1
   chaseDistance: 40
-  attackDistance: 1.3
+  attackDistance: 1.7
   pathPointList: []
   currentIndex: 0
   meleeAttackDamage: 1
@@ -386,7 +388,7 @@ MonoBehaviour:
     m_Bits: 64
   isHurt: 0
   isKnokback: 1
-  knokbackForce: 2
+  knokbackForce: 3
   knokbackForceDuration: 0.1
   sr: {fileID: 0}
   rb: {fileID: 0}

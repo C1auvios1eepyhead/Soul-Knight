@@ -350,6 +350,7 @@ MonoBehaviour:
   hurtClip: {fileID: 8300000, guid: ac34306b526671643b5340ec658592b6, type: 3}
   deadClip: {fileID: 8300000, guid: eb2787f6cdc72694eac5632d77ac52f0, type: 3}
   turnClip: {fileID: 8300000, guid: 13220ddc6dfc99f44a9f45b5a833da0b, type: 3}
+  teleClip: {fileID: 0}
 --- !u!114 &6794325680122849909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,8 +377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee550223d8b87446833687b922231e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 360
+  maxHealth: 4800
   currentHealth: 0
+  damagemutipler: 1
   isSuperArmor: 1
   phase: 1
   isboss1: 0
